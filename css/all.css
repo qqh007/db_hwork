@@ -1,0 +1,95 @@
+body{
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+
+.naviBar {
+    list-style-type: none;
+    margin: 0;
+
+    color: black;
+    overflow: hidden;
+
+    border-bottom: 1px solid gainsboro;
+
+    padding-right: 400px;
+
+}
+
+.naviBar li,
+.dropdown {
+    float: right;
+}
+
+.naviBar li a,
+.dropbtn {
+    display: inline-block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+
+}
+
+.naviBar li a:hover,
+.dropdown:hover,
+.dropbtn:hover {
+    text-decoration: none;
+    background-color:  whitesmoke;
+}
+
+.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: whitesmoke;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+/* 未访问链接*/
+footer a:link {
+    color: #666666;
+    text-decoration: none;
+}
+
+
+/* 已访问链接 */
+footer a:visited {
+    color: #666666;
+    text-decoration: none;
+}
+
+
+/* 鼠标移动到链接上 */
+footer a:hover {
+    color: cornflowerblue;
+    text-decoration: underline;
+}
+
+
+/* 鼠标点击时 */
+footer a:active {
+    color: #0366d6;
+}
