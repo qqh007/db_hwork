@@ -1,21 +1,9 @@
-body {
-    font-family: "microsoft yahei";
-    font-size: 20px;
-   
-}
 
 main{
     width: 1200px;
     margin: auto;
 }
-footer {
-    clear: both;
-    color: #666666;
-    text-align: center;
-    padding: 15px;
-    margin: 100px 10px 10px 10px;
-    font-size: 80%;
-}
+
 
 img {
     margin-top: 100px;

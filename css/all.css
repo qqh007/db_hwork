@@ -1,4 +1,8 @@
-body{
+body {
+    font-family: "microsoft yahei";
+    font-size: 20px;
+    width: 100%;
+    
     margin-top: 0;
     margin-left: 0;
     margin-right: 0;
@@ -37,7 +41,7 @@ body{
 .dropdown:hover,
 .dropbtn:hover {
     text-decoration: none;
-    background-color:  whitesmoke;
+    background-color: whitesmoke;
 }
 
 .dropdown {
@@ -67,6 +71,15 @@ body{
     display: block;
 }
 
+
+footer {
+    clear: both;
+    color: #666666;
+    text-align: center;
+    padding: 15px;
+    margin: 100px 10px 10px 10px;
+    font-size: 80%;
+}
 
 /* 未访问链接*/
 footer a:link {
