@@ -1,94 +1,172 @@
 <!DOCTYPE html>
 <html>
-        <meta charset="utf-8" />
-        <title>依托谢特-我的购物车</title>
-        <link type="text/css" rel="stylesheet" href="../css/cart.css" />
-        <link type="text/css" rel="stylesheet" href="../css/all.css" />
-    </head>
+<meta charset="utf-8" />
+<title>依托谢特-我的购物车</title>
 
-    <body>
+<!-- Bootstrap -->
+<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css">
 
-        <ul class="naviBar">
-            <div class="dropdown">
-                <a href="#" class="dropbtn">我的</a>
-                <div class="dropdown-content">
-                    <a href="#">个人主页</a>
-                    <a href="#">我的足迹</a>
-                    <a href="#">退出</a>
+<link type="text/css" rel="stylesheet" href="../css/all.css" />
+<link type="text/css" rel="stylesheet" href="../css/cart.css" />
+
+<script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+
+
+
+</head>
+
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div id="navbar" class="navbar-collapse collapse"></div>
+            <ul class="nav navbar-nav">
+                <li><a href="#">搜索</a></li>
+                <li><a href="cart.html">购物车</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        我的
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">个人主页</a></li>
+                        <li><a href="#">我的足迹</a></li>
+                        <li><a href="login.html">退出</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <form class="navbar-form">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="商品">
                 </div>
+                <button type="submit" class="btn btn-default">搜索</button>
+            </form>
+        </div>
+        </div>
+    </nav>
+
+    <!-- 主体部分 -->
+    <main>
+        <div class="cartBox">
+            <div class="welcome">
+                我的购物车
             </div>
-            <li><a href="cart.html">购物车</a></li>
-            <li><a class="active" href="#home">搜索</a></li>
-    
-        </ul>
-        
-        <main>
-            <div class="cartBox">
-                <div class="welcome">
-                    我的购物车
-                </div>
-    
-                <table class="cartTable" border="0" cellpadding="10" cellspacing="0">
-                    <tr>
-                        
-                        <th class="cartImage">产品描述</th>
-                        <th class="cartDescrip"></th>
-                        <th class="cartPrice">价格</th>
-                        <th class="cartCount">数量</th>
-                        <th class="cartTotal">金额</th>
-                    </tr>
-                    
-                    <tr>
-                        <td>
-                            <img src="../images/cart/50e2c594f34bef9c.jpg" alt="">
-                        </td>
-                        <td>
-                            马来西亚进口 零涩 蓝山风味速溶三合一咖啡<br>
-                        </td>
-                        <td>￥59.99</td>
-                        <td>1</td>
-                        <td>￥59.99</td>
-                    </tr>
-    
-                    <tr>
-                        <td>
-                            <img src="../images/cart/749e8fce6291f8c8.jpg" alt="">
-                        </td>
-                        <td>
-                            GANSS 高斯GS87C/GS104C 87键/104键原厂樱桃轴PBT键帽背光机械键盘 游戏键盘 
-                        </td>
-                        <td>￥299.99</td>
-                        <td>1</td>
-                        <td>￥299.99</td>
-                    </tr>
-                    
-       
-                </table>
-                <div class="totalMoney">￥259.98</div>
-                <div class="subTotal">合计</div>
-               
-                <div class="buttonDiv"><button type="button" >结算</button></div>
-                
-    
-    
-    
-            </div>
-        </main>
-        
-        <footer>
-            <div class="links">
-                <a target="_blank" href="//about.jd.com/">
-                    关于我们
-                </a>
-                |
-                <a target="_blank"
-                    href="//www.jd.com/contact/">
-                    联系我们
-                </a>
-            </div>
-            <div class="copyright">
-                Copyright&nbsp;&copy;&nbsp;2020&nbsp;&nbsp;ytshit&nbsp;版权所有
-            </div>
-        </footer>
-    </body>
+
+            <table class="cartTable" border="0" cellpadding="10" cellspacing="0">
+                <tr>
+
+                    <th class="cartImage">产品描述</th>
+                    <th class="cartDescrip"></th>
+                    <th class="cartPrice">价格</th>
+                    <th class="cartCount">数量</th>
+                    <th class="cartTotal">金额</th>
+                    <th></th>
+                </tr>
+
+                <tr>
+                    <td>
+                        <img src="../images/cart/50e2c594f34bef9c.jpg" alt="">
+                    </td>
+                    <td>
+                        马来西亚进口 零涩 蓝山风味速溶三合一咖啡<br>
+                    </td>
+                    <td>￥59.99</td>
+                    <td>1</td>
+                    <td>￥59.99</td>
+                    <td>
+                        <a href="" class="delete-icon">
+                            <svg width="2em" height="2em" viewBox="1 0 16 16" class="bi bi-trash" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+                                <path fill-rule="evenodd"
+                                    d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
+                            </svg>
+                        </a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <img src="../images/cart/749e8fce6291f8c8.jpg" alt="">
+                    </td>
+                    <td>
+                        GANSS 高斯GS87C/GS104C 87键/104键原厂樱桃轴PBT键帽背光机械键盘 游戏键盘
+                    </td>
+                    <td>￥299.99</td>
+                    <td>1</td>
+                    <td>￥299.99</td>
+                    <td>
+                        <a href="" class="delete-icon">
+                            <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-trash" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+                                <path fill-rule="evenodd"
+                                    d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
+                            </svg>
+                        </a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <img src="../images/cart/749e8fce6291f8c8.jpg" alt="">
+                    </td>
+                    <td>
+                        GANSS 高斯GS87C/GS104C 87键/104键原厂樱桃轴PBT键帽背光机械键盘 游戏键盘
+                    </td>
+                    <td>￥299.99</td>
+                    <td>1</td>
+                    <td>￥299.99</td>
+                    <td>
+                        <a href="" class="delete-icon">
+                            <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-trash" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+                                <path fill-rule="evenodd"
+                                    d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
+                            </svg>
+                        </a>
+                    </td>
+                </tr>
+
+
+
+
+
+            </table>
+            <div class="totalMoney">￥259.98</div>
+            <div class="subTotal">合计</div>
+
+            <button type="button" class="btn btn-success col-sm-offset-9 col-sm-3"
+                onclick="window.location.href='checkout.html'">结算</button>
+
+
+
+
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="links">
+            <a target="_blank" href="//about.jd.com/">
+                关于我们
+            </a>
+            |
+            <a target="_blank" href="//www.jd.com/contact/">
+                联系我们
+            </a>
+        </div>
+        <div class="copyright">
+            Copyright&nbsp;&copy;&nbsp;2020&nbsp;&nbsp;ytshit&nbsp;版权所有
+        </div>
+    </footer>
+</body>
+
 </html>
