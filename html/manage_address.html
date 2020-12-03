@@ -1,0 +1,200 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>网上购物系统</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+    <link type="text/css" rel="stylesheet" href="../../css/all.css" />
+
+    <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <style>
+        main>.container {
+            background:whitesmoke;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        ul {
+            border: 0;
+        }
+
+        .list-group-item {
+            margin-bottom: 0;
+            border: 0;
+            border-bottom: 1px dashed #ddd;
+            background-color: inherit;
+        }
+
+
+        .panel-default>.panel-heading {
+            background-color: lightblue;
+        }
+
+        .panel-default {
+            border-color: #fff;
+        }
+
+        .panel-group .panel-heading+.panel-collapse>.panel-body {
+            border-top: 1px solid #fff;
+        }
+
+        .save {
+            padding: 6px 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div id="navbar" class="navbar-collapse collapse"></div>
+            <ul class="nav navbar-nav">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="cart.html">购物车</a></li>
+                <li><a href="favorites.html">收藏夹</a></li>
+                <li><a href="all_order_list.html">订单</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        我的
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">个人主页</a></li>
+                        <li><a href="#">我的足迹</a></li>
+                        <li><a href="login.html">退出</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <form class="navbar-form">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="商品">
+                </div>
+                <button type="submit" class="btn btn-default">搜索</button>
+            </form>
+        </div>
+        </div>
+    </nav>
+    <!--主体内容-->
+
+    <main style="margin-top: 60px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <ul class="list-group">
+                        <li class="list-group-item" id="userimg-part"></li>
+
+                        <li class="list-group-item">
+                            <a href="my_info.html">我的信息</a>
+    
+                        <li class="list-group-item">
+                            <a href="manage_address.html">地址管理</a>
+
+                        <li class="list-group-item">
+                            <a href="all_order_list.html">我的订单</a>
+
+
+                    </ul>
+                </div>
+                <div class="col-md-9">
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingOne">
+                                <h4 class="panel-title">
+                                        <a role="button" data-toggle="collapse" data-parent="#accordion"
+                                            href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                            管理地址
+                                        </a>
+                                </h4>
+                            </div>
+
+
+                            <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel"
+                                aria-labelledby="headingOne">
+
+                                <div class="col-md-2 col-md-offset-10">
+                                    <td><button type="button" class="btn btn-link "
+                                            onclick="window.location.href='new_address.html'" style="width: 100%;">新增地址</button>
+                                </div>
+                                
+                                <div class="panel-body">
+                                    <div class="col-md-12">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th style="width: 10%;">收货人</th>
+                                                    <th style="width: 60%;">详细地址</th>
+                                                    <th>电话</th>
+                                                    <th>编辑</th>
+                                                    <th>删除</th>
+                                                    <th>默认</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody style="height: 60px; overflow-y: auto;">
+                                                <tr>
+                                                    <td ">收货人</td>
+                                                <td style=" text-align: left;">详细地址详细地址详细地址详细地址详细地址详细地址详细地址</td>
+                                                    <td>11122223333</td>
+                                                    <td><button type="button" class="btn btn-success "
+                                                            onclick="window.location.href='new_address.html'">修改</button>
+                                                    </td>
+                                                    <td><button type="button" class="btn btn-danger "
+                                                            onclick="window.location.href='#'">删除</button>
+                                                    </td>
+                                                    <td><button type="button" class="btn btn-default "
+                                                            onclick="window.location.href=''"
+                                                            disabled="true">默认地址</button>
+                                                    </td>
+                                                </tr>
+
+                                                <tr style="height: 30px;">
+                                                    <td>收货人</td>
+                                                    <td style="text-align: left;">详细地址详细地址详细地址详细地址详细地址详细地址详细地址</td>
+                                                    <td>11122223333</td>
+                                                    <td><button type="button" class="btn btn-success "
+                                                            onclick="window.location.href='new_address.html'">修改</button>
+                                                    </td>
+                                                    <td><button type="button" class="btn btn-danger "
+                                                            onclick="window.location.href='#'">删除</button>
+                                                    </td>
+                                                    <td><button type="button" class="btn btn-primary "
+                                                            onclick="window.location.href='checkout.html'">设为默认</button>
+                                                    </td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+</body>
+<script src="js/jquery-1.11.0.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    $("#top-part").load("top-part.html");
+    $("#search-part").load("search-part.html");
+    $("#userimg-part").load("userimg-part.html");
+</script>
+
+</html>

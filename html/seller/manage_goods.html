@@ -1,0 +1,232 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>网上购物系统</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+    <link type="text/css" rel="stylesheet" href="../../css/all.css" />
+
+
+    <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <style>
+        main>.container {
+            background: beige;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        ul {
+            border: 0;
+        }
+
+        .list-group-item {
+            margin-bottom: 0;
+            border: 0;
+            border-bottom: 1px dashed #ddd;
+            background-color: inherit;
+        }
+
+
+        .panel-default>.panel-heading {
+            background-color: lightblue;
+        }
+
+        .panel-default {
+            border-color: #fff;
+        }
+
+        .panel-group .panel-heading+.panel-collapse>.panel-body {
+            border-top: 1px solid #fff;
+        }
+
+        .save {
+            padding: 6px 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div id="navbar" class="navbar-collapse collapse"></div>
+            <ul class="nav navbar-nav">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="cart.html">购物车</a></li>
+                <li><a href="favorites.html">收藏夹</a></li>
+                <li><a href="all_order_list.html">订单</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        我的
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">个人主页</a></li>
+                        <li><a href="#">我的足迹</a></li>
+                        <li><a href="login.html">退出</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <form class="navbar-form">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="商品">
+                </div>
+                <button type="submit" class="btn btn-default">搜索</button>
+            </form>
+        </div>
+        </div>
+    </nav>
+    <!--主体内容-->
+
+    <main style="margin-top: 60px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <ul class="list-group">
+                        <li class="list-group-item" id="userimg-part"></li>
+
+                        <li class="list-group-item">
+                            <a href="my_info.html">我的信息</a>
+
+                        <li class="list-group-item">
+                            <a href="manage_address.html">地址管理</a>
+
+                        <li class="list-group-item">
+                            <a href="all_order_list.html">我的订单</a>
+
+
+                    </ul>
+                </div>
+                <div class="col-md-9">
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingOne">
+                                <h4 class="panel-title">
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
+                                        aria-expanded="true" aria-controls="collapseOne">
+                                        管理商品
+                                    </a>
+                                </h4>
+                            </div>
+
+
+                            <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel"
+                                aria-labelledby="headingOne">
+                                <div class="panel-body">
+                                    <div class="col-md-12">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th style="width: 20%;"></th>
+                                                    <th style="width: 15%;">名称</th>
+                                                    <th style="width: 30%;">描述</th>
+                                                    <th style="width: 15%;">价格</th>
+                                                    <th>操作</th>
+                                                    <th>删除</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody style="height: 60px; overflow-y: auto;">
+                                                <tr>
+                                                    <td "><img src=" ../../images/index/5.jpg" alt=""></td>
+                                                    <td>衣服1</td>
+                                                    <td style=" text-align: left;">商品描述商品描述商品描述商品描述</td>
+                                                    <td>￥59.99</td>
+                                                    <td><button type=" button" class="btn btn-success "
+                                                        onclick="window.location.href='#'">上架</button>
+                                                    </td>
+                                                    <td><button type="button" class="btn btn-danger "
+                                                            onclick="window.location.href='#'">删除</button>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td "><img src=" ../../images/index/6.jpg" alt=""></td>
+                                                    <td>衣服1</td>
+                                                    <td style=" text-align: left;">商品描述商品描述商品描述商品描述</td>
+                                                    <td>￥59.99</td>
+                                                    <td><button type=" button" class="btn btn-primary "
+                                                        onclick="window.location.href='#'">下架</button>
+                                                    </td>
+                                                    <td><button type="button" class="btn btn-danger "
+                                                            onclick="window.location.href='#'">删除</button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="headingTwo">
+                                    <h4 class="panel-title">
+                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                                            href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                            添加商品
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel"
+                                    aria-labelledby="headingTwo">
+                                    <div class="panel-body">
+                                        <div class="col-md-offset-1 col-md-7">
+                                            <form class="form-horizontal" style="margin-top: 40px">
+                                                <div class="form-group">
+                                                    <label for="input6" class="col-sm-3 control-label">商品名称</label>
+                                                    <div class="col-sm-9">
+                                                        <input type="text" class="form-control" id="input6"
+                                                            placeholder="商品名称">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="input7" class="col-sm-3 control-label">商品描述</label>
+                                                    <div class="col-sm-9">
+                                                        <textarea class="form-control" rows="3" placeholder="商品描述"
+                                                            style="resize:none;"></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="input8" class="col-sm-3 control-label">价格</label>
+                                                    <div class="col-sm-9">
+                                                        <input type="text" class="form-control" rows="4" placeholder="价格"
+                                                            style="resize:none;"></textarea>
+                                                    </div>
+                                                </div>
+    
+                                                
+                                                <div class="form-group">
+                                                    <div class="col-md-9 col-md-offset-3">
+                                                        <button type="button" class="btn btn-success save"
+                                                            style="width: 100%;">添加</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+</body>
+
+</html>
