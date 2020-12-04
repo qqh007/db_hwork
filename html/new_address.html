@@ -7,9 +7,6 @@
 
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link type="text/css" rel="stylesheet" href="../css/all.css" />
-    <link type="text/css" rel="stylesheet" href="../css/input.css" />
-
-    <link type="text/css" rel="stylesheet" href="../css/newAddress.css" />
 
     <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
@@ -17,95 +14,57 @@
 
 <body>
     <!-- 导航栏 -->
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div id="nav_part"></div>
+
+    <main style="margin-top: 60px;">
         <div class="container">
-            <div id="navbar" class="navbar-collapse collapse"></div>
-            <ul class="nav navbar-nav">
-                <li><a href="#">搜索</a></li>
-                <li><a href="cart.html">购物车</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        我的
-                        <b class="caret"></b>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">个人主页</a></li>
-                        <li><a href="#">我的足迹</a></li>
-                        <li><a href="login.html">退出</a></li>
-                    </ul>
-                </li>
-            </ul>
+            <div class="row">
+                <h2 style="text-align: center;">编辑地址</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-7 col-md-offset-2">
+                    <form class="form-horizontal" style="margin-top: 40px">
+                        <div class="form-group">
+                            <label for="input6" class="col-sm-2 control-label">姓名</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="input6" placeholder="姓名">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input7" class="col-sm-2 control-label">手机</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="input7" placeholder="手机">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input8" class="col-sm-2 control-label">详细地址</label>
+                            <div class="col-sm-10">
+                                <textarea class="form-control" rows="3" placeholder="详细地址"
+                                    style="resize:none;"></textarea>
+                            </div>
+                        </div>
 
-            <form class="navbar-form">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="商品">
+                        <div class="form-group">
+                            <div class="col-md-10 col-md-offset-2">
+                                <button type="button" class="btn btn-success save" style="width: 100%;">保存</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-                <button type="submit" class="btn btn-default">搜索</button>
-            </form>
+            </div>
+
         </div>
-        </div>
-    </nav>
-
-    <div class="container">
-        <div id="navbar" class="navbar-collapse collapse"></div>
-        <ul class="nav navbar-nav">
-            <li><a href="#">搜索</a></li>
-            <li><a href="#">购物车</a></li>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    我的
-                    <b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a href="#">个人主页</a></li>
-                    <li><a href="#">我的足迹</a></li>
-                    <li><a href="#">退出</a></li>
-                </ul>
-            </li>
-        </ul>
-
-        <form class="navbar-form">
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="关键字">
-            </div>
-            <button type="submit" class="btn btn-default">搜索</button>
-        </form>
-    </div>
-    </div>
-
-    <main>
-        <h1>编辑收货地址</h1>
-        <form name="input">
-
-            <div class=inputTips>
-                姓名
-            </div>
-            <input type="text" name="addrName" placeholder="姓名" autocomplete="off" class="inputText">
-
-            <div class=inputTips>
-                手机号码
-            </div>
-            <input type="tel" name="phoneNumber" placeholder="手机号码" autocomplete="off" class="inputText">
-
-
-            <div class=inputTips>
-                详细地址
-            </div>
-            <input type="text" name="detailedAddr" placeholder="详细地址" autocomplete="off" class="inputText">
-
-            <input type="submit" name="saveAddr" value="保存" class="submitButton">
-        </form>
     </main>
 
 
     <!-- 页脚 -->
-    <footer class="py-5 bg-dark">
-        <div class="container">
-            <p class="m-0 text-center text-white">Copyright&nbsp;&copy;&nbsp;2020&nbsp;&nbsp;ytshit&nbsp;版权所有</p>
-        </div>
-    </footer>
+    <div id="footer_part"></div>
+
 </body>
 
-
+<script type="text/javascript">
+    $("#nav_part").load("nav_part.html");
+    $("#footer_part").load("footer_part.html");
+</script>
 
 </html>

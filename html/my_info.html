@@ -57,40 +57,8 @@
 </head>
 
 <body>
-    <!--顶部导航-->
-    <div id="top-part"></div>
-    <!--<div id="search-part"></div>-->
-
     <!-- 导航栏 -->
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div id="navbar" class="navbar-collapse collapse"></div>
-            <ul class="nav navbar-nav">
-                <li><a href="index.html">首页</a></li>
-                <li><a href="cart.html">购物车</a></li>
-                <li><a href="favorites.html">收藏夹</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        我的
-                        <b class="caret"></b>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="my_info.html">个人主页</a></li>
-                        <li><a href="footprints.html">我的足迹</a></li>
-                        <li><a href="login.html">退出</a></li>
-                    </ul>
-                </li>
-            </ul>
-
-            <form class="navbar-form">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="商品">
-                </div>
-                <button type="submit" class="btn btn-default">搜索</button>
-            </form>
-        </div>
-        </div>
-    </nav>
+    <div id="nav_part"></div>
 
     <!--主体内容-->
     <main style="margin-top: 60px;">
@@ -167,7 +135,7 @@
                             <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel"
                                 aria-labelledby="headingTwo">
                                 <div class="panel-body">
-                                    <div class="col-md-offset-1 col-md-7">
+                                    <div class="col-md-offset-1 col-md-8">
                                         <form class="form-horizontal" style="margin-top: 40px">
                                             <div class="form-group">
                                                 <label for="input6" class="col-sm-2 control-label">昵称</label>
@@ -212,12 +180,14 @@
             </div>
         </div>
     </main>
+
+    <!-- 页脚 -->
+    <div id="footer_part"></div>
 </body>
 
 <script type="text/javascript">
-    $("#top-part").load("top-part.html");
-    $("#search-part").load("search-part.html");
-    $("#userimg-part").load("userimg-part.html");
+    $("#nav_part").load("nav_part.html");
+    $("#footer_part").load("footer_part.html");
 </script>
 
 </html>

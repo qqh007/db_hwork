@@ -13,46 +13,32 @@
 </head>
 
 <body>
+    <!-- 导航栏 -->
+    <div id="nav_part"></div>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-offset-3 col-sm-6">
-                <div class="tick">
-                    <div class="tickimg"></div>
-                    <p>购买成功</p>
+    <main style="margin-top: 130px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-offset-3 col-sm-6">
+                    <div class="tick">
+                        <div class="tickimg"></div>
+                        <p>购买成功</p>
+                    </div>
+                    <button type="button" class="btn btn-success col-sm-offset-2 col-sm-8"
+                        onclick="window.location.href='index.html'" style="margin-top: 80px;">继续购物</button>
                 </div>
-                <ul style="margin-top: 10px" class="list-group">
-                    <li class="list-group-item">
-                        <p class="mark">
-                            <span class="des-label">订单号：</span>
-                            <span>订单号订单号订单号订单号订单号订单号</span>
-                        </p>
-                        <p>
-                            <span class="des-label">商品名称：</span>
-                            <span>商品名称商品名称商品名称商品名称商品名称</span>
-                        </p>
-                        <p>
-                            <span class="des-label">商品名称：</span>
-                            <span>商品名称商品名称商品名称商品名称商品名称</span>
-                        </p>
-                    </li>
-                </ul>
-                <button type="button" class="btn btn-default col-sm-offset-1 col-sm-4"
-                    onclick="window.location.href='cart.html'">查看订单</button>
-                <button type="button" class="btn btn-success col-sm-offset-1 col-sm-4"
-                    onclick="window.location.href='index.html'">继续购物</button>
             </div>
         </div>
-    </div>
+    </main>
 
     <!-- 页脚 -->
-    <footer class="py-5 bg-dark">
-        <div class="container">
-            <p class="m-0 text-center text-white">Copyright&nbsp;&copy;&nbsp;2020&nbsp;&nbsp;ytshit&nbsp;版权所有</p>
-        </div>
-    </footer>
+    <div id="footer_part"></div>
 
 </body>
 
+<script type="text/javascript">
+    $("#nav_part").load("nav_part.html");
+    $("#footer_part").load("footer_part.html");
+</script>
 
 </html>

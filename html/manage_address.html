@@ -9,13 +9,13 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css">
 
-    <link type="text/css" rel="stylesheet" href="../../css/all.css" />
+    <link type="text/css" rel="stylesheet" href="../css/all.css" />
 
     <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <style>
         main>.container {
-            background:whitesmoke;
+            background: whitesmoke;
         }
 
         img {
@@ -54,38 +54,9 @@
 
 <body>
     <!-- 导航栏 -->
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div id="navbar" class="navbar-collapse collapse"></div>
-            <ul class="nav navbar-nav">
-                <li><a href="index.html">首页</a></li>
-                <li><a href="cart.html">购物车</a></li>
-                <li><a href="favorites.html">收藏夹</a></li>
-                <li><a href="all_order_list.html">订单</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        我的
-                        <b class="caret"></b>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">个人主页</a></li>
-                        <li><a href="#">我的足迹</a></li>
-                        <li><a href="login.html">退出</a></li>
-                    </ul>
-                </li>
-            </ul>
+    <div id="nav_part"></div>
 
-            <form class="navbar-form">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="商品">
-                </div>
-                <button type="submit" class="btn btn-default">搜索</button>
-            </form>
-        </div>
-        </div>
-    </nav>
     <!--主体内容-->
-
     <main style="margin-top: 60px;">
         <div class="container">
             <div class="row">
@@ -95,7 +66,7 @@
 
                         <li class="list-group-item">
                             <a href="my_info.html">我的信息</a>
-    
+
                         <li class="list-group-item">
                             <a href="manage_address.html">地址管理</a>
 
@@ -112,10 +83,10 @@
                         <div class="panel panel-default">
                             <div class="panel-heading" role="tab" id="headingOne">
                                 <h4 class="panel-title">
-                                        <a role="button" data-toggle="collapse" data-parent="#accordion"
-                                            href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                            管理地址
-                                        </a>
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
+                                        aria-expanded="true" aria-controls="collapseOne">
+                                        管理地址
+                                    </a>
                                 </h4>
                             </div>
 
@@ -125,9 +96,10 @@
 
                                 <div class="col-md-2 col-md-offset-10">
                                     <td><button type="button" class="btn btn-link "
-                                            onclick="window.location.href='new_address.html'" style="width: 100%;">新增地址</button>
+                                            onclick="window.location.href='new_address.html'"
+                                            style="width: 100%;">新增地址</button>
                                 </div>
-                                
+
                                 <div class="panel-body">
                                     <div class="col-md-12">
                                         <table class="table">
@@ -188,13 +160,14 @@
         </div>
 
     </main>
+
+    <!-- 页脚 -->
+    <div id="footer_part"></div>
 </body>
-<script src="js/jquery-1.11.0.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+
 <script type="text/javascript">
-    $("#top-part").load("top-part.html");
-    $("#search-part").load("search-part.html");
-    $("#userimg-part").load("userimg-part.html");
+    $("#nav_part").load("nav_part.html");
+    $("#footer_part").load("footer_part.html");
 </script>
 
 </html>

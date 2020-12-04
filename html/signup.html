@@ -1,53 +1,52 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <title>麦芽-注册</title>
-        <link type="text/css" rel="stylesheet" href="../css/signup.css" />
-        <link type="text/css" rel="stylesheet" href="../css/all.css" />
-    </head>
 
-    <body>
+<head>
+    <meta charset="utf-8" />
+    <title>麦芽-注册</title>
+    <link type="text/css" rel="stylesheet" href="../css/signup.css" />
+    <link type="text/css" rel="stylesheet" href="../css/all.css" />
+</head>
 
-        <main>
-            <div class="loginBox">
-                <div class="welcome">
-                    欢迎注册-麦芽
-                </div>
+<body>
 
-                <form name="input">
-
-                    <div class=inputTips>
-                        用户名
-                    </div>
-                    <input type="text" name="username" placeholder="username"
-                        autocomplete="off" class="inputText">
-
-                    <div class=inputTips>
-                        密码
-                    </div>
-                    <input type="password" name="password"
-                        placeholder="password"
-                        class="inputText">
-
-                    <div class=inputTips>
-                        确认密码
-                    </div>
-                    <input type="password" name="confirm" placeholder="password confirmation"
-                        class="inputText">
-                </form>
-
-                <input type="submit" name="signup" value="注册"
-                        class="submitButton" onclick="window.location.href='login.html'">
-
+    <main>
+        <div class="loginBox">
+            <div class="welcome">
+                欢迎注册-麦芽
             </div>
-        </main>
 
-           <!-- 页脚 -->
-    <footer class="py-5 bg-dark">
-        <div class="container">
-            <p class="m-0 text-center text-white">Copyright&nbsp;&copy;&nbsp;2020&nbsp;&nbsp;ytshit&nbsp;版权所有</p>
+            <form name="input">
+
+                <div class=inputTips>
+                    用户名
+                </div>
+                <input type="text" name="username" placeholder="username" autocomplete="off" class="inputText">
+
+                <div class=inputTips>
+                    密码
+                </div>
+                <input type="password" name="password" placeholder="password" class="inputText">
+
+                <div class=inputTips>
+                    确认密码
+                </div>
+                <input type="password" name="confirm" placeholder="password confirmation" class="inputText">
+            </form>
+
+            <input type="submit" name="signup" value="注册" class="submitButton"
+                onclick="window.location.href='login.html'">
+
         </div>
-    </footer>
-    </body>
+    </main>
+
+    <!-- 页脚 -->
+    <div id="footer_part"></div>
+</body>
+
+<script type="text/javascript">
+    $("#nav_part").load("nav_part.html");
+    $("#footer_part").load("footer_part.html");
+</script>
+
 </html>
