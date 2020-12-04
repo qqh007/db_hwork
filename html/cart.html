@@ -68,9 +68,9 @@
                             <tr>
                                 <th style="width: 15%;"></th>
                                 <th style="width: 10%;">名称</th>
-                                <th style="width: 35%;">描述</th>
+                                <th style="width: 30%;">描述</th>
                                 <th style="width: 10%;">单价</th>
-                                <th style="width: 10%;">数量</th>
+                                <th style="width: 15%;">数量</th>
                                 <th style="width: 10%;">小计</th>
                                 <th style="width: 10%;">操作</th>
                             </tr>
@@ -78,73 +78,66 @@
                         <tbody style="height: 60px; overflow-y: auto;">
                             <tr>
                                 <td><img src="../images/cart/50e2c594f34bef9c.jpg" alt=""></td>
-                                <td>咖啡</td>
-                                <td>马来西亚进口 零涩 蓝山风味速溶三合一咖啡</td>
+                                <td class="good-name">咖啡</td>
+                                <td class="good-descrip">马来西亚进口 零涩 蓝山风味速溶三合一咖啡</td>
 
                                 <td>
-                                    ￥ <span id="unit_price">5999</span> 
+                                    ￥ <span class="unit-price">59.99</span>
                                 </td>
 
                                 <td>
-                                    <button type="button" class="btn btn-sm btn-outline-danger"
-                                        data-operator='increase'>+</button>
-                                    <button type="button" class="btn btn-sm btn-outline-danger disabled"
-                                        data-name='qty'>0</button>
-                                    <button type="button" class="btn btn-sm btn-outline-danger"
-                                        data-operator='decrease'>-</button>
+                                    <button type="button" class="btn btn-sm add-btn" data-operator='increase'>+</button>
+                                    <button type="button" class="btn btn-sm  disabled count" data-name='qty'>0</button>
+                                    <button type="button" class="btn btn-sm sub-btn" data-operator='decrease'>-</button>
                                 </td>
 
                                 <td>
-                                    ￥5999
+                                    ￥<span class="subtotal">0</span>
                                 </td>
 
                                 <td>
-                                    <svg width="2em" height="2em" viewBox="1 0 16 16" class="bi bi-trash"
-                                        fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
-                                        <path fill-rule="evenodd"
-                                            d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
-                                    </svg>
+                                    <button class="delete-item" style="border: none; background-color: white;">
+                                        <svg width="2em" height="2em" viewBox="1 0 16 16" class="bi bi-trash"
+                                            fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+                                            <path fill-rule="evenodd"
+                                                d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
+                                        </svg>
+                                    </button>
                                 </td>
                             </tr>
-
-
                             <tr>
                                 <td><img src="../images/cart/749e8fce6291f8c8.jpg" alt=""></td>
-                                <td>高斯键盘</td>
-                                <td>GANSS 高斯GS87C/GS104C 87键/104键原厂樱桃轴PBT键帽背光机械键盘 游戏键盘</td>
+                                <td class="good-name">高斯键盘</td>
+                                <td class="good-descrip">GANSS 高斯GS87C/GS104C 87键/104键原厂樱桃轴PBT键帽背光机械键盘 游戏键盘啡</td>
 
                                 <td>
-                                    ￥2999
+                                    ￥ <span class="unit-price">299.99</span>
                                 </td>
 
                                 <td>
-                                    <button type="button" class="btn btn-sm btn-outline-danger"
-                                        data-operator='increase'>+</button>
-                                    <button type="button" class="btn btn-sm btn-outline-danger disabled"
-                                        data-name='qty'>0</button>
-                                    <button type="button" class="btn btn-sm btn-outline-danger"
-                                        data-operator='decrease'>-</button>
+                                    <button type="button" class="btn btn-sm add-btn" data-operator='increase'>+</button>
+                                    <button type="button" class="btn btn-sm  disabled count" data-name='qty'>0</button>
+                                    <button type="button" class="btn btn-sm sub-btn" data-operator='decrease'>-</button>
                                 </td>
 
                                 <td>
-                                    ￥2999
+                                    ￥<span class="subtotal">0</span>
                                 </td>
 
                                 <td>
-                                    <svg width="2em" height="2em" viewBox="1 0 16 16" class="bi bi-trash"
-                                        fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
-                                        <path fill-rule="evenodd"
-                                            d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
-                                    </svg>
+                                    <button class="delete-item" style="border: none; background-color: white;">
+                                        <svg width="2em" height="2em" viewBox="1 0 16 16" class="bi bi-trash"
+                                            fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+                                            <path fill-rule="evenodd"
+                                                d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
+                                        </svg>
+                                    </button>
                                 </td>
                             </tr>
-
-
-
                         </tbody>
                     </table>
                 </div>
@@ -152,8 +145,8 @@
 
 
             <div class="row">
-                <div class="col-sm-offset-10 col-md-1">合计</div>
-                <div class="col-md-1" style="color: red;">￥259.98</div>
+                <div class="col-sm-offset-9 col-md-1">合计</div>
+                <div class="col-md-2" style="color: red;">￥ <span class="total-price">0.00</span> </div>
             </div>
 
 
@@ -167,10 +160,76 @@
 
     <!-- 页脚 -->
     <div id="footer_part"></div>
-    
+
 </body>
 <script type="text/javascript">
+    //加载导航栏和页脚
     $("#nav_part").load("nav_part.html");
     $("#footer_part").load("footer_part.html");
+
+
+    //删除一个商品
+    $(".delete-item").click(function () {
+        $(this).parent().parent().remove();
+        getTotalPrice();
+    }
+    );
+
+
+    //+
+    $(".add-btn").click(function () {
+        //变化数量
+        var countStr = $(this).siblings(".count").text();
+        var count = parseInt(countStr);
+        count++;
+            $(this).siblings(".count").text(count);
+
+        //获得小计
+        var unitPriceStr = $(this).parent().siblings().find(".unit-price").text();
+        
+        var unitPrice = parseFloat(unitPriceStr);
+        var totalPrice=(unitPrice*count).toFixed(2);
+        $(this).parent().siblings().find(".subtotal").text(totalPrice);
+        getTotalPrice();
+    });
+
+    //-
+    $(".sub-btn").click(function () {
+        //变化数量
+        var countStr = $(this).siblings(".count").text();
+        var count = parseInt(countStr);
+        if (count > 0) {
+            count--;
+            $(this).siblings(".count").text(count);
+        }
+
+       //获得小计
+       var unitPriceStr = $(this).parent().siblings().find(".unit-price").text();
+        
+        var unitPrice = parseFloat(unitPriceStr);
+        var totalPrice=(unitPrice*count).toFixed(2);
+        $(this).parent().siblings().find(".subtotal").text(totalPrice);
+        getTotalPrice();
+    });
+
+    //获得小计
+    function getSubtotal(classStr) {
+        
+
+    }
+
+    //获得总计
+    function getTotalPrice() {
+        var totalPrice=0;
+
+        $("tbody").find(".subtotal").each(function(){
+            totalPrice+=parseFloat($(this).text())
+        }
+        );
+        
+        $(".total-price").text(totalPrice.toFixed(2));
+        
+    }
 </script>
+
 </html>
