@@ -53,6 +53,10 @@
         .save {
             padding: 6px 30px;
         }
+
+        .nav-list>:active {
+            color: blue;
+        }
     </style>
 </head>
 
@@ -65,20 +69,19 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
-                    <ul class="list-group">
-                        <li class="list-group-item" id="userimg-part"></li>
-
-                        <li class="list-group-item">
+                    <ul class="nav nav-list">
+                        <li class="active">
                             <a href="my_info.html">我的信息</a></li>
-
-                        <li class="list-group-item">
+                        </li>
+                        <li>
                             <a href="manage_address.html">地址管理</a></li>
-
-                        <li class="list-group-item">
-                            <a href="all_order_list.html" style="display:block;">我的订单</a></li>
-
+                        </li>
+                        <li>
+                            <a href="orders_list.html">我的订单</a></li>
+                        </li>
                     </ul>
                 </div>
+
                 <div class="col-md-9">
                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
@@ -96,6 +99,12 @@
                                 aria-labelledby="headingOne">
                                 <div class="panel-body">
                                     <div class="col-md-offset-1 col-md-7">
+                                        <div class="row">
+                                            <div class="col-md-offset-1 col-md-3">
+                                                <img src="../images/index/4.jpg" class="img-circle" alt=""
+                                                    style="width:100%; height: 100%;">
+                                            </div>
+                                        </div>
                                         <form class="form-horizontal" style="margin-top: 40px">
                                             <div class="form-group">
                                                 <label for="input1" class="col-sm-2 control-label">昵称:</label>
