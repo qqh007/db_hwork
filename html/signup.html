@@ -1,51 +1,57 @@
 <!DOCTYPE html>
 <html>
+<meta charset="utf-8" />
+<title>欢迎注册</title>
 
-<head>
-    <meta charset="utf-8" />
-    <title>麦芽-注册</title>
-    <link type="text/css" rel="stylesheet" href="../css/signup.css" />
-    <link type="text/css" rel="stylesheet" href="../css/all.css" />
+<!-- Bootstrap -->
+<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+<link type="text/css" rel="stylesheet" href="../css/all.css" />
+
+<script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </head>
 
 <body>
 
-    <main>
-        <div class="loginBox">
-            <div class="welcome">
-                欢迎注册-麦芽
+    <!-- 主体部分 -->
+    <main style="margin-top: 120px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-md-offset-4"
+                    style="border: 1px solid #ddd; border-radius: 2%; background-color: rgb(253, 252, 252);">
+                    <h3 style="text-align: center; margin-bottom: 20px;">欢迎注册</h3>
+                    <form class="form">
+                        <div class="form-group">
+                            <label for="input6" class="control-label">用户名</label>
+                            <input type="text" class="form-control" id="input6" placeholder="username">
+                        </div>
+                        <div class="form-group">
+                            <label for="input6" class="control-label">密码</label>
+                            <input type="text" class="form-control" id="input6" placeholder="password">
+                        </div>
+                        <div class="form-group">
+                            <label for="input6" class="control-label">确认密码</label>
+                            <input type="text" class="form-control" id="input6" placeholder="password confirmation">
+                        </div>
+
+                        <div style="margin-top:30px;"></div>
+                        <button type="submit" class="btn btn-success" style="width: 100%;">注册</button>
+                        <div style="margin-top:10px;"></div>
+                        <p>已有账号？ 去<a href="login.html">登录</a></p>
+                    </form>
+
+                </div>
             </div>
-
-            <form name="input">
-
-                <div class=inputTips>
-                    用户名
-                </div>
-                <input type="text" name="username" placeholder="username" autocomplete="off" class="inputText">
-
-                <div class=inputTips>
-                    密码
-                </div>
-                <input type="password" name="password" placeholder="password" class="inputText">
-
-                <div class=inputTips>
-                    确认密码
-                </div>
-                <input type="password" name="confirm" placeholder="password confirmation" class="inputText">
-            </form>
-
-            <input type="submit" name="signup" value="注册" class="submitButton"
-                onclick="window.location.href='login.html'">
-
         </div>
     </main>
 
     <!-- 页脚 -->
     <div id="footer_part"></div>
-</body>
 
+</body>
 <script type="text/javascript">
-    $("#nav_part").load("nav_part.html");
+    //加载导航栏和页脚
     $("#footer_part").load("footer_part.html");
 </script>
 

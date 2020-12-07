@@ -71,7 +71,7 @@
                             <a href="manage_address.html">地址管理</a>
 
                         <li class="list-group-item">
-                            <a href="all_order_list.html">我的订单</a>
+                            <a href="orders_list.html">我的订单</a>
 
 
                     </ul>
@@ -95,14 +95,13 @@
                                 aria-labelledby="headingOne">
 
                                 <div class="col-md-2 col-md-offset-10">
-                                    <td><button type="button" class="btn btn-link "
-                                            onclick="window.location.href='new_address.html'"
-                                            style="width: 100%;">新增地址</button>
+                                    <button type="button" class="btn btn-link " data-toggle="modal"
+                                        data-target="#new-addr-modal" style="width: 100%;">新增地址</button>
                                 </div>
 
                                 <div class="panel-body">
                                     <div class="col-md-12">
-                                        <table class="table">
+                                        <table class="table" style="border-bottom: 1px solid #ddd;">
                                             <thead>
                                                 <tr>
                                                     <th style="width: 10%;">收货人</th>
@@ -115,11 +114,12 @@
                                             </thead>
                                             <tbody style="height: 60px; overflow-y: auto;">
                                                 <tr>
-                                                    <td ">收货人</td>
-                                                <td style=" text-align: left;">详细地址详细地址详细地址详细地址详细地址详细地址详细地址</td>
+                                                    <td>收货人</td>
+                                                    <td style=" text-align: left;">详细地址详细地址详细地址详细地址详细地址详细地址详细地址</td>
                                                     <td>11122223333</td>
-                                                    <td><button type="button" class="btn btn-success "
-                                                            onclick="window.location.href='new_address.html'">修改</button>
+                                                    <td><button type="button" class="btn btn-warning "
+                                                            data-toggle="modal"
+                                                            data-target="#modify-addr-modal">编辑</button>
                                                     </td>
                                                     <td><button type="button" class="btn btn-danger "
                                                             onclick="window.location.href='#'">删除</button>
@@ -134,8 +134,41 @@
                                                     <td>收货人</td>
                                                     <td style="text-align: left;">详细地址详细地址详细地址详细地址详细地址详细地址详细地址</td>
                                                     <td>11122223333</td>
-                                                    <td><button type="button" class="btn btn-success "
-                                                            onclick="window.location.href='new_address.html'">修改</button>
+                                                    <td><button type="button" class="btn btn-warning "
+                                                            data-toggle="modal"
+                                                            data-target="#modify-addr-modal">编辑</button>
+                                                    </td>
+                                                    <td><button type="button" class="btn btn-danger "
+                                                            onclick="window.location.href='#'">删除</button>
+                                                    </td>
+                                                    <td><button type="button" class="btn btn-primary "
+                                                            onclick="window.location.href='checkout.html'">设为默认</button>
+                                                    </td>
+                                                </tr>
+
+                                                <tr style="height: 30px;">
+                                                    <td>收货人</td>
+                                                    <td style="text-align: left;">详细地址详细地址详细地址详细地址详细地址详细地址详细地址</td>
+                                                    <td>11122223333</td>
+                                                    <td><button type="button" class="btn btn-warning "
+                                                            data-toggle="modal"
+                                                            data-target="#modify-addr-modal">编辑</button>
+                                                    </td>
+                                                    <td><button type="button" class="btn btn-danger "
+                                                            onclick="window.location.href='#'">删除</button>
+                                                    </td>
+                                                    <td><button type="button" class="btn btn-primary "
+                                                            onclick="window.location.href='checkout.html'">设为默认</button>
+                                                    </td>
+                                                </tr>
+
+                                                <tr style="height: 30px;">
+                                                    <td>收货人</td>
+                                                    <td style="text-align: left;">详细地址详细地址详细地址详细地址详细地址详细地址详细地址</td>
+                                                    <td>11122223333</td>
+                                                    <td><button type="button" class="btn btn-warning "
+                                                            data-toggle="modal"
+                                                            data-target="#modify-addr-modal">编辑</button>
                                                     </td>
                                                     <td><button type="button" class="btn btn-danger "
                                                             onclick="window.location.href='#'">删除</button>
@@ -147,6 +180,19 @@
 
                                             </tbody>
                                         </table>
+
+                                        <div class="col-md-12" style="text-align: center;">
+                                            <ul class="pagination">
+                                                <li class="prev-page"><a href="#">&laquo;</a></li>
+                                                <li class="active"><a href="#">1</a></li>
+                                                <li><a href="#">2</a></li>
+                                                <li><a href="#">3</a></li>
+                                                <li><a href="#">4</a></li>
+                                                <li><a href="#">5</a></li>
+                                                <li class="next-page"><a href="#">&raquo;</a></li>
+                                            </ul>
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -163,11 +209,86 @@
 
     <!-- 页脚 -->
     <div id="footer_part"></div>
+
+
+    <!-- 弹出来的新建地址 -->
+    <div class="modal fade" id="new-addr-modal" tabindex="-1" role="dialog" aria-labelledby="newAddrLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="newAddrLabel" style="color: #0074c2; font-weight: bold;">新增地址</h4>
+                </div>
+                <div class="modal-body">
+                    <label for="">收货人姓名</label>
+                    <input class="form-control" type="text" placeholder="姓名">
+                    <label for="">手机号码</label>
+                    <input class="form-control" type="tel" placeholder="手机号码">
+                    <label for="">详细地址</label>
+                    <textarea class="form-control" name="" id="" rows="4" placeholder="详细地址"
+                        style="resize: none;"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 弹出来的编辑地址 -->
+    <div class="modal fade" id="modify-addr-modal" tabindex="-1" role="dialog" aria-labelledby="modifyAddrLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="modifyAddrLabel" style="color: #0074c2; font-weight: bold;">编辑地址</h4>
+                </div>
+                <div class="modal-body">
+                    <label for="">收货人姓名</label>
+                    <input class="form-control" type="text" value="联系人">
+                    <label for="">手机号码</label>
+                    <input class="form-control" type="tel" value="11122223333">
+                    <label for="">详细地址</label>
+                    <textarea class="form-control" name="" id="" rows="4"
+                        style="resize: none;">详细地址详细地址详细地址详细地址详细地址详细地址详细地址</textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 <script type="text/javascript">
     $("#nav_part").load("nav_part.html");
     $("#footer_part").load("footer_part.html");
+
+    //分页栏
+    $(".pagination li").click(function () {
+        var pageCount = $(".pagination li").length - 2;
+        var activeIndex = $(".pagination .active").index();
+        if ($(this).hasClass("prev-page")) {
+            if (activeIndex > 1) {
+                $(".pagination li").eq(activeIndex).removeClass("active");
+                $(".pagination li").eq(activeIndex - 1).addClass("active");
+            }
+        } else if ($(this).hasClass("next-page")) {
+            if (activeIndex < pageCount) {
+                $(".pagination li").eq(activeIndex).removeClass("active");
+                $(".pagination li").eq(activeIndex + 1).addClass("active");
+            }
+        } else {
+            $(this).addClass("active");
+            $(this).siblings().removeClass("active");
+        }
+    });
 </script>
 
 </html>
