@@ -16,7 +16,9 @@
     <script src="http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <style>
         main>.container {
-            background: whitesmoke;
+            border-radius: 1%;
+            border: #fff 1px solid;
+            background-color: whitesmoke;
         }
 
         img {
@@ -27,15 +29,9 @@
             border: 0;
         }
 
-        .list-group-item {
-            margin-bottom: 0;
-            border: 0;
-            border-bottom: 1px dashed #ddd;
-            background-color: inherit;
-        }
+        .nav-pills a {
+            border-bottom: 1px solid #ddd;
 
-        .list2 {
-            border-bottom: 0;
         }
 
         .panel-default>.panel-heading {
@@ -54,7 +50,7 @@
             padding: 6px 30px;
         }
 
-        .nav-list>:active {
+        .nav-list .active {
             color: blue;
         }
     </style>
@@ -69,16 +65,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
-                    <ul class="nav nav-list">
-                        <li class="active">
-                            <a href="my_info.html">我的信息</a></li>
-                        </li>
-                        <li>
-                            <a href="manage_address.html">地址管理</a></li>
-                        </li>
-                        <li>
-                            <a href="orders_list.html">我的订单</a></li>
-                        </li>
+                    <ul class="nav nav-pills nav-stacked">
+                        <li class="active"><a href="">我的信息</a></li>
+                        <li><a href="my_address.html">我的地址</a></li>
+                        <li><a href="my_orders_list.html">我的订单</a></li>
+                        <li><a href="my_coupons.html">我的优惠券</a></li>
                     </ul>
                 </div>
 
@@ -179,11 +170,6 @@
                                 </div>
                             </div>
                         </div>
-
-
-
-
-
                     </div>
                 </div>
             </div>

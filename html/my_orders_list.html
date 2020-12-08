@@ -255,6 +255,19 @@
                                 </tbody>
                             </table>
                         </div>
+
+
+                        <div class="col-md-12" style="text-align: center;">
+                            <ul class="pagination">
+                                <li class="prev-page"><a href="#">&laquo;</a></li>
+                                <li class="active"><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#">5</a></li>
+                                <li class="next-page"><a href="#">&raquo;</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -315,6 +328,26 @@
     $("#footer_part").load("footer_part.html");
 
 
+
+    //分页栏
+    $(".pagination li").click(function () {
+        var pageCount = $(".pagination li").length - 2;
+        var activeIndex = $(".pagination .active").index();
+        if ($(this).hasClass("prev-page")) {
+            if (activeIndex > 1) {
+                $(".pagination li").eq(activeIndex).removeClass("active");
+                $(".pagination li").eq(activeIndex - 1).addClass("active");
+            }
+        } else if ($(this).hasClass("next-page")) {
+            if (activeIndex < pageCount) {
+                $(".pagination li").eq(activeIndex).removeClass("active");
+                $(".pagination li").eq(activeIndex + 1).addClass("active");
+            }
+        } else {
+            $(this).addClass("active");
+            $(this).siblings().removeClass("active");
+        }
+    });
 </script>
 
 </html>

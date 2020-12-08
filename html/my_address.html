@@ -26,13 +26,10 @@
             border: 0;
         }
 
-        .list-group-item {
-            margin-bottom: 0;
-            border: 0;
-            border-bottom: 1px dashed #ddd;
-            background-color: inherit;
-        }
+        .nav-pills a {
+            border-bottom: 1px solid #ddd;
 
+        }
 
         .panel-default>.panel-heading {
             background-color: lightblue;
@@ -61,25 +58,15 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
-                    <ul class="list-group">
-                        <li class="list-group-item" id="userimg-part"></li>
-
-                        <li class="list-group-item">
-                            <a href="my_info.html">我的信息</a>
-
-                        <li class="list-group-item">
-                            <a href="manage_address.html">地址管理</a>
-
-                        <li class="list-group-item">
-                            <a href="orders_list.html">我的订单</a>
-
-
+                    <ul class="nav nav-pills nav-stacked">
+                        <li><a href="my_info.html">我的信息</a></li>
+                        <li class="active"><a href="my_address.html">我的地址</a></li>
+                        <li><a href="my_orders_list.html">我的订单</a></li>
+                        <li><a href="my_coupons.html">我的优惠券</a></li>
                     </ul>
                 </div>
                 <div class="col-md-9">
                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-
-
                         <div class="panel panel-default">
                             <div class="panel-heading" role="tab" id="headingOne">
                                 <h4 class="panel-title">
@@ -182,7 +169,7 @@
                                         </table>
 
                                         <div class="col-md-12" style="text-align: center;">
-                                            <ul class="pagination">
+                                            <ul class="pagination pagination-sm">
                                                 <li class="prev-page"><a href="#">&laquo;</a></li>
                                                 <li class="active"><a href="#">1</a></li>
                                                 <li><a href="#">2</a></li>

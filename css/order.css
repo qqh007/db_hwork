@@ -10,16 +10,6 @@ ul {
     border: 0;
 }
 
-.list-group-item {
-    margin-bottom: 0;
-    border: 0;
-    border-bottom: 1px dashed #ddd;
-    background-color: inherit;
-}
-
-.list2 {
-    border-bottom: 0;
-}
 
 .table>tbody>tr>th {
     text-align: center;
