@@ -15,6 +15,10 @@
     <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <style>
+        body {
+            background-image: url("http://www.w3school.com.cn/clouds.gif");
+        }
+
         main>.container {
             border-radius: 1%;
             border: #fff 1px solid;
@@ -23,6 +27,10 @@
 
         img {
             width: 100%;
+        }
+
+        #avatarImg {
+            border: greenyellow 1px solid;
         }
 
         ul {
@@ -91,27 +99,42 @@
                                 <div class="panel-body">
                                     <div class="col-md-offset-1 col-md-7">
                                         <div class="row">
-                                            <div class="col-md-offset-1 col-md-3">
-                                                <img src="../images/index/4.jpg" class="img-circle" alt=""
-                                                    style="width:100%; height: 100%;">
+                                            <div class="col-md-offset-2 col-md-3">
+                                                <img src="../images/index/4.jpg" class="img-circle" id="avatarImg"
+                                                    alt="" style="width:100%; height: 100%;">
                                             </div>
                                         </div>
                                         <form class="form-horizontal" style="margin-top: 40px">
                                             <div class="form-group">
-                                                <label for="input1" class="col-sm-2 control-label">昵称:</label>
-                                                <div class="col-sm-10">
+                                                <div class="col-sm-3" style="font-weight: bold; text-align: right;">
+                                                    用户名:
+                                                </div>
+                                                <div class="col-sm-9" id="username">
+                                                    username
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+
+                                                <div class="col-sm-3" style="font-weight: bold; text-align: right;">
+                                                    昵&emsp;称:
+                                                </div>
+                                                <div class="col-sm-9" id="nickname">
                                                     lsp
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="input2" class="col-sm-2 control-label">手机:</label>
-                                                <div class="col-sm-10">
+                                                <div class="col-sm-3" style="font-weight: bold; text-align: right;">
+                                                    手&emsp;机:
+                                                </div>
+                                                <div class="col-sm-9" id="tel">
                                                     11122223333
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="input3" class="col-sm-2 control-label">邮箱:</label>
-                                                <div class="col-sm-10">
+                                                <div class="col-sm-3" style="font-weight: bold; text-align: right;">
+                                                    邮&emsp;箱:
+                                                </div>
+                                                <div class="col-sm-9" id="mail">
                                                     111222333@qq.com
                                                 </div>
                                             </div>
@@ -138,23 +161,30 @@
                                     <div class="col-md-offset-1 col-md-8">
                                         <form class="form-horizontal" style="margin-top: 40px">
                                             <div class="form-group">
-                                                <label for="input6" class="col-sm-2 control-label">昵称</label>
+                                                <label for="input6" class="col-sm-2 control-label">用户名</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" class="form-control" id="input6"
+                                                    <input type="text" class="form-control" id="username-input"
+                                                        placeholder="用户名">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="input6" class="col-sm-2 control-label">昵&emsp;称</label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" class="form-control" id="nickname-input"
                                                         placeholder="昵称">
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="input7" class="col-sm-2 control-label">手机</label>
+                                                <label for="input7" class="col-sm-2 control-label">手&emsp;机</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" class="form-control" id="input7"
+                                                    <input type="text" class="form-control" id="tel-input"
                                                         placeholder="手机号码">
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="input8" class="col-sm-2 control-label">邮箱</label>
+                                                <label for="input8" class="col-sm-2 control-label">邮&emsp;箱</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" class="form-control" id="input8"
+                                                    <input type="text" class="form-control" id="mail-input"
                                                         placeholder="邮箱">
                                                 </div>
                                             </div>
@@ -178,11 +208,42 @@
 
     <!-- 页脚 -->
     <div id="footer_part"></div>
+
+    <button onclick="loadInfo()">生成html</button>
 </body>
 
 <script type="text/javascript">
     $("#nav_part").load("nav_part.html");
     $("#footer_part").load("footer_part.html");
+
+    setOriginInfo();
+
+    function setOriginInfo() {
+        $("#username-input").val($("#username").text().trim());
+        $("#nickname-input").val($("#nickname").text().trim());
+        $("#tel-input").val($("#tel").text().trim());
+        $("#mail-input").val($("#mail").text().trim());
+    }
+
+
+    var myInfo = {
+        id: 1234564876,
+        avatarUrl: "../images/cart/749e8fce6291f8c8.jpg",
+        username: "username",
+        nickname: "product.html",
+        telephone: "咖啡",
+        mail: "马来西亚进口咖啡咖啡咖啡咖啡咖啡咖啡咖啡咖啡",
+    };
+
+    function loadInfo() {
+        $("#avatarImg").attr("src", myInfo.avatarUrl);
+        $("#username").text(myInfo.username);
+        $("#nickname").text(myInfo.nickname);
+        $("#tel").text(myInfo.telephone);
+        $("#mail").text(myInfo.mail);
+
+        setOriginInfo();//设置修改时的默认信息
+    }
 </script>
 
 </html>

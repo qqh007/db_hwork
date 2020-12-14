@@ -74,7 +74,7 @@
                         </li>
                     </ul>
                     <div class="tab-content">
-                        <div class="tab-pane  active" id="panel-all">
+                        <div class="tab-pane active" id="panel-all">
                             <table class="table">
                                 <tbody>
                                     <tr>
@@ -90,11 +90,13 @@
                                     </tr>
                                     <tr>
                                         <td colspan="8" style="text-align: left;background-color: rgb(190, 224, 229)">
-                                            订单编号：12222212212&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;下单时间：12222222222</td>
+                                            订单编号：<span class="order-id">12222212212</span>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;下单时间：<span
+                                                class="order-time">12222222222</span> </td>
                                     </tr>
                                     <tr>
                                         <td width="10%">
-                                            <img src="../../images/index/4.jpg" alt="">
+                                            <a href="product.html"><img src="../../images/index/4.jpg" alt=""></a>
                                         </td>
                                         <td width="10%">商品名称</td>
                                         <td width="30%">商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述</td>
@@ -113,7 +115,7 @@
                         </div>
                         <div class="tab-pane" id="panel-to-deliver">
                             <table class="table">
-                                <tbody>
+                                <thead>
                                     <tr>
                                         <th colspan="3">商品信息</th>
                                         <th>单价</th>
@@ -122,6 +124,9 @@
                                         <th>交易状态</th>
                                         <th>操作</th>
                                     </tr>
+                                </thead>
+                                <tbody>
+
                                     <tr>
                                         <td colspan="8" style="border: 0"></td>
                                     </tr>
@@ -149,7 +154,7 @@
                         </div>
                         <div class="tab-pane" id="panel-to-receive">
                             <table class="table">
-                                <tbody>
+                                <thead>
                                     <tr>
                                         <th colspan="3">商品信息</th>
                                         <th>单价</th>
@@ -158,6 +163,8 @@
                                         <th>交易状态</th>
                                         <th>操作</th>
                                     </tr>
+                                </thead>
+                                <tbody>
                                     <tr>
                                         <td colspan="8" style="border: 0"></td>
                                     </tr>
@@ -185,7 +192,7 @@
                         </div>
                         <div class="tab-pane" id="panel-to-comment">
                             <table class="table">
-                                <tbody>
+                                <thead>
                                     <tr>
                                         <th colspan="3">商品信息</th>
                                         <th>单价</th>
@@ -194,6 +201,8 @@
                                         <th>交易状态</th>
                                         <th>操作</th>
                                     </tr>
+                                </thead>
+                                <tbody>
                                     <tr>
                                         <td colspan="8" style="border: 0"></td>
                                     </tr>
@@ -221,7 +230,7 @@
                         </div>
                         <div class="tab-pane" id="panel-commented">
                             <table class="table">
-                                <tbody>
+                                <thead>
                                     <tr>
                                         <th colspan="3">商品信息</th>
                                         <th>单价</th>
@@ -230,6 +239,8 @@
                                         <th>交易状态</th>
                                         <th>操作</th>
                                     </tr>
+                                </thead>
+                                <tbody>
                                     <tr>
                                         <td colspan="8" style="border: 0"></td>
                                     </tr>
@@ -321,6 +332,8 @@
     </div>
     <!-- 页脚 -->
     <div id="footer_part"></div>
+
+    <button onclick="loadOrders()">生成html</button>
 </body>
 
 <script type="text/javascript">
@@ -348,6 +361,162 @@
             $(this).siblings().removeClass("active");
         }
     });
+
+
+    var orderList = [{
+        id: 1234564876,
+        buyTime: "2020-20-20",
+        imageURL: "../../images/index/4.jpg",
+        goodName: "商品名称",
+        goodLink: "product.html",
+        goodDescrip: "商品描述商品描述商品描述商品描述商品描述商品描述",
+        unitPrice: 123,
+        count: 1,
+        payment: 123,
+        status: "待发货",
+    },
+    {
+        id: 1234564876,
+        buyTime: "2020-20-20",
+        imageURL: "../../images/index/4.jpg",
+        goodName: "商品名称",
+        goodLink: "product.html",
+        goodDescrip: "商品描述商品描述商品描述商品描述商品描述商品描述",
+        unitPrice: 123,
+        count: 1,
+        payment: 123,
+        status: "待收货",
+    },
+    {
+        id: 1234564876,
+        buyTime: "2020-20-20",
+        imageURL: "../../images/index/4.jpg",
+        goodName: "商品名称",
+        goodLink: "product.html",
+        goodDescrip: "商品描述商品描述商品描述商品描述商品描述商品描述",
+        unitPrice: 123,
+        count: 1,
+        payment: 123,
+        status: "待评价",
+    },
+    {
+        id: 1234564876,
+        buyTime: "2020-20-20",
+        imageURL: "../../images/index/4.jpg",
+        goodName: "商品名称",
+        goodLink: "product.html",
+        goodDescrip: "商品描述商品描述商品描述商品描述商品描述商品描述",
+        unitPrice: 123,
+        count: 1,
+        payment: 123,
+        status: "已评价",
+    },
+    ];
+
+    //生成html
+    function loadOrders() {
+
+        let tbody = $("#panel-all table tbody");
+        tbody.html("");
+
+        let headerTr = document.createElement("tr");
+        headerTr.innerHTML = "<th colspan=\"3\">商品信息</th><th>单价</th><th>数量</th><th>实付款</th><th>交易状态</th><th>操作</th>";
+        tbody.append(headerTr);
+
+        $.each(orderList, function (i, item) {
+            //alert("wdnmd");
+            //let item = goodsList[0];
+
+            let blankTr = document.createElement("tr");
+            blankTr.innerHTML = "<td colspan=\"8\" style=\"border: 0\"></td>";
+            tbody.append(blankTr);
+
+            let orderHeadTr = document.createElement("tr");
+            tbody.append(orderHeadTr);
+
+            let orderHeadTd = document.createElement("td");
+            orderHeadTd.setAttribute("colspan", "8");
+            orderHeadTd.setAttribute("style", "text-align: left;background-color: rgb(190, 224, 229)");
+            orderHeadTd.innerHTML = "订单编号：" + item.id + "    " + "下单时间：" + item.buyTime;/* 这里可以再改一下 */
+            orderHeadTr.append(orderHeadTd);
+
+            let orderDetailTr = document.createElement("tr");
+            tbody.append(orderDetailTr);
+
+            let imageTd = document.createElement("td");
+            imageTd.setAttribute("width", "10%");
+            orderDetailTr.append(imageTd);
+
+            let imageLinkA = document.createElement("a");
+            imageLinkA.href = item.goodLink;
+            imageTd.append(imageLinkA);
+
+            let image = document.createElement("img");
+            image.src = item.imageURL;
+            imageLinkA.append(image);
+
+            let nameTd = document.createElement("td");
+            nameTd.setAttribute("width", "10%");
+            nameTd.innerHTML = item.goodName;
+            orderDetailTr.append(nameTd);
+
+            let descripTd = document.createElement("td");
+            descripTd.setAttribute("width", "30%");
+            descripTd.innerHTML = item.goodDescrip;
+            orderDetailTr.append(descripTd);
+
+            let unitPriceTd = document.createElement("td");
+            unitPriceTd.setAttribute("width", "10%");
+            unitPriceTd.innerHTML = "￥" + item.unitPrice;
+            orderDetailTr.append(unitPriceTd);
+
+            let countTd = document.createElement("td");
+            countTd.setAttribute("width", "8%");
+            countTd.innerHTML = item.count;
+            orderDetailTr.append(countTd);
+
+            let paymentTd = document.createElement("td");
+            paymentTd.setAttribute("width", "10%");
+            paymentTd.innerHTML = "￥" + item.payment;
+            orderDetailTr.append(paymentTd);
+
+            let statusTd = document.createElement("td");
+            statusTd.setAttribute("width", "10%");
+            statusTd.innerHTML = item.status;
+            orderDetailTr.append(statusTd);
+
+            let operaTd = document.createElement("td");
+            operaTd.setAttribute("width", "12%");
+            //operaTd.innerHTML = item.status;
+            orderDetailTr.append(operaTd);
+
+            let operaBtn = document.createElement("button");
+            operaBtn.setAttribute("type", "button");
+            operaBtn.setAttribute("data-toggle", "modal");
+           
+            if (item.status == "待发货") {
+                operaBtn.setAttribute("class", "btn btn-default");
+                operaBtn.setAttribute("disabled", "true");
+                operaBtn.innerHTML = "待发货";
+            } else if (item.status == "待收货") {
+                operaBtn.setAttribute("class", "btn btn-warning");
+                //operaBtn.setAttribute("disabled","true");
+                operaBtn.setAttribute("data-target", "#confirm-Modal");
+                operaBtn.innerHTML = "确认收货";
+            } else if (item.status == "待评价") {
+                operaBtn.setAttribute("class", "btn btn-primary");
+                //operaBtn.setAttribute("disabled", "true");
+                operaBtn.setAttribute("data-target", "#exampleModal");
+                operaBtn.innerHTML = "去评价";
+            } else if (item.status == "已评价") {
+                operaBtn.setAttribute("class", "btn btn-default");
+                operaBtn.setAttribute("disabled", "true");
+                operaBtn.innerHTML = "已评价";
+            }
+            operaTd.append(operaBtn);
+        });
+    }
+
 </script>
 
 </html>

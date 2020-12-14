@@ -29,3 +29,9 @@ this is the database final homework.
 
 即将添加消息功能
 
+
+
+12.14
+
+增加了一些利用js生成html的东西
+
