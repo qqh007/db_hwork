@@ -1,41 +1,212 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<meta charset="utf-8" />
-<title>欢迎注册</title>
 
-<!-- Bootstrap -->
-<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
 
-<link type="text/css" rel="stylesheet" href="../css/all.css" />
+    <title>网上购物系统</title>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="../css/all.css" />
 
-<script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
-<script src="http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
 </head>
 
-<body>
+<style>
+    body {
+        /* background-color: wheat; */
+        background-image: url("../../images/background/bg2.jpg");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+    }
 
-    <!-- 主体部分 -->
-    <main style="margin-top: 120px;">
+    img {
+        width: 100%;
+    }
+
+    .good-frame {
+        background-color: white;
+        padding-left: 15px;
+        padding-right: 15px;
+        margin-bottom: 20px;
+    }
+
+    .good-frame h4 {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .good-frame .title {
+        padding-top: 13px;
+        padding-bottom: 10px;
+
+        font-size: large;
+        font-weight: bold;
+    }
+
+    .good-frame .see-more {
+        padding-top: 10px;
+        padding-bottom: 13px;
+
+        font-size: smaller;
+    }
+</style>
+
+<body>
+    <!-- 导航栏 -->
+    <div id="nav_part"></div>
+
+    <!--主体内容-->
+    <main style="margin-top: 250px;">
         <div class="container">
-            <form>
-                <div class="form-group">
-                    <label for="sel1">单选下拉菜单:</label>
-                    <select class="form-control" id="sel1">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                    </select>
+
+            <div class="row">
+                <div class="col-md-3 ">
+                    <div class="good-frame">
+                        <div class=" title">电子产品</div>
+                        <div>
+                            <a href="goodsinfo.html"><img src="../images/index/4.jpg" alt=""></a>
+                        </div>
+                        <div class="see-more">
+                            <a href="">查看更多</a>
+                        </div>
+                    </div>
                 </div>
-            </form>
+                <div class="col-md-3 ">
+                    <div class="good-frame">
+                        <div class=" title">电子产品</div>
+                        <div>
+                            <a href="goodsinfo.html"><img src="../images/index/5.jpg" alt=""></a>
+                        </div>
+                        <div class="see-more">
+                            <a href="">查看更多</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 ">
+                    <div class="good-frame">
+                        <div class=" title">电子产品</div>
+                        <div>
+                            <a href="goodsinfo.html"><img src="../images/index/6.jpg" alt=""></a>
+                        </div>
+                        <div class="see-more">
+                            <a href="">查看更多</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 ">
+                    <div class="good-frame">
+                        <div class=" title">电子产品</div>
+                        <div>
+                            <a href="goodsinfo.html"><img src="../images/index/7.jpg" alt=""></a>
+                        </div>
+                        <div class="see-more">
+                            <a href="">查看更多</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 ">
+                    <div class="good-frame">
+                        <div class=" title">电子产品</div>
+                        <div>
+                            <a href="goodsinfo.html"><img src="../images/index/8.jpg" alt=""></a>
+                        </div>
+                        <div class="see-more">
+                            <a href="">查看更多</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 ">
+                    <div class="good-frame">
+                        <div class=" title">电子产品</div>
+                        <div>
+                            <a href="goodsinfo.html"><img src="../images/index/9.jpg" alt=""></a>
+                        </div>
+                        <div class="see-more">
+                            <a href="">查看更多</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 ">
+                    <div class="good-frame">
+                        <div class=" title">电子产品</div>
+                        <div>
+                            <a href="goodsinfo.html"><img src="../images/index/10.jpg" alt=""></a>
+                        </div>
+                        <div class="see-more">
+                            <a href="">查看更多</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 ">
+                    <div class="good-frame">
+                        <div class=" title">电子产品</div>
+                        <div>
+                            <a href="goodsinfo.html"><img src="../images/index/11.jpg" alt=""></a>
+                        </div>
+                        <div class="see-more">
+                            <a href="">查看更多</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="row" style="margin-left: 0px; margin-right: 0px; ">
+                <div class="col-md-12" style="background-color: white;  padding-bottom: 30px;">
+                    <div class="col-md-12">
+                        <h3>今日推荐</h3>
+                    </div>
+                    <div class="col-md-2">
+                        <a href="product.html"><img src="../images/index/12.jpg" alt=""></a>
+                    </div>
+                    <div class="col-md-2">
+                        <a href="product.html"><img src="../images/index/11.jpg" alt=""></a>
+                    </div>
+                    <div class="col-md-2">
+                        <a href="product.html"><img src="../images/index/10.jpg" alt=""></a>
+                    </div>
+                    <div class="col-md-2">
+                        <a href="product.html"><img src="../images/index/7.jpg" alt=""></a>
+                    </div>
+                    <div class="col-md-2">
+                        <a href="product.html"><img src="../images/index/8.jpg" alt=""></a>
+                    </div>
+                    <div class="col-md-2">
+                        <a href="product.html"><img src="../images/index/9.jpg" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
     </main>
 
     <!-- 页脚 -->
     <div id="footer_part"></div>
-
 </body>
+
+<!-- 鼠标移到左边的topMenu，就会悬浮显示详细分类 -->
 <script type="text/javascript">
-    //加载导航栏和页脚
+    window.onload = function () {
+        var Lis = document.getElementById("topmenu").getElementsByTagName("li");
+        for (i = 0; i < Lis.length; i++) {
+            Lis[i].onmouseover = function () {
+                this.className = "lihover";
+            }
+            Lis[i].onmouseout = function () {
+                this.className = "";
+            }
+        }
+    }
+</script>
+
+<script type="text/javascript">
+    $("#nav_part").load("nav_part.html");
     $("#footer_part").load("footer_part.html");
 </script>
 
