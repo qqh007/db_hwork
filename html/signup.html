@@ -67,10 +67,13 @@
     //加载导航栏和页脚
     $("#footer_part").load("footer_part.html");
 
+
+    //提示框
     let prompt = document.getElementById("prompt");
+
     $("#signup").click(function () {
-        prompt.setAttribute("class", "alert alert-success");
-        prompt.innerHTML = ("注册成功!马上<a href=\"login.html\" class=\"alert-link\">登录</a>");
+        /* prompt.setAttribute("class", "alert alert-success");
+        prompt.innerHTML = ("注册成功!马上<a href=\"login.html\" class=\"alert-link\">登录</a>"); */
         
         $.ajax({
             type: "POST",
@@ -81,8 +84,8 @@
                 email: $("#email").val(),
             },
             dataType: "json",
-            success: function (data) {
-                if (1) {
+            success: function (result) {
+                if (result.status=="success") {
                     prompt.setAttribute("class", "alert alert-success");
                     prompt.innerHTML = ("注册成功!马上<a href=\"login.html\" class=\"alert-link\">登录</a>");
                 } else {
@@ -91,7 +94,6 @@
                 }
             },
             error: function (data) {
-
             },
 
         })

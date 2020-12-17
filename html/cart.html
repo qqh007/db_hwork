@@ -12,8 +12,6 @@
 <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
 <script src="http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <style>
-
-
     img {
         width: 100%;
 
@@ -32,7 +30,6 @@
     .good-descrip {
         word-wrap: break-word;
     }
-    
 </style>
 </head>
 
@@ -194,7 +191,6 @@
                     </ul>
                 </div>
 
-
                 <div class="col-md 4">
                     <div class="col-sm-offset-1 col-md-1">合计</div>
                     <div class="col-md-2" style="color: red;">￥ <span class="total-price">11.00</span> </div>
@@ -202,14 +198,14 @@
                     <div class="col-md-4" style="margin-top: 10px;"></div>
 
                     <button type="button" class="btn btn-success col-sm-offset-1 col-sm-3"
-                        onclick="window.location.href='checkout.html'">结算</button>
+                        onclick="checkout()">结算</button>
                 </div>
             </div>
     </main>
 
     <!-- 页脚 -->
     <div id="footer_part"></div>
-    <button onclick="genGoods()">生成html</button>
+    <button onclick="genGoods(goodsList)">生成html</button>
 
 </body>
 <script type="text/javascript">
@@ -318,7 +314,7 @@
         }
     });
 
-    function genGoods() {
+    function genGoods(goodsList) {
         $("tbody").empty();
         let tbody = $("tbody");
         //alert("wdnmd");
@@ -404,14 +400,31 @@
                 "</svg>";
             deleteTd.append(deleteBtn);
         });
+
+
+        //窗口加载时，显示商品
+        window.onload = function () {
+            $.ajax({
+                type: "GET",
+                url: "",
+                dataType: "json",
+                success: function (data) {
+                    /*  window.location.href("index.html"); */
+                    genGoods(data);
+                },
+                error: function (data) {
+
+                },
+            })
+        }
+
+        //点击checkout时的操作
+        function checkout(){
+            
+        }
+
+
     }
-
-
-
-
-
-
-
 
 
 
