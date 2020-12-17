@@ -96,8 +96,9 @@
                                 aria-labelledby="headingOne">
 
                                 <div class="col-md-2 col-md-offset-10">
-                                    <button type="button" class="btn btn-link " data-toggle="modal"
-                                        data-target="#new-addr-modal" style="width: 100%;">新增地址</button>
+                                    <button type="button" class="btn btn-link " id="add-addr" data-toggle="modal"
+                                        data-target="#new-addr-modal" style="width: 100%;"
+                                        onclick="addAddr()">新增地址</button>
                                 </div>
 
                                 <div class="panel-body">
@@ -114,69 +115,25 @@
                                                 </tr>
                                             </thead>
                                             <tbody style="height: 60px; overflow-y: auto;">
-                                                <tr>
+                                                <tr id="addr-1">
                                                     <td class="receiver">收货人</td>
                                                     <td class="address" style=" text-align: left;">
                                                         详细地址详细地址详细地址详细地址详细地址详细地址详细地址</td>
                                                     <td class="tel">11122223333</td>
                                                     <td><button type="button" class="btn btn-warning"
                                                             data-toggle="modal"
-                                                            data-target="#modify-addr-modal">编辑</button>
+                                                            data-target="#modify-addr-modal" onclick="editAddr(this)">编辑</button>
                                                     </td>
                                                     <td><button type="button" class="btn btn-danger "
-                                                            onclick="window.location.href='#'">删除</button>
+                                                            data-toggle="modal" data-target="#confirm-delete-modal"
+                                                            onclick="deleteAddr(this)">删除</button>
                                                     </td>
                                                     <td><button type="button" class="btn btn-default "
                                                             disabled="true">默认地址</button>
                                                     </td>
                                                 </tr>
 
-                                                <tr>
-                                                    <td>收货人</td>
-                                                    <td style="text-align: left;">详细地址详细地址详细地址详细地址详细地址详细地址详细地址</td>
-                                                    <td>11122223333</td>
-                                                    <td><button type="button" class="btn btn-warning "
-                                                            data-toggle="modal"
-                                                            data-target="#modify-addr-modal">编辑</button>
-                                                    </td>
-                                                    <td><button type="button" class="btn btn-danger "
-                                                            onclick="window.location.href='#'">删除</button>
-                                                    </td>
-                                                    <td><button type="button" class="btn btn-primary " onclick="window.
-                                                            location.href='checkout.html'">设为默认</button>
-                                                    </td>
-                                                </tr>
 
-                                                <tr>
-                                                    <td>收货人</td>
-                                                    <td style="text-align: left;">详细地址详细地址详细地址详细地址详细地址详细地址详细地址</td>
-                                                    <td>11122223333</td>
-                                                    <td><button type="button" class="btn btn-warning "
-                                                            data-toggle="modal"
-                                                            data-target="#modify-addr-modal">编辑</button>
-                                                    </td>
-                                                    <td><button type="button" class="btn btn-danger "
-                                                            onclick="window.location.href='#'">删除</button>
-                                                    </td>
-                                                    <td><button type="button" class="btn btn-primary "
-                                                            onclick="window.location.href='checkout.html'">设为默认</button>
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td>收货人</td>
-                                                    <td style="text-align: left;">详细地址详细地址详细地址详细地址详细地址详细地址详细地址</td>
-                                                    <td>11122223333</td>
-                                                    <td><button type="button" class="btn btn-warning "
-                                                            data-toggle="modal"
-                                                            data-target="#modify-addr-modal">编辑</button>
-                                                    </td>
-                                                    <td><button type="button" class="btn btn-danger "
-                                                            onclick="window.location.href='#'">删除</button>
-                                                    </td>
-                                                    <td><button type="button" class="btn btn-primary ">设为默认</button>
-                                                    </td>
-                                                </tr>
 
                                             </tbody>
                                         </table>
@@ -224,15 +181,15 @@
                 </div>
                 <div class="modal-body">
                     <label for="">收货人姓名</label>
-                    <input class="form-control" type="text" placeholder="姓名">
+                    <input class="form-control" type="text" placeholder="姓名" id="new-receiver">
                     <label for="">手机号码</label>
-                    <input class="form-control" type="tel" placeholder="手机号码">
+                    <input class="form-control" type="tel" placeholder="手机号码" id="new-tel">
                     <label for="">详细地址</label>
-                    <textarea class="form-control" name="" id="" rows="4" placeholder="详细地址"
-                        style="resize: none;"></textarea>
+                    <textarea class="form-control" name="" id="" rows="4" placeholder="详细地址" style="resize: none;"
+                        id="new-address"></textarea>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">保存</button>
+                    <button type="button" class="btn btn-primary" id="new-addr-btn">保存</button>
                 </div>
             </div>
         </div>
@@ -251,15 +208,38 @@
                 </div>
                 <div class="modal-body">
                     <label for="">收货人姓名</label>
-                    <input class="form-control" type="text" value="联系人">
+                    <input class="form-control" id="edit-receiver" type="text" value="联系人">
                     <label for="">手机号码</label>
-                    <input class="form-control" type="tel" value="11122223333">
+                    <input class="form-control" id="edit-tel" type="tel" value="11122223333">
                     <label for="">详细地址</label>
-                    <textarea class="form-control" name="" id="" rows="4"
+                    <textarea class="form-control" name="" id="edit-address" rows="4"
                         style="resize: none;">详细地址详细地址详细地址详细地址详细地址详细地址详细地址</textarea>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">保存</button>
+                    <button type="button" class="btn btn-primary" id="edit-addr-btn">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 弹出来的确认删除 -->
+    <div class="modal" id="confirm-delete-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h5 class="modal-title" id="exampleModalLabel">删除</h5>
+                </div>
+                <div class="modal-body">
+                    <h4>确认删除？</h4>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" aria-label="Close">取消</button>
+                    <button type="button" class="btn btn-primary" id="delete-confirm" data-dismiss="modal"
+                        aria-label="Close">确认</button>
                 </div>
             </div>
         </div>
@@ -271,12 +251,6 @@
 <script type="text/javascript">
     $("#nav_part").load("nav_part.html");
     $("#footer_part").load("footer_part.html");
-
-
-    function deleteAddress(button) {
-        let theButton = $(button);
-        theButton.parent().parent().remove();
-    }
 
     //分页栏
     $(".pagination li").click(function () {
@@ -297,6 +271,97 @@
             $(this).siblings().removeClass("active");
         }
     });
+
+
+    //删除一个地址
+    function deleteAddr(button) {
+        let theButton = $(button);
+
+        let addrIdStr = theButton.parent().parent().attr("id");
+        let addrId = addrIdStr.substring(5);
+
+        //点击确认时删除
+        $("#delete-confirm").click(function () {
+            theButton.parent().parent().remove();
+            //发送ajax
+            $.ajax({
+                type: "POST",
+                url: "",
+                data: { deletedAddrId: addrId },
+                dataType: "json",
+                success: function (data) {
+                    //window.open("finish_order.html", "_self");
+                },
+                error: function (data) {
+                },
+            });
+        })
+    }
+
+    //新增一个地址
+    function addAddr() {
+        //当保存按钮被点击时，发送数据
+        $("#new-addr-btn").click(function () {
+
+            console.log($("#new-receiver").val() +
+                $("#new-tel").val() +
+                $("#new-address").val());
+
+            $.ajax({
+                type: "POST",
+                url: "",
+                data: {
+                    receiver: $("#new-receiver").val(),
+                    phone: $("#new-tel").val(),
+                    address: $("#new-address").val(),
+                },
+                dataType: "json",
+                success: function (data) {
+                    //window.open("finish_order.html", "_self");
+                },
+                error: function (data) {
+                },
+            });
+        });
+    }
+
+
+
+    //编辑一个地址
+    function editAddr(button) {
+        let theButton = $(button);
+
+        let addrIdStr = theButton.parent().parent().attr("id");
+        let addrId = addrIdStr.substring(5);
+
+        console.log("wdnmd");
+        //点击保存时发送数据
+        $("#edit-addr-btn").click(function () {
+            console.log(addrId+$("#edit-receiver").val() +
+                $("#edit-tel").val() +
+                $("#edit-address").val());
+            //发送ajax
+            $.ajax({
+                type: "POST",
+                url: "",
+                data: {
+                    deletedAddrId: addrId,
+                    receiver: $("#edit-receiver").val(),
+                    phone: $("#edit-tel").val(),
+                    address: $("#edit-address").val(),
+                },
+                dataType: "json",
+                success: function (data) {
+                    //window.open("finish_order.html", "_self");
+                },
+                error: function (data) {
+                },
+            });
+        })
+    }
+    
+
+
 
     var addressList = [{
         id: 1234564876,
@@ -323,13 +388,15 @@
         tel: "12345678900",
     }
     ];
+
+    //生产html
     function loadAddressInfo() {
 
         let tbody = $("#address-table tbody");
         tbody.html("")
         $.each(addressList, function (i, item) {
             let tableRow = document.createElement("tr");
-
+            tableRow.id = "addr-" + item.id;
             tbody.append(tableRow);
 
             let receiverTd = document.createElement("td");
@@ -349,12 +416,12 @@
 
             let editTd = document.createElement("td");
             editTd.setAttribute("class", "");
-            editTd.innerHTML = "<button type=\"button\" class=\"btn btn-warning\" data-toggle=\"modal\" data-target=\"#modify-addr-modal\">编辑</button>";
+            editTd.innerHTML = "<button type=\"button\" class=\"btn btn-warning\" data-toggle=\"modal\" data-target=\"#modify-addr-modal\" onclick=\"editAddr(this)\">编辑</button>";
             tableRow.append(editTd);
 
             let deleteTd = document.createElement("td");
             deleteTd.setAttribute("class", "");
-            deleteTd.innerHTML = "<button type=\"button\" class=\"btn btn-danger\" onclick=\"deleteAddress(this)\">删除</button>";
+            deleteTd.innerHTML = "<button type=\"button\" class=\"btn btn-danger\" data-toggle=\"modal\" data-target=\"#confirm-delete-modal\" onclick=\"deleteAddr(this)\">删除</button>";
             tableRow.append(deleteTd);
 
             let defaultTd = document.createElement("td");

@@ -20,7 +20,7 @@
             background-image: url("../../images/background/bg2.jpg");
             background-repeat: no-repeat;
             background-size: 100%;
-            background-position:  0 -30px;
+            background-position: 0 -30px;
 
         }
 
@@ -166,13 +166,7 @@
                                 <div class="panel-body">
                                     <div class="col-md-offset-1 col-md-8">
                                         <form class="form-horizontal" style="margin-top: 40px">
-                                            <div class="form-group">
-                                                <label for="input6" class="col-sm-2 control-label">用户名</label>
-                                                <div class="col-sm-10">
-                                                    <input type="text" class="form-control" id="username-input"
-                                                        placeholder="用户名">
-                                                </div>
-                                            </div>
+
                                             <div class="form-group">
                                                 <label for="input6" class="col-sm-2 control-label">昵&emsp;称</label>
                                                 <div class="col-sm-10">
@@ -198,7 +192,7 @@
                                             <div class="form-group">
                                                 <div class="col-md-10 col-md-offset-2">
                                                     <button type="button" class="btn btn-success save"
-                                                        style="width: 100%;">保存</button>
+                                                        style="width: 100%;" onclick="saveInfo()">保存</button>
                                                 </div>
                                             </div>
                                         </form>
@@ -225,7 +219,6 @@
     setOriginInfo();
 
     function setOriginInfo() {
-        $("#username-input").val($("#username").text().trim());
         $("#nickname-input").val($("#nickname").text().trim());
         $("#tel-input").val($("#tel").text().trim());
         $("#mail-input").val($("#mail").text().trim());
@@ -247,8 +240,26 @@
         $("#nickname").text(myInfo.nickname);
         $("#tel").text(myInfo.telephone);
         $("#mail").text(myInfo.mail);
-
         setOriginInfo();//设置修改时的默认信息
+    }
+
+
+    function saveInfo() {
+        $.ajax({
+            type: "POST",
+            url: "",
+            data: {
+                nickname: $("#nickname-input").val().trim(),
+                telephone: $("#tel-input").val().trim(),
+                email: $("#mail-input").val().text().trim()
+            },
+            dataType: "json",
+            success: function (data) {
+                // window.open("finish_order.html", "_self");
+            },
+            error: function (data) {
+            },
+        });
     }
 </script>
 

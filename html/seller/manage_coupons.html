@@ -15,6 +15,14 @@
     <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <style>
+        body {
+            /* background-color: wheat; */
+            background-image: url("../../images/background/bg2_yellow.jpg");
+            background-repeat: no-repeat;
+            background-size: 100%;
+            background-position: 0 -200px;
+        }
+
         main>.container {
             background: whitesmoke;
         }
@@ -58,7 +66,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-3" id="sidebar-part">
-
+                    <ul class="nav nav-pills nav-stacked">
+                        <li><a href="seller_index.html">店铺信息</a></li>
+                        <li><a href="manage_goods.html">商品管理</a></li>
+                        <li><a href="manage_orders.html">订单管理</a></li>
+                        <li class="active"><a href="manage_coupons.html">优惠券管理</a></li>
+                        <li><a href="manage_coupons.html">销售情况</a></li>
+                    </ul>
                 </div>
 
                 <div class="col-md-9">
@@ -197,7 +211,7 @@
     </div>
 </body>
 <script type="text/javascript">
-    $("#sidebar-part").load("sidebar-part.html");
+    //$("#sidebar-part").load("sidebar-part.html");
     $("#footer-part").load("../footer-part.html");
 </script>
 

@@ -80,74 +80,60 @@
                     </div>
                 </div>
                 <div class="row row-goods">
-                    <div class="col-md-2" style="margin-top: 20px;">
+                    <div class="col-md-2" style="margin-top: 20px;" id="favo-1">
                         <div class="imgFrame">
-                            <a href="product.html"><img src="../images/index/4.jpg" alt=""></a>
+                            <a href="product.html"><img src="../images/index/1.jpg" alt=""></a>
                         </div>
                         <button type="button" class="btn btn-warning delete-btn" style="width: 100%;"
-                            data-toggle="modal" data-target="#confirm-Modal">删除</button>
+                            data-toggle="modal" data-target="#confirm-Modal" onclick="deleteFavo(this)">删除</button>
                     </div>
-                    <div class="col-md-2" style="margin-top: 20px;">
+                    <div class="col-md-2" style="margin-top: 20px;" id="favo-1">
                         <div class="imgFrame">
-                            <a href="product.html"><img src="../images/index/4.jpg" alt=""></a>
+                            <a href="product.html"><img src="../images/index/2.jpg" alt=""></a>
                         </div>
                         <button type="button" class="btn btn-warning delete-btn" style="width: 100%;"
-                            data-toggle="modal" data-target="#confirm-Modal">删除</button>
+                            data-toggle="modal" data-target="#confirm-Modal" onclick="deleteFavo(this)">删除</button>
                     </div>
-                    <div class="col-md-2" style="margin-top: 20px;">
+                    <div class="col-md-2" style="margin-top: 20px;" id="favo-1">
                         <div class="imgFrame">
-                            <a href="product.html"><img src="../images/index/4.jpg" alt=""></a>
+                            <a href="product.html"><img src="../images/index/3.jpg" alt=""></a>
                         </div>
                         <button type="button" class="btn btn-warning delete-btn" style="width: 100%;"
-                            data-toggle="modal" data-target="#confirm-Modal">删除</button>
+                            data-toggle="modal" data-target="#confirm-Modal" onclick="deleteFavo(this)">删除</button>
                     </div>
-                    <div class="col-md-2" style="margin-top: 20px;">
+                    <div class="col-md-2" style="margin-top: 20px;" id="favo-1">
                         <div class="imgFrame">
                             <a href="product.html"><img src="../images/index/4.jpg" alt=""></a>
                         </div>
                         <button type="button" class="btn btn-warning delete-btn" style="width: 100%;"
-                            data-toggle="modal" data-target="#confirm-Modal">删除</button>
+                            data-toggle="modal" data-target="#confirm-Modal" onclick="deleteFavo(this)">删除</button>
                     </div>
-                    <div class="col-md-2" style="margin-top: 20px;">
+                    <div class="col-md-2" style="margin-top: 20px;" id="favo-1">
                         <div class="imgFrame">
                             <a href="product.html"><img src="../images/index/4.jpg" alt=""></a>
                         </div>
                         <button type="button" class="btn btn-warning delete-btn" style="width: 100%;"
-                            data-toggle="modal" data-target="#confirm-Modal">删除</button>
+                            data-toggle="modal" data-target="#confirm-Modal" onclick="deleteFavo(this)">删除</button>
                     </div>
-                    <div class="col-md-2" style="margin-top: 20px;">
+                    <div class="col-md-2" style="margin-top: 20px;" id="favo-1">
                         <div class="imgFrame">
                             <a href="product.html"><img src="../images/index/4.jpg" alt=""></a>
                         </div>
                         <button type="button" class="btn btn-warning delete-btn" style="width: 100%;"
-                            data-toggle="modal" data-target="#confirm-Modal">删除</button>
+                            data-toggle="modal" data-target="#confirm-Modal" onclick="deleteFavo(this)">删除</button>
                     </div>
-                    <div class="col-md-2" style="margin-top: 20px;">
+                    <div class="col-md-2" style="margin-top: 20px;" id="favo-1">
                         <div class="imgFrame">
                             <a href="product.html"><img src="../images/index/4.jpg" alt=""></a>
                         </div>
                         <button type="button" class="btn btn-warning delete-btn" style="width: 100%;"
-                            data-toggle="modal" data-target="#confirm-Modal">删除</button>
-                    </div>
-                    <div class="col-md-2" style="margin-top: 20px;">
-                        <div class="imgFrame">
-                            <a href="product.html"><img src="../images/index/4.jpg" alt=""></a>
-                        </div>
-                        <button type="button" class="btn btn-warning delete-btn" style="width: 100%;"
-                            data-toggle="modal" data-target="#confirm-Modal">删除</button>
-                    </div>
-                    <div class="col-md-2" style="margin-top: 20px;">
-                        <div class="imgFrame">
-                            <a href="product.html"><img src="../images/index/4.jpg" alt=""></a>
-                        </div>
-                        <button type="button" class="btn btn-warning delete-btn" style="width: 100%;"
-                            data-toggle="modal" data-target="#confirm-Modal">删除</button>
+                            data-toggle="modal" data-target="#confirm-Modal" onclick="deleteFavo(this)">删除</button>
                     </div>
                 </div>
             </div>
     </main>
 
-    <!-- 弹出来的确认收货 -->
+    <!-- 弹出来的确认删除 -->
     <div class="modal" id="confirm-Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -162,8 +148,8 @@
                     <h4>确认删除？</h4>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default">取消</button>
-                    <button type="button" class="btn btn-primary">确认</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" aria-label="Close">取消</button>
+                    <button type="button" class="btn btn-primary" id="delete-confirm" data-dismiss="modal" aria-label="Close">确认</button>
                 </div>
             </div>
         </div>
@@ -179,14 +165,31 @@
     $("#footer_part").load("footer_part.html");
 
 
+    //删除一个
     function deleteFavo(button) {
         let theButton = $(button);
-        theButton.parent().remove();
+        let favoIdStr = theButton.parent().attr("id");
+        let favoId = favoIdStr.substring(5);
+
+        console.log(favoId);
+
+
+        $("#delete-confirm").click(function () {
+            theButton.parent().remove();
+            //发送删除的id
+            $.ajax({
+            type: "POST",
+            url: "",
+            data: {deletedFavoId:favoId},
+            dataType: "json",
+            success: function (data) {
+                //window.open("finish_order.html", "_self");
+            },
+            error: function (data) {
+            },
+        });
+        });
     }
-    
-    $(".btn").click(function () {
-        $(this).parent().remove();
-    });
 
     var favosList = [{
         id: 1234564876,
@@ -198,7 +201,7 @@
         goodsCount: 1,
     },
     {
-        id: 1234564876,
+        id: 123456487,
         imgUrl: "../images/cart/50e2c594f34bef9c.jpg",
         goodLink: "product.html",
         goodName: "咖啡",
@@ -207,7 +210,7 @@
         goodsCount: 1,
     },
     {
-        id: 1234564876,
+        id: 12345648,
         imgUrl: "../images/index/1.jpg",
         goodLink: "product.html",
         goodName: "咖啡",
@@ -216,7 +219,7 @@
         goodsCount: 1,
     },
     {
-        id: 1234564876,
+        id: 1234564,
         imgUrl: "../images/cart/50e2c594f34bef9c.jpg",
         goodLink: "product.html",
         goodName: "咖啡",
@@ -225,7 +228,7 @@
         goodsCount: 1,
     },
     {
-        id: 1234564876,
+        id: 123456,
         imgUrl: "../images/cart/50e2c594f34bef9c.jpg",
         goodLink: "product.html",
         goodName: "咖啡",
@@ -234,7 +237,7 @@
         goodsCount: 1,
     },
     {
-        id: 1234564876,
+        id: 123456476,
         imgUrl: "../images/cart/749e8fce6291f8c8.jpg",
         goodLink: "product.html",
         goodName: "咖啡",
@@ -249,18 +252,19 @@
         let favoListDiv = $(".row-goods");
         $.each(favosList, function (i, item) {
             let favoDiv = document.createElement("div");
+            favoDiv.id="favo-"+item.id;
             favoDiv.setAttribute("class", "col-md-2");
             favoDiv.setAttribute("style", "margin-top: 20px;");
             favoListDiv.append(favoDiv);
 
             let imgFrameDiv = document.createElement("div");
-            imgFrameDiv.setAttribute("class","imgFrame");
+            imgFrameDiv.setAttribute("class", "imgFrame");
             favoDiv.append(imgFrameDiv);
 
             let favoLink = document.createElement("a");
             favoLink.href = item.goodLink;
             imgFrameDiv.append(favoLink);
-            
+
 
             let image = document.createElement("img");
             image.src = item.imgUrl;
