@@ -80,7 +80,7 @@
                             </tr>
                         </thead>
                         <tbody style="overflow-y: auto;">
-                            <tr>
+                            <tr id="good-1234">
                                 <td> <a href="product.html"><img src="../images/cart/50e2c594f34bef9c.jpg" alt=""></a>
                                 </td>
                                 <td class="good-name">咖啡</td>
@@ -111,7 +111,7 @@
                                     </button>
                                 </td>
                             </tr>
-                            <tr>
+                            <tr id="good-12345">
                                 <td> <a href="product.html"><img src="../images/cart/749e8fce6291f8c8.jpg" alt=""></a>
                                 </td>
                                 <td class="good-name">高斯键盘</td>
@@ -142,7 +142,7 @@
                                     </button>
                                 </td>
                             </tr>
-                            <tr>
+                            <tr id="good-12346">
                                 <td> <a href="product.html"><img src="../images/cart/749e8fce6291f8c8.jpg" alt=""></a>
                                 </td>
                                 <td class="good-name">高斯键盘</td>
@@ -220,7 +220,7 @@
         goodsCount: 1,
     },
     {
-        id: 1234564876,
+        id: 1234564,
         imgUrl: "../images/cart/50e2c594f34bef9c.jpg",
         goodLink: "product.html",
         goodName: "咖啡",
@@ -229,7 +229,7 @@
         goodsCount: 1,
     },
     {
-        id: 1234564876,
+        id: 12345648,
         imgUrl: "../images/cart/749e8fce6291f8c8.jpg",
         goodLink: "product.html",
         goodName: "咖啡",
@@ -314,6 +314,7 @@
         }
     });
 
+    //生成商品
     function genGoods(goodsList) {
         $("tbody").empty();
         let tbody = $("tbody");
@@ -323,6 +324,7 @@
             //let item = goodsList[0];
 
             let tableRow = document.createElement("tr");
+            tableRow.id = "good-" + item.id;
             tbody.append(tableRow);
 
             let imageTd = document.createElement("td");
@@ -402,31 +404,81 @@
         });
 
 
-        //窗口加载时，显示商品
-        window.onload = function () {
-            $.ajax({
-                type: "GET",
-                url: "",
-                dataType: "json",
-                success: function (data) {
-                    /*  window.location.href("index.html"); */
-                    genGoods(data);
-                },
-                error: function (data) {
 
-                },
-            })
-        }
-
-        //点击checkout时的操作
-        function checkout(){
-            
-        }
 
 
     }
 
+    //窗口加载时，显示商品
+    window.onload = function () {
+        $.ajax({
+            type: "GET",
+            url: "",
+            dataType: "json",
+            success: function (data) {
+                /*  window.location.href("index.html"); */
+                genGoods(data);
+            },
+            error: function (data) {
 
+            },
+        });
+    }
+
+    //点击checkout时的操作,返回商品id和商品个数
+    //数据是这样的
+    /* [{
+        goodId:***,
+        goodCount:***
+    },
+    {
+        goodId:***,
+        goodCount:***
+    },
+    {
+        goodId:***,
+        goodCount:***
+    },
+    ] */
+    function checkout() {
+        let tbody = $("tbody");
+        // alert("wdnmd");
+
+        let returnArray = new Array();
+
+        tbody.children().each(function (i, item) {
+            let goodIdStr = item.id;
+            let goodId = goodIdStr.substring(5);
+
+            let goodCountStr = $(item).find(".count").text();
+            let goodCount = parseInt(goodCountStr)
+            //alert(goodId+":"+goodCount);
+
+            if (goodCount != 0) {
+                let newJson = {
+                    goodId: goodId,
+                    goodCount: goodCount
+                }
+                returnArray.push(newJson);
+            }
+        });
+        window.open("checkout.html", "_self");
+        /* for(let i=0;i<returnArray.length;i++){
+            console.log(returnArray[i].goodCount+":"+returnArray[i].goodId)
+        } */
+
+        $.ajax({
+            type: "POST",
+            url: "",
+            data: returnArray,
+            dataType: "json",
+            success: function (data) {
+                window.open("finish_order.html", "_self");
+            },
+            error: function (data) {
+            },
+        });
+    }
 
 </script>
 

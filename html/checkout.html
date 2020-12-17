@@ -104,9 +104,9 @@
                 </table>
             </div>
             <div class="col-md-4 col-md-offset-8" style="text-align: right;">
-                共有<span id="total-count" style="color: #f71117 " >2</span>件商品，共计：
+                共有<span id="total-count" style="color: #f71117 ">2</span>件商品，共计：
                 <span id="total-price" style="color: #f71117;font-size: 1.2em;">159.98</span>元
-                <button class="btn btn-success btn-lg" onclick="window.location.href='finish_order.html'">确认付款</button>
+                <button class="btn btn-success btn-lg" onclick="checkout()">确认付款</button>
             </div>
         </div>
     </div>
@@ -130,19 +130,19 @@
     });
 
     //获得个数和总计
-    function getTotal(){
+    function getTotal() {
         let tbody = $("#confirm-table tbody");
-        let totalCount=0;
-        let totalPrice=0;
-        tbody.children().each(function(i,tr){
-            let theTr=$(tr);
-            
-            if(i!=0){//i=0是标题栏
-                let countTd=theTr.find(".unit-count");
-                let subTotalSpan=theTr.find(".subtotal");
+        let totalCount = 0;
+        let totalPrice = 0;
+        tbody.children().each(function (i, tr) {
+            let theTr = $(tr);
 
-                totalCount+=parseInt(countTd.text());
-                totalPrice+=parseFloat(subTotalSpan.text());
+            if (i != 0) {//i=0是标题栏
+                let countTd = theTr.find(".unit-count");
+                let subTotalSpan = theTr.find(".subtotal");
+
+                totalCount += parseInt(countTd.text());
+                totalPrice += parseFloat(subTotalSpan.text());
             }
         });
 
@@ -269,7 +269,7 @@
             tbody.append(orderTr);
 
             let imageTd = document.createElement("td");
-            imageTd.setAttribute("width","10%");
+            imageTd.setAttribute("width", "10%");
             orderTr.append(imageTd);
 
             let image = document.createElement("img");
@@ -277,42 +277,67 @@
             imageTd.append(image);
 
             let goodNameTd = document.createElement("td");
-            goodNameTd.setAttribute("width","10%");
+            goodNameTd.setAttribute("width", "10%");
             goodNameTd.innerHTML = item.goodName;
             orderTr.append(goodNameTd);
 
             let goodDescripTd = document.createElement("td");
-            goodDescripTd.setAttribute("width","40%");
+            goodDescripTd.setAttribute("width", "40%");
             goodDescripTd.innerHTML = item.goodDescrip;
             orderTr.append(goodDescripTd);
 
             let unitPriceTd = document.createElement("td");
-            unitPriceTd.setAttribute("width","10%");
-            unitPriceTd.innerHTML = "￥"+item.unitPrice.toFixed(2);
+            unitPriceTd.setAttribute("width", "10%");
+            unitPriceTd.innerHTML = "￥" + item.unitPrice.toFixed(2);
             orderTr.append(unitPriceTd);
 
             let countTd = document.createElement("td");
-            countTd.setAttribute("class","unit-count");
-            countTd.setAttribute("width","10%");
+            countTd.setAttribute("class", "unit-count");
+            countTd.setAttribute("width", "10%");
             countTd.innerHTML = item.goodCount;
             orderTr.append(countTd);
 
             let discountTd = document.createElement("td");
-            discountTd.setAttribute("width","10%");
-            if(item.disCount==0){
+            discountTd.setAttribute("width", "10%");
+            if (item.disCount == 0) {
                 discountTd.innerHTML = "无";
-            }else{
+            } else {
                 discountTd.innerHTML = "-￥" + item.disCount.toFixed(2);
             }
             orderTr.append(discountTd);
 
             let subtotalTd = document.createElement("td");
-            subtotalTd.setAttribute("width","10%");
-            subtotalTd.innerHTML = "￥" +"<span class=\"subtotal\">"+item.subtotal.toFixed(2)+"</span>";
+            subtotalTd.setAttribute("width", "10%");
+            subtotalTd.innerHTML = "￥" + "<span class=\"subtotal\">" + item.subtotal.toFixed(2) + "</span>";
             orderTr.append(subtotalTd);
         });
 
         getTotal();
+    }
+
+    //点击结算，返回地址的id，是字符串形式
+    function checkout() {
+        //address-1231
+        let addressIdStr = $(".list-address").children(".active").attr("id");
+        //address-1234 -> 1234
+        let addressId = addressIdStr.substring(8);
+        //alert(addressId);
+        window.open("finish_order.html", "_self");
+        
+        $.ajax({
+            type: "POST",
+            url: "",
+            data: {
+                addressId: addressId
+            },
+            dataType: "json",
+            success: function (result) {
+            },
+            error: function (result) {
+                //window.location.href("index.html");
+            },
+        })
+
     }
 </script>
 
