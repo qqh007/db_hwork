@@ -69,12 +69,23 @@
     <main style="margin-top: 60px;">
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-10">
                     <div style="font-size:large">
                         关于"<span style="color:skyblue; font-weight: bold;">衣服</span>"的搜索结果：
                     </div>
 
                     <hr>
+                </div>
+                <div class="col-md-2">
+                    <form>
+                        <div class="form-group">
+                            <label for="sel1">排序方式</label>
+                            <select class="form-control" id="sel1">
+                                <option>价格&uarr;</option>
+                                <option>价格&darr;</option>
+                            </select>
+                        </div>
+                    </form>
                 </div>
                 <div class="col-md-3 good-frame">
                     <div>
@@ -157,6 +168,37 @@
 <script type="text/javascript">
     $("#nav_part").load("nav_part.html");
     $("#footer_part").load("footer_part.html");
+
+    var goodList = [
+        {
+            goodName: "",
+            goodLink: "",
+            imgURL: "",
+            goodDescrip: "",
+            unitPrice: 1
+        },
+        {
+            goodName: "",
+            goodLink: "",
+            imgURL: "",
+            goodDescrip: "",
+            unitPrice: 1
+        },
+        {
+            goodName: "",
+            goodLink: "",
+            imgURL: "",
+            goodDescrip: "",
+            unitPrice: 1
+        },
+        {
+            goodName: "",
+            goodLink: "",
+            imgURL: "",
+            goodDescrip: "",
+            unitPrice: 1
+        },
+    ];
 </script>
 
 </html>

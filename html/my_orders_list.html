@@ -76,7 +76,7 @@
                     <div class="tab-content">
                         <div class="tab-pane active" id="panel-all">
                             <table class="table">
-                                <tbody>
+                                <thead>
                                     <tr>
                                         <th colspan="3">商品信息</th>
                                         <th>单价</th>
@@ -85,6 +85,8 @@
                                         <th>交易状态</th>
                                         <th>操作</th>
                                     </tr>
+                                </thead>
+                                <tbody>
                                     <tr>
                                         <td colspan="8" style="border: 0"></td>
                                     </tr>
@@ -105,7 +107,8 @@
                                         <td width="10%">￥ <span>199</span> </td>
                                         <td width="10%" class="status">待评价</td>
                                         <td width="12%"><button type="button" class="btn btn-primary"
-                                                data-toggle="modal" data-target="#exampleModal" onclick="commentOrder(this)">
+                                                data-toggle="modal" data-target="#exampleModal"
+                                                onclick="commentOrder(this)">
                                                 评价
                                             </button>
                                         </td>
@@ -183,7 +186,8 @@
                                         <td width="10%">￥ <span>199</span> </td>
                                         <td width="10%" class="status">待收货</td>
                                         <td width="12%"><button type="button" class="btn btn-warning"
-                                                data-toggle="modal" data-target="#confirm-Modal" onclick="confirmReceipt(this)">
+                                                data-toggle="modal" data-target="#confirm-Modal"
+                                                onclick="confirmReceipt(this)">
                                                 确认收货
                                             </button></td>
                                     </tr>
@@ -221,7 +225,8 @@
                                         <td width="10%">￥ <span>199</span> </td>
                                         <td width="10%" class="status">待评价</td>
                                         <td width="12%"><button type="button" class="btn btn-primary"
-                                                data-toggle="modal" data-target="#exampleModal" onclick="commentOrder(this)">
+                                                data-toggle="modal" data-target="#exampleModal"
+                                                onclick="commentOrder(this)">
                                                 评价
                                             </button></td>
                                     </tr>
@@ -267,18 +272,6 @@
                             </table>
                         </div>
 
-
-                        <div class="col-md-12" style="text-align: center;">
-                            <ul class="pagination">
-                                <li class="prev-page"><a href="#">&laquo;</a></li>
-                                <li class="active"><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">5</a></li>
-                                <li class="next-page"><a href="#">&raquo;</a></li>
-                            </ul>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -293,7 +286,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" class="close" data-dismiss="modal">
                         <span aria-hidden="true">&times;</span>
                     </button>
                     <h5 class="modal-title" id="exampleModalLabel">评价此订单</h5>
@@ -303,7 +296,8 @@
                         style="resize: none;"></textarea>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="comment-order" data-dismiss="modal" aria-label="Close">评价</button>
+                    <button type="button" class="btn btn-primary" id="comment-order" data-dismiss="modal"
+                        onclick="modalCommentOrder()">评价</button>
                 </div>
             </div>
         </div>
@@ -315,7 +309,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" class="close" data-dismiss="modal">
                         <span aria-hidden="true">&times;</span>
                     </button>
                     <h5 class="modal-title" id="exampleModalLabel">确认收货</h5>
@@ -324,8 +318,9 @@
                     <h4>是否确认收货？</h4>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default"data-dismiss="modal" aria-label="Close">取消</button>
-                    <button type="button" class="btn btn-primary" id="confirm-receipt" data-dismiss="modal" aria-label="Close">确认</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" id="confirm-receipt" data-dismiss="modal"
+                        onclick="modalConfirmReceipt()">确认</button>
                 </div>
             </div>
         </div>
@@ -363,92 +358,90 @@
     });
 
 
+    //全局变量
+    let theButton;
+    let orderId;
+
     //确认收货
     function confirmReceipt(button) {
-        let theButton = $(button);
-        let orderId=theButton.parent().parent().attr("data-id");
+        theButton = $(button);
+        orderId = theButton.parent().parent().attr("data-id");
 
         console.log(orderId);
+    }
 
-        //点击确认收货时
-        $("#confirm-receipt").click(function(){
-            theButton.parent().siblings(".status").text("待评价");
-            //theButton.attr("disabled","true");
-            //设置按钮
-            theButton.text("评价");
-            theButton.attr("class","btn btn-primary");
-            //设置下一个动作为评价
-            theButton.attr("onclick","commentOrder(this)");
-            theButton.attr("data-target","#exampleModal");//拉起评价框
+    //点击模态框里的确认收货
+    function modalConfirmReceipt() {
+        theButton.parent().siblings(".status").text("待评价");
+        //theButton.attr("disabled","true");
+        //设置按钮
+        theButton.text("评价");
+        theButton.attr("class", "btn btn-primary");
+        //设置下一个动作为评价
+        theButton.attr("onclick", "commentOrder(this)");
+        theButton.attr("data-target", "#exampleModal");//拉起评价框
 
-            //设置data-status
-            theButton.parent().parent().attr("data-status","to-comment");
-            console.log(theButton.parent().parent().attr("data-status"));
+        //设置data-status
+        theButton.parent().parent().attr("data-status", "to-comment");
+        console.log(theButton.parent().parent().attr("data-status"));
 
-            //发送数据
-            $.ajax({
-                type: "POST",
-                url: "",
-                data: {
-                    orderId:orderId
-                },
-                dataType: "json",
-                success: function (data) {
-                    //window.open("finish_order.html", "_self");
-                },
-                error: function (data) {
-                },
-            });
+        //发送数据
+        $.ajax({
+            type: "POST",
+            url: "",
+            data: {
+                orderId: orderId
+            },
+            dataType: "json",
+            success: function (data) {
+                //window.open("finish_order.html", "_self");
+            },
+            error: function (data) {
+            },
         });
-        
     }
 
     //评价一个订单
-    function commentOrder(button){
-        let theButton = $(button);
-        let orderId=theButton.parent().parent().attr("data-id");
+    function commentOrder(button) {
+        theButton = $(button);
+        orderId = theButton.parent().parent().attr("data-id");
 
         console.log(orderId);
-
         //开始评价之前清空内容
         $("#comment-content").val("");
-
-        //点击确认收货时
-        $("#comment-order").click(function(){
-            theButton.parent().siblings(".status").text("已评价");
-            theButton.attr("disabled","true");
-            //设置按钮
-            theButton.text("已评价");
-            theButton.attr("class","btn btn-default");
-
-            //设置data-status
-            theButton.parent().parent().attr("data-status","has-comment");
-            console.log(theButton.parent().parent().attr("data-status"));
-
-            //获取评价内容
-            let commentContent=$("#comment-content").val();
-            console.log(commentContent);
-
-            //发送数据
-            $.ajax({
-                type: "POST",
-                url: "",
-                data: {
-                    orderId:orderId,
-                    commentContent:commentContent
-                },
-                dataType: "json",
-                success: function (data) {
-                    //window.open("finish_order.html", "_self");
-                },
-                error: function (data) {
-                },
-            });
-        });
-
-        
     }
 
+    function modalCommentOrder() {
+        theButton.parent().siblings(".status").text("已评价");
+        theButton.attr("disabled", "true");
+        //设置按钮
+        theButton.text("已评价");
+        theButton.attr("class", "btn btn-default");
+
+        //设置data-status
+        theButton.parent().parent().attr("data-status", "has-comment");
+        console.log(theButton.parent().parent().attr("data-status"));
+
+        //获取评价内容
+        let commentContent = $("#comment-content").val();
+        console.log(commentContent);
+
+        //发送数据
+        $.ajax({
+            type: "POST",
+            url: "",
+            data: {
+                orderId: orderId,
+                commentContent: commentContent
+            },
+            dataType: "json",
+            success: function (data) {
+                //window.open("finish_order.html", "_self");
+            },
+            error: function (data) {
+            },
+        });
+    }
 
     var orderList = [{
         id: 1234564876,
@@ -502,13 +495,20 @@
 
     //生成html
     function loadOrders() {
-
         let tbody = $("#panel-all table tbody");
         tbody.html("");
 
-        let headerTr = document.createElement("tr");
-        headerTr.innerHTML = "<th colspan=\"3\">商品信息</th><th>单价</th><th>数量</th><th>实付款</th><th>交易状态</th><th>操作</th>";
-        tbody.append(headerTr);
+        let toDeliverTbody = $("#panel-to-deliver table tbody");
+        let toReceiveTbody = $("#panel-to-receive table tbody");
+        let toCommentTbody = $("#panel-to-comment table tbody");
+        let hasCommentTbody = $("#panel-commented table tbody");
+
+        toDeliverTbody.html("");
+        toReceiveTbody.html("");
+        toCommentTbody.html("");
+        hasCommentTbody.html("");
+
+
 
         $.each(orderList, function (i, item) {
             //alert("wdnmd");
@@ -528,9 +528,10 @@
             orderHeadTr.append(orderHeadTd);
 
             let orderDetailTr = document.createElement("tr");
-            orderDetailTr.setAttribute("data-id",item.status);
-            orderDetailTr.setAttribute("data-status",1);
+            orderDetailTr.setAttribute("data-id", item.status);
+            orderDetailTr.setAttribute("data-status", 1);
             tbody.append(orderDetailTr);
+
 
             let imageTd = document.createElement("td");
             imageTd.setAttribute("width", "10%");
@@ -606,6 +607,29 @@
                 operaBtn.innerHTML = "已评价";
             }
             operaTd.append(operaBtn);
+
+
+            let newBlankTr = blankTr.cloneNode(true);
+            let newOrderHeadTr = orderHeadTd.cloneNode(true);
+            let newOrderDetailTr = orderDetailTr.cloneNode(true);
+
+            if (item.status == "待发货") {
+                toDeliverTbody.append(newBlankTr);
+                toDeliverTbody.append(newOrderHeadTr);
+                toDeliverTbody.append(newOrderDetailTr);
+            } else if (item.status == "待收货") {
+                toReceiveTbody.append(newBlankTr);
+                toReceiveTbody.append(newOrderHeadTr);
+                toReceiveTbody.append(newOrderDetailTr);
+            } else if (item.status == "待评价") {
+                toCommentTbody.append(newBlankTr);
+                toCommentTbody.append(newOrderHeadTr);
+                toCommentTbody.append(newOrderDetailTr);
+            } else if (item.status == "已评价") {
+                hasCommentTbody.append(newBlankTr);
+                hasCommentTbody.append(newOrderHeadTr);
+                hasCommentTbody.append(newOrderDetailTr);
+            }
         });
     }
 

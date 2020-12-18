@@ -35,10 +35,10 @@
             width: 100%;
         }
 
-        #avatarImg {
+        /* #avatar-img {
             border: greenyellow 1px solid;
         }
-
+ */
         ul {
             border: 0;
         }
@@ -106,8 +106,14 @@
                                     <div class="col-md-offset-1 col-md-7">
                                         <div class="row">
                                             <div class="col-md-offset-2 col-md-3">
-                                                <img src="../images/index/4.jpg" class="img-circle" id="avatarImg"
-                                                    alt="" style="width:100%; height: 100%;">
+                                                <div
+                                                    style="border: 1px solid lightblue;width: 100px;height:100px;margin: 5px auto;border-radius: 50%;">
+                                                    <img src="/static/images/default.jpg" alt="选择并上传头像" id="avatar-img"
+                                                        style="width: 98px;height: 98px;border-radius: 50%;" />
+                                                    <input type="file" id="avatar_file" name="avatar_file"
+                                                        accept="image/jpg,image/png,image/gif"
+                                                        style="width: 100%;height:100%;opacity: 0;"/>
+                                                </div>
                                             </div>
                                         </div>
                                         <form class="form-horizontal" style="margin-top: 40px">
@@ -200,6 +206,48 @@
                                 </div>
                             </div>
                         </div>
+
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingShree">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                                        href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        修改密码
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel"
+                                aria-labelledby="headingThree">
+                                <div class="panel-body">
+                                    <div class="col-md-offset-1 col-md-8">
+                                        <form class="form-horizontal" style="margin-top: 40px">
+
+                                            <div class="form-group">
+                                                <label for="input6" class="col-sm-2 control-label">密&emsp;码</label>
+                                                <div class="col-sm-10">
+                                                    <input type="password" class="form-control" id="passward-input"
+                                                        placeholder="password">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="input7" class="col-sm-2 control-label">确&emsp;认</label>
+                                                <div class="col-sm-10">
+                                                    <input type="password" class="form-control" id="passward1-input"
+                                                        placeholder="passward confirmation">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-md-10 col-md-offset-2">
+                                                    <button type="button" class="btn btn-success save"
+                                                        style="width: 100%;" onclick="changePassward()">保存</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -218,6 +266,38 @@
 
     setOriginInfo();
 
+
+    // 头像预览并发送数据
+    $("#avatar_file").change(function () {
+        // 获取上传文件对象
+        var file = $(this)[0].files[0];
+        // 读取文件URL
+        var reader = new FileReader();
+        reader.readAsDataURL(file);
+        // 阅读文件完成后触发的事件
+
+        let imgSrc;
+        reader.onload = function () {
+            // 读取的URL结果：this.result
+            $("#avatar-img").attr("src", this.result);
+            imgSrc = this.result;
+        }
+
+        $.ajax({
+            type: "POST",
+            url: "",
+            data: {
+                imgSrc: imgSrc
+            },
+            dataType: "json",
+            success: function (data) {
+                // window.open("finish_order.html", "_self");
+            },
+            error: function (data) {
+            },
+        });
+    });
+
     function setOriginInfo() {
         $("#nickname-input").val($("#nickname").text().trim());
         $("#tel-input").val($("#tel").text().trim());
@@ -235,7 +315,7 @@
     };
 
     function loadInfo() {
-        $("#avatarImg").attr("src", myInfo.avatarUrl);
+        $("#avatar-img").attr("src", myInfo.avatarUrl);
         $("#username").text(myInfo.username);
         $("#nickname").text(myInfo.nickname);
         $("#tel").text(myInfo.telephone);
@@ -245,15 +325,6 @@
 
 
     function saveInfo() {
-
-        let newInfo = {
-            nickname: $("#nickname-input").val().trim(),
-            telephone: $("#tel-input").val().trim(),
-            email: $("#mail-input").val().trim()
-        }
-
-        
-
         $.ajax({
             type: "POST",
             url: "",
@@ -273,10 +344,31 @@
         //设置显示页面的信息
         $("#nickname").text($("#nickname-input").val().trim());
         $("#tel").text($("#tel-input").val().trim());
-        $("#mail").text( $("#mail-input").val().trim());
-        
-
+        $("#mail").text($("#mail-input").val().trim());
         //设置表单中信息
+    }
+
+    function changePassward() {
+
+        console.log($("#passward-input").val().trim());
+        console.log($("#passward1-input").val().trim());
+
+        window.ol
+
+        $.ajax({
+            type: "POST",
+            url: "",
+            data: {
+                passward: $("#passward-input").val().trim(),
+                passward1: $("#passward1-input").val().trim(),
+            },
+            dataType: "json",
+            success: function (data) {
+                // window.open("finish_order.html", "_self");
+            },
+            error: function (data) {
+            },
+        });
     }
 </script>
 

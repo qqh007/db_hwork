@@ -97,8 +97,7 @@
 
                                 <div class="col-md-2 col-md-offset-10">
                                     <button type="button" class="btn btn-link " id="add-addr" data-toggle="modal"
-                                        data-target="#new-addr-modal" style="width: 100%;"
-                                        onclick="addAddr()">新增地址</button>
+                                        data-target="#new-addr-modal" style="width: 100%;">新增地址</button>
                                 </div>
 
                                 <div class="panel-body">
@@ -154,19 +153,6 @@
 
                                             </tbody>
                                         </table>
-
-                                        <div class="col-md-12" style="text-align: center;">
-                                            <ul class="pagination pagination-sm">
-                                                <li class="prev-page"><a href="#">&laquo;</a></li>
-                                                <li class="active"><a href="#">1</a></li>
-                                                <li><a href="#">2</a></li>
-                                                <li><a href="#">3</a></li>
-                                                <li><a href="#">4</a></li>
-                                                <li><a href="#">5</a></li>
-                                                <li class="next-page"><a href="#">&raquo;</a></li>
-                                            </ul>
-                                        </div>
-
                                     </div>
                                 </div>
                             </div>
@@ -178,8 +164,8 @@
                 </div>
             </div>
         </div>
-
     </main>
+
 
     <!-- 页脚 -->
     <div id="footer_part"></div>
@@ -191,7 +177,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" class="close" data-dismiss="modal">
                         <span aria-hidden="true">&times;</span>
                     </button>
                     <h4 class="modal-title" id="newAddrLabel" style="color: #0074c2; font-weight: bold;">新增地址</h4>
@@ -202,12 +188,12 @@
                     <label for="">手机号码</label>
                     <input class="form-control" type="tel" placeholder="手机号码" id="new-tel">
                     <label for="">详细地址</label>
-                    <textarea class="form-control" name="" id="new-address" rows="4" placeholder="详细地址" style="resize: none;"
-                        ></textarea>
+                    <textarea class="form-control" name="" id="new-address" rows="4" placeholder="详细地址"
+                        style="resize: none;"></textarea>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" id="new-addr-btn" data-dismiss="modal"
-                        aria-label="Close">保存</button>
+                        onclick="addAddr()">保存</button>
                 </div>
             </div>
         </div>
@@ -219,7 +205,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" class="close" data-dismiss="modal">
                         <span aria-hidden="true">&times;</span>
                     </button>
                     <h4 class="modal-title" id="modifyAddrLabel" style="color: #0074c2; font-weight: bold;">编辑地址</h4>
@@ -235,7 +221,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" id="edit-addr-btn" data-dismiss="modal"
-                        aria-label="Close">保存</button>
+                        onclick="saveEditInfo()">保存</button>
                 </div>
             </div>
         </div>
@@ -247,7 +233,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" class="close" data-dismiss="modal">
                         <span aria-hidden="true">&times;</span>
                     </button>
                     <h5 class="modal-title" id="exampleModalLabel">删除</h5>
@@ -256,9 +242,8 @@
                     <h4>确认删除？</h4>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal" aria-label="Close">取消</button>
-                    <button type="button" class="btn btn-primary" id="delete-confirm" data-dismiss="modal"
-                        aria-label="Close">确认</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" id="delete-confirm" data-dismiss="modal" onclick="deleteConfirm()">确认</button>
                 </div>
             </div>
         </div>
@@ -292,81 +277,86 @@
     });
 
 
+    //全局变量
+    let theButton;
+    let addrId;
+
     //删除一个地址
     function deleteAddr(button) {
-        let theButton = $(button);
-
+        theButton = $(button);
         let addrIdStr = theButton.parent().parent().attr("id");
         let addrId = addrIdStr.substring(5);
-
-        //点击确认时删除
-        $("#delete-confirm").click(function () {
-            theButton.parent().parent().remove();
-            //发送ajax
-            $.ajax({
-                type: "POST",
-                url: "",
-                data: { deletedAddrId: addrId },
-                dataType: "json",
-                success: function (data) {
-                    //window.open("finish_order.html", "_self");
-                },
-                error: function (data) {
-                },
-            });
-        })
     }
 
-    //新增一个地址
-    function addAddr() {
-        //当保存按钮被点击时，发送数据
-        $("#new-addr-btn").click(function () {
-
-            console.log($("#new-receiver").val() +
-                $("#new-tel").val() +
-                $("#new-address").val());
-
-            $.ajax({
-                type: "POST",
-                url: "",
-                data: {
-                    receiver: $("#new-receiver").val(),
-                    phone: $("#new-tel").val(),
-                    address: $("#new-address").val(),
-                },
-                dataType: "json",
-                success: function (data) {
-                    //window.open("finish_order.html", "_self");
-                },
-                error: function (data) {
-                },
-            });
-
-
-            //发送完数据后将这个地址信息显示出来
-            let newAddr = [{
-                id: 0000,
-                receiver: $("#new-receiver").val(),
-                address: $("#new-address").val(),
-                tel: $("#new-tel").val(),
-            }];
-
-            console.log("len:"+newAddr.length);
-
-            //loadinfo 0表示非初始化，不应该清空表格
-            loadAddressInfo(newAddr,0);
-
+    //确认删除
+    function deleteConfirm() {
+        theButton.parent().parent().remove();
+        //发送ajax
+        $.ajax({
+            type: "POST",
+            url: "",
+            data: { deletedAddrId: addrId },
+            dataType: "json",
+            success: function (data) {
+                //window.open("finish_order.html", "_self");
+            },
+            error: function (data) {
+            },
         });
     }
 
+    //新增一个地址，点击保存时触发
+    function addAddr() {
+        console.log($("#new-receiver").val() +
+            $("#new-tel").val() +
+            $("#new-address").val());
+
+
+        //清空原有信息
+
+
+        $.ajax({
+            type: "POST",
+            url: "",
+            data: {
+                receiver: $("#new-receiver").val(),
+                phone: $("#new-tel").val(),
+                address: $("#new-address").val(),
+            },
+            dataType: "json",
+            success: function (data) {
+                //window.open("finish_order.html", "_self");
+            },
+            error: function (data) {
+            },
+        });
+
+        //发送完数据后将这个地址信息显示出来
+        let newAddr = [{
+            id: 0000,
+            receiver: $("#new-receiver").val(),
+            address: $("#new-address").val(),
+            tel: $("#new-tel").val(),
+        }];
+
+        console.log("len:" + newAddr.length);
+
+        //loadinfo 0表示非初始化，不应该清空表格
+        loadAddressInfo(newAddr, 0);
+
+        //清空信息，下次写的时候是空的
+        $("#new-receiver").val("");
+        $("#new-tel").val("");
+        $("#new-address").val("");
+    }
 
 
     //编辑一个地址
     function editAddr(button) {
-        let theButton = $(button);
+        theButton = $(button);
 
         let addrIdStr = theButton.parent().parent().attr("id");
-        let addrId = addrIdStr.substring(5);
+        addrId = addrIdStr.substring(5);
 
         console.log("wdnmd");
 
@@ -374,38 +364,34 @@
         $("#edit-receiver").val(theButton.parent().siblings(".receiver").text());
         $("#edit-tel").val(theButton.parent().siblings(".tel").text());
         $("#edit-address").val(theButton.parent().siblings(".address").text());
+    }
 
-        //点击保存时发送数据
-        $("#edit-addr-btn").click(function () {
-            console.log(addrId + $("#edit-receiver").val() +
-                $("#edit-tel").val() +
-                $("#edit-address").val());
-            //发送ajax
-            $.ajax({
-                type: "POST",
-                url: "",
-                data: {
-                    deletedAddrId: addrId,
-                    receiver: $("#edit-receiver").val(),
-                    phone: $("#edit-tel").val(),
-                    address: $("#edit-address").val(),
-                },
-                dataType: "json",
-                success: function (data) {
-                    //window.open("finish_order.html", "_self");
-                },
-                error: function (data) {
-                },
-            });
-
-            //编辑完成后显示新信息
-            theButton.parent().siblings(".receiver").text($("#edit-receiver").val());
-            theButton.parent().siblings(".tel").text($("#edit-tel").val());
-            theButton.parent().siblings(".address").text($("#edit-address").val());
-        })
-
-
-
+    //点击保存时保存编辑的信息；
+    function saveEditInfo() {
+        console.log(addrId + $("#edit-receiver").val() +
+            $("#edit-tel").val() +
+            $("#edit-address").val());
+        //发送ajax
+        $.ajax({
+            type: "POST",
+            url: "",
+            data: {
+                deletedAddrId: addrId,
+                receiver: $("#edit-receiver").val(),
+                phone: $("#edit-tel").val(),
+                address: $("#edit-address").val(),
+            },
+            dataType: "json",
+            success: function (data) {
+                //window.open("finish_order.html", "_self");
+            },
+            error: function (data) {
+            },
+        });
+        //编辑完成后显示新信息
+        theButton.parent().siblings(".receiver").text($("#edit-receiver").val());
+        theButton.parent().siblings(".tel").text($("#edit-tel").val());
+        theButton.parent().siblings(".address").text($("#edit-address").val());
     }
 
 
@@ -516,7 +502,7 @@
 
             let defaultBtn = document.createElement("button");
             defaultBtn.setAttribute("type", "button");
-            if (i == 0&&init==1) {
+            if (i == 0 && init == 1) {
                 defaultBtn.setAttribute("class", "btn btn-default");
                 defaultBtn.setAttribute("disabled", "true");
                 defaultBtn.innerHTML = "默认地址";
