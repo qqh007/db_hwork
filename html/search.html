@@ -80,13 +80,15 @@
                     <form>
                         <div class="form-group">
                             <label for="sel1">排序方式</label>
-                            <select class="form-control" id="sel1">
-                                <option>价格&uarr;</option>
-                                <option>价格&darr;</option>
+                            <select class="form-control" id="select" onchange="sortGoods()">
+                                <option value="asc">价格&uarr;</option>
+                                <option value="desc">价格&darr;</option>
                             </select>
                         </div>
                     </form>
                 </div>
+            </div>
+            <div class="row row-goods">
                 <div class="col-md-3 good-frame">
                     <div>
                         <a href="goodsinfo.html"><img src="../images/index/4.jpg" alt=""></a>
@@ -158,47 +160,289 @@
                     </div>
                 </div>
             </div>
+
+            <div class="row">
+                <div class="col-md-12" style="text-align: center;">
+                    <ul class="pagination">
+                        <li id="prev-page"><a onclick="prevPage()">&laquo;</a></li>
+                        <li class="active"><a onclick="thisPage(this)">1</a></li>
+                        <li><a onclick="thisPage(this)">2</a></li>
+                        <li><a onclick="thisPage(this)">3</a></li>
+                        <li><a onclick="thisPage(this)">4</a></li>
+                        <li><a onclick="thisPage(this)">5</a></li>
+                        <li id="next-page"><a onclick="nextPage()">&raquo;</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </main>
 
     <!-- 页脚 -->
     <div id="footer_part"></div>
+
+    <button onclick="setUp()">生成商品</button>
 </body>
 
 <script type="text/javascript">
+
+    //加载导航栏和页脚
     $("#nav_part").load("nav_part.html");
     $("#footer_part").load("footer_part.html");
 
+
+    //打开窗口时
+    window.onload = function () {
+
+        //从服务器获取数据，并存在goodList中
+        $.ajax({
+            type: "GET",
+            url: "",
+            dataType: "json",
+            success: function (data) {
+                /*  window.location.href("index.html"); */
+                //goodList = data;
+            },
+            error: function (data) {
+
+            },
+        });
+
+        //然后是初始化,这里进行了分页操作
+        setUp;
+    };
+
+    //分页栏
+    let nowPage = 1;
+    let maxPage = 1;
+
+    let numOnePage = 2;//一页商品的个数
+
+    let splitGoodList = new Array();
+
+    function prevPage() {
+        if (nowPage > 1) {
+            nowPage--;
+            let nowActiveLi = $(".pagination").children(".active");
+            nowActiveLi.removeClass("active");
+            nowActiveLi.prev().addClass("active");
+            loadGoods(splitGoodList[nowPage - 1]);
+        }
+    }
+
+    function nextPage() {
+        if (nowPage < maxPage) {
+            nowPage++;
+            let nowActiveLi = $(".pagination").children(".active");
+            nowActiveLi.removeClass("active");
+            nowActiveLi.next().addClass("active");
+            loadGoods(splitGoodList[nowPage - 1]);
+        }
+    }
+    function thisPage(a) {
+        let theA = $(a);
+        theA.parent().addClass("active");
+        theA.parent().siblings().removeClass("active");
+        nowPage = parseInt(theA.text());
+        loadGoods(splitGoodList[nowPage - 1]);
+    }
+
     var goodList = [
         {
-            goodName: "",
-            goodLink: "",
-            imgURL: "",
-            goodDescrip: "",
+            id: "1111",
+            goodName: "商品名",
+            goodLink: "product.html",
+            imgURL: "../images/index/4.jpg",
+            goodDescrip: "商品描述商品描述商品描述商品描述商品描述商品描述",
             unitPrice: 1
         },
         {
-            goodName: "",
-            goodLink: "",
-            imgURL: "",
-            goodDescrip: "",
-            unitPrice: 1
+            id: "1111",
+            goodName: "商品名",
+            goodLink: "product.html",
+            imgURL: "../images/index/4.jpg",
+            goodDescrip: "商品描述商品描述商品描述商品描述商品描述商品描述",
+            unitPrice: 8
         },
         {
-            goodName: "",
-            goodLink: "",
-            imgURL: "",
-            goodDescrip: "",
-            unitPrice: 1
+            id: "1111",
+            goodName: "商品名",
+            goodLink: "product.html",
+            imgURL: "../images/index/4.jpg",
+            goodDescrip: "商品描述商品描述商品描述商品描述商品描述商品描述",
+            unitPrice: 4
         },
         {
-            goodName: "",
-            goodLink: "",
-            imgURL: "",
-            goodDescrip: "",
-            unitPrice: 1
+            id: "1111",
+            goodName: "商品名",
+            goodLink: "product.html",
+            imgURL: "../images/index/4.jpg",
+            goodDescrip: "商品描述商品描述商品描述商品描述商品描述商品描述",
+            unitPrice: 5
+        },
+        {
+            id: "1111",
+            goodName: "商品名",
+            goodLink: "product.html",
+            imgURL: "../images/index/4.jpg",
+            goodDescrip: "商品描述商品描述商品描述商品描述商品描述商品描述",
+            unitPrice: 3
+        },
+        {
+            id: "1111",
+            goodName: "商品名",
+            goodLink: "product.html",
+            imgURL: "../images/index/4.jpg",
+            goodDescrip: "商品描述商品描述商品描述商品描述商品描述商品描述",
+            unitPrice: 15
+        },
+        {
+            id: "1111",
+            goodName: "商品名",
+            goodLink: "product.html",
+            imgURL: "../images/index/4.jpg",
+            goodDescrip: "商品描述商品描述商品描述商品描述商品描述商品描述",
+            unitPrice: 20
         },
     ];
+
+
+
+    function getSplitGoodList(goodList) {
+        splitGoodList = new Array();
+        let len = goodList.length;
+        let remainder = len % numOnePage;
+        let leftCount = len;//还没有被分组的商品个数
+
+        let pageCount = 0;//当前计算到的页面个数
+
+        for (let i = 0; i < len; i += numOnePage) {
+            if (leftCount >= numOnePage) {//如果还剩8个以上
+                splitGoodList.push(goodList.slice(i, i + numOnePage));
+                leftCount -= numOnePage;
+            } else {//如果剩下的不足8个
+                splitGoodList.push(goodList.slice(i, i + leftCount));
+                leftCount -= leftCount;
+            }
+            pageCount++;
+        }
+
+        maxPage = pageCount;
+    }
+
+    var colId = "unitPrice";
+    //升序比较函数
+    var asc = function (x, y) {
+        return (x[colId] > y[colId]) ? 1 : -1
+    }
+    //降序比较函数
+    var desc = function (x, y) {
+        return (x[colId] < y[colId]) ? 1 : -1
+    }
+
+    //下拉菜单,发生变化时排序
+    function sortGoods() {
+        var sel = document.getElementById("select");
+        var sortMethod = sel.options[sel.selectedIndex].value;
+
+        console.log(sortMethod);
+
+        if (sortMethod == "asc") {
+            goodList.sort(asc);
+            console.log("asccc");
+        } else if (sortMethod == "desc") {
+            goodList.sort(desc);
+            console.log(goodList[0].unitPrice);
+        }
+        getSplitGoodList(goodList);
+        loadGoods(splitGoodList[0]);
+
+        let firstPageLi = $(".pagination").children().eq(1);
+        thisPage(firstPageLi.children());
+    }
+
+    //load商品
+    function loadGoods(goodList) {
+        let rowGoodDiv = $(".row-goods");
+        rowGoodDiv.html("");
+
+        //console.log("wdnmd");
+        console.log(goodList.length);
+
+        //按照升序排序
+        //goodList.sort(asc);
+
+        $.each(goodList, function (i, item) {
+            let frameDiv = document.createElement("div");
+            frameDiv.setAttribute("class", "col-md-3 good-frame");
+            rowGoodDiv.append(frameDiv);
+
+            let frame1Div = document.createElement("div");
+            frameDiv.append(frame1Div);
+
+            let goodLinkA = document.createElement("a");
+            goodLinkA.setAttribute("href", item.goodLink);
+            frameDiv.append(goodLinkA);
+
+            let image = document.createElement("img");
+            image.setAttribute("src", item.imgURL);
+            goodLinkA.append(image);
+
+            let goodNameDiv = document.createElement("div");
+            goodNameDiv.setAttribute("class", "good-name");
+            goodNameDiv.innerHTML = item.goodName;
+            frameDiv.append(goodNameDiv);
+
+            let unitPriceDiv = document.createElement("div");
+            unitPriceDiv.setAttribute("class", "unit-price");
+            unitPriceDiv.innerHTML = "￥" + item.unitPrice;
+            frameDiv.append(unitPriceDiv);
+
+            let goodDescripDiv = document.createElement("div");
+            goodDescripDiv.setAttribute("class", "good-descrip");
+            goodDescripDiv.innerHTML = item.goodDescrip;
+            frameDiv.append(goodDescripDiv);
+        });
+
+    }
+
+    //初始化函数，会生成所有商品并得到最大页数
+    function setUp() {
+        getSplitGoodList(goodList);
+        loadGoods(splitGoodList[0]);
+
+        //生成页数
+        let paginationUl = $(".pagination");
+        paginationUl.html("");
+
+        //加上上一页
+        let prevLi = document.createElement("li");
+        prevLi.setAttribute("id", "prev-page");
+        prevLi.innerHTML = "<a onclick=\"prevPage()\">&laquo;</a>";
+        paginationUl.append(prevLi);
+
+        //加上中间的页数
+        for (let i = 1; i <= maxPage; i++) {
+            let thePageLi = document.createElement("li");
+            if (i == 1) {
+                thePageLi.setAttribute("class", "active");
+            }
+            paginationUl.append(thePageLi);
+
+            let theA = document.createElement("a");
+            theA.setAttribute("onclick", "thisPage(this)");
+            theA.innerHTML = i;
+            thePageLi.append(theA);
+        }
+
+        //下一页
+        let nextLi = document.createElement("li");
+        nextLi.setAttribute("id", "next-page");
+        nextLi.innerHTML = "<a onclick=\"nextPage()\">&raquo;</a>";
+        paginationUl.append(nextLi);
+    }
+
+
+
 </script>
 
 </html>

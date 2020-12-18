@@ -363,7 +363,7 @@
         //编辑前载入原有信息
         $("#edit-receiver").val(theButton.parent().siblings(".receiver").text());
         $("#edit-tel").val(theButton.parent().siblings(".tel").text());
-        $("#edit-address").val(theButton.parent().siblings(".address").text());
+        $("#edit-address").val(theButton.parent().siblings(".address").text().trim());
     }
 
     //点击保存时保存编辑的信息；

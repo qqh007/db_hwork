@@ -74,7 +74,7 @@
                 <div class="col-md-3">
                     <ul class="nav nav-pills nav-stacked">
                         <li><a href="my_info.html">我的信息</a></li>
-                        <li ><a href="my_address.html">我的地址</a></li>
+                        <li><a href="my_address.html">我的地址</a></li>
                         <li><a href="my_orders_list.html">我的订单</a></li>
                         <li class="active"><a href="my_coupons.html">我的优惠券</a></li>
                     </ul>
@@ -97,7 +97,7 @@
                                 <div class="panel-body">
                                     <div class="col-md-12">
                                         <table class="table" style="border-bottom: 1px solid #ddd;" id="address-table">
-                                            <thead >
+                                            <thead>
                                                 <tr style="text-align: center !important;">
                                                     <th style="width: 10%;">图片</th>
                                                     <th style="width: 30%;">店铺</th>
@@ -106,7 +106,7 @@
                                                     <th>数量</th>
                                                 </tr>
                                             </thead>
-                                            <tbody style="height: 60px; overflow-y: auto; ">
+                                            <tbody style="height: 60px; overflow-y: auto; " style="text-align: center;">
                                                 <tr>
                                                     <td>
                                                         <img src="../images/优惠券.jpg" alt="">
@@ -143,171 +143,69 @@
     <!-- 页脚 -->
     <div id="footer_part"></div>
 
-
-    <!-- 弹出来的新建地址 -->
-    <div class="modal fade" id="new-addr-modal" tabindex="-1" role="dialog" aria-labelledby="newAddrLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <h4 class="modal-title" id="newAddrLabel" style="color: #0074c2; font-weight: bold;">新增地址</h4>
-                </div>
-                <div class="modal-body">
-                    <label for="">收货人姓名</label>
-                    <input class="form-control" type="text" placeholder="姓名">
-                    <label for="">手机号码</label>
-                    <input class="form-control" type="tel" placeholder="手机号码">
-                    <label for="">详细地址</label>
-                    <textarea class="form-control" name="" id="" rows="4" placeholder="详细地址"
-                        style="resize: none;"></textarea>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">保存</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 弹出来的编辑地址 -->
-    <div class="modal fade" id="modify-addr-modal" tabindex="-1" role="dialog" aria-labelledby="modifyAddrLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <h4 class="modal-title" id="modifyAddrLabel" style="color: #0074c2; font-weight: bold;">编辑地址</h4>
-                </div>
-                <div class="modal-body">
-                    <label for="">收货人姓名</label>
-                    <input class="form-control" type="text" value="联系人">
-                    <label for="">手机号码</label>
-                    <input class="form-control" type="tel" value="11122223333">
-                    <label for="">详细地址</label>
-                    <textarea class="form-control" name="" id="" rows="4"
-                        style="resize: none;">详细地址详细地址详细地址详细地址详细地址详细地址详细地址</textarea>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">保存</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <button onclick="loadAddressInfo()">生成html</button>
+    <button onclick="loadCouponsInfo()">生成html</button>
 </body>
 
 <script type="text/javascript">
     $("#nav_part").load("nav_part.html");
     $("#footer_part").load("footer_part.html");
 
-
-    function deleteAddress(button) {
-        let theButton = $(button);
-        theButton.parent().parent().remove();
-    }
-
-    //分页栏
-    $(".pagination li").click(function () {
-        var pageCount = $(".pagination li").length - 2;
-        var activeIndex = $(".pagination .active").index();
-        if ($(this).hasClass("prev-page")) {
-            if (activeIndex > 1) {
-                $(".pagination li").eq(activeIndex).removeClass("active");
-                $(".pagination li").eq(activeIndex - 1).addClass("active");
-            }
-        } else if ($(this).hasClass("next-page")) {
-            if (activeIndex < pageCount) {
-                $(".pagination li").eq(activeIndex).removeClass("active");
-                $(".pagination li").eq(activeIndex + 1).addClass("active");
-            }
-        } else {
-            $(this).addClass("active");
-            $(this).siblings().removeClass("active");
-        }
-    });
-
-    var addressList = [{
+    var couponList = [{
         id: 1234564876,
-        receiver: "收获人人",
-        address: "详细地址详细地址详细地址详细地址详细地址详细地址",
-        tel: "11122223333",
+        shopName: "店铺名-驱蚊器群",
+        goodName: "商品名商品名",
+        discount: 5,
+        count: 1
     },
     {
         id: 1234564876,
-        receiver: "收获人人",
-        address: "详细地址详细地址详细地址详细地址详细地址详细地址",
-        tel: "11122223333",
+        shopName: "店铺名-驱蚊器群",
+        goodName: "商品名商品名",
+        discount: 5,
+        count: 1
     },
     {
         id: 1234564876,
-        receiver: "收获人人",
-        address: "详细地址详细地址详细地址详细地址详细地址详细地址",
-        tel: "11122223333",
+        shopName: "店铺名-驱蚊器群",
+        goodName: "商品名商品名",
+        discount: 5,
+        count: 2
     },
     {
         id: 1234564876,
-        receiver: "收获人3",
-        address: "详细地址详细地址详细地址详细地址详细地址1234431",
-        tel: "12345678900",
-    }
+        shopName: "店铺名-驱蚊器群",
+        goodName: "商品名商品名",
+        discount: 5,
+        count: 13
+    },
     ];
-    function loadAddressInfo() {
+    function loadCouponsInfo() {
 
-        let tbody = $("#address-table tbody");
+        let tbody = $("table tbody");
         tbody.html("")
-        $.each(addressList, function (i, item) {
+        $.each(couponList, function (i, item) {
             let tableRow = document.createElement("tr");
-
             tbody.append(tableRow);
 
-            let receiverTd = document.createElement("td");
-            receiverTd.setAttribute("class", "receiver");
-            receiverTd.innerHTML = item.receiver;
-            tableRow.append(receiverTd);
+            let imageTd = document.createElement("td");
+            imageTd.innerHTML = "<img src=\"../images/优惠券.jpg\">";
+            tableRow.append(imageTd);
 
-            let addressTd = document.createElement("td");
-            addressTd.setAttribute("class", "address");
-            addressTd.innerHTML = item.address;
-            tableRow.append(addressTd);
+            let shopNameTd = document.createElement("td");
+            shopNameTd.innerHTML = item.shopName;
+            tableRow.append(shopNameTd);
 
-            let telTd = document.createElement("td");
-            telTd.setAttribute("class", "tel");
-            telTd.innerHTML = item.tel;
-            tableRow.append(telTd);
+            let goodNameTd = document.createElement("td");
+            goodNameTd.innerHTML = item.goodName;
+            tableRow.append(goodNameTd);
 
-            let editTd = document.createElement("td");
-            editTd.setAttribute("class", "");
-            editTd.innerHTML = "<button type=\"button\" class=\"btn btn-warning\" data-toggle=\"modal\" data-target=\"#modify-addr-modal\">编辑</button>";
-            tableRow.append(editTd);
+            let discountTd = document.createElement("td");
+            discountTd.innerHTML = "￥" + item.discount;
+            tableRow.append(discountTd);
 
-            let deleteTd = document.createElement("td");
-            deleteTd.setAttribute("class", "");
-            deleteTd.innerHTML = "<button type=\"button\" class=\"btn btn-danger\" onclick=\"deleteAddress(this)\">删除</button>";
-            tableRow.append(deleteTd);
-
-            let defaultTd = document.createElement("td");
-            defaultTd.setAttribute("class", "");
-            /* defaultTd.innerHTML = "<button type=\"button\" class=\"btn btn-danger\">删除</button>"; */
-            tableRow.append(defaultTd);
-
-            let defaultBtn = document.createElement("button");
-            defaultBtn.setAttribute("type", "button");
-
-            if (i == 0) {
-                defaultBtn.setAttribute("class", "btn btn-default");
-                defaultBtn.setAttribute("disabled", "true");
-                defaultBtn.innerHTML = "默认地址";
-            } else {
-                defaultBtn.setAttribute("class", "btn btn-primary");
-                defaultBtn.innerHTML = "设为默认";
-            }
-
-            defaultTd.append(defaultBtn);
+            let countTd = document.createElement("td");
+            countTd.innerHTML = item.count;
+            tableRow.append(countTd);
         });
     }
 
