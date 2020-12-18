@@ -245,13 +245,22 @@
 
 
     function saveInfo() {
+
+        let newInfo = {
+            nickname: $("#nickname-input").val().trim(),
+            telephone: $("#tel-input").val().trim(),
+            email: $("#mail-input").val().trim()
+        }
+
+        
+
         $.ajax({
             type: "POST",
             url: "",
             data: {
                 nickname: $("#nickname-input").val().trim(),
                 telephone: $("#tel-input").val().trim(),
-                email: $("#mail-input").val().text().trim()
+                email: $("#mail-input").val().trim()
             },
             dataType: "json",
             success: function (data) {
@@ -260,6 +269,14 @@
             error: function (data) {
             },
         });
+
+        //设置显示页面的信息
+        $("#nickname").text($("#nickname-input").val().trim());
+        $("#tel").text($("#tel-input").val().trim());
+        $("#mail").text( $("#mail-input").val().trim());
+        
+
+        //设置表单中信息
     }
 </script>
 

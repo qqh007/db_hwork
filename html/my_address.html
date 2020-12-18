@@ -121,15 +121,32 @@
                                                         详细地址详细地址详细地址详细地址详细地址详细地址详细地址</td>
                                                     <td class="tel">11122223333</td>
                                                     <td><button type="button" class="btn btn-warning"
-                                                            data-toggle="modal"
-                                                            data-target="#modify-addr-modal" onclick="editAddr(this)">编辑</button>
+                                                            data-toggle="modal" data-target="#modify-addr-modal"
+                                                            onclick="editAddr(this)">编辑</button>
                                                     </td>
                                                     <td><button type="button" class="btn btn-danger "
                                                             data-toggle="modal" data-target="#confirm-delete-modal"
                                                             onclick="deleteAddr(this)">删除</button>
                                                     </td>
-                                                    <td><button type="button" class="btn btn-default "
-                                                            disabled="true">默认地址</button>
+                                                    <td><button type="button" class="btn btn-default " disabled="true"
+                                                            onclick="setDefault(this)">默认地址</button>
+                                                    </td>
+                                                </tr>
+                                                <tr id="addr-2">
+                                                    <td class="receiver">收货人</td>
+                                                    <td class="address" style=" text-align: left;">
+                                                        详细地址详细地址详细地址详细地址详细地址详细地址详细地址</td>
+                                                    <td class="tel">11122223333</td>
+                                                    <td><button type="button" class="btn btn-warning"
+                                                            data-toggle="modal" data-target="#modify-addr-modal"
+                                                            onclick="editAddr(this)">编辑</button>
+                                                    </td>
+                                                    <td><button type="button" class="btn btn-danger "
+                                                            data-toggle="modal" data-target="#confirm-delete-modal"
+                                                            onclick="deleteAddr(this)">删除</button>
+                                                    </td>
+                                                    <td><button type="button" class="btn btn-primary "
+                                                            onclick="setDefault(this)">设为默认</button>
                                                     </td>
                                                 </tr>
 
@@ -185,11 +202,12 @@
                     <label for="">手机号码</label>
                     <input class="form-control" type="tel" placeholder="手机号码" id="new-tel">
                     <label for="">详细地址</label>
-                    <textarea class="form-control" name="" id="" rows="4" placeholder="详细地址" style="resize: none;"
-                        id="new-address"></textarea>
+                    <textarea class="form-control" name="" id="new-address" rows="4" placeholder="详细地址" style="resize: none;"
+                        ></textarea>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="new-addr-btn">保存</button>
+                    <button type="button" class="btn btn-primary" id="new-addr-btn" data-dismiss="modal"
+                        aria-label="Close">保存</button>
                 </div>
             </div>
         </div>
@@ -216,7 +234,8 @@
                         style="resize: none;">详细地址详细地址详细地址详细地址详细地址详细地址详细地址</textarea>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="edit-addr-btn">保存</button>
+                    <button type="button" class="btn btn-primary" id="edit-addr-btn" data-dismiss="modal"
+                        aria-label="Close">保存</button>
                 </div>
             </div>
         </div>
@@ -245,7 +264,7 @@
         </div>
     </div>
 
-    <button onclick="loadAddressInfo()">生成html</button>
+    <button onclick="loadAddressInfo(addressList,1)">生成html</button>
 </body>
 
 <script type="text/javascript">
@@ -322,6 +341,21 @@
                 error: function (data) {
                 },
             });
+
+
+            //发送完数据后将这个地址信息显示出来
+            let newAddr = [{
+                id: 0000,
+                receiver: $("#new-receiver").val(),
+                address: $("#new-address").val(),
+                tel: $("#new-tel").val(),
+            }];
+
+            console.log("len:"+newAddr.length);
+
+            //loadinfo 0表示非初始化，不应该清空表格
+            loadAddressInfo(newAddr,0);
+
         });
     }
 
@@ -335,9 +369,15 @@
         let addrId = addrIdStr.substring(5);
 
         console.log("wdnmd");
+
+        //编辑前载入原有信息
+        $("#edit-receiver").val(theButton.parent().siblings(".receiver").text());
+        $("#edit-tel").val(theButton.parent().siblings(".tel").text());
+        $("#edit-address").val(theButton.parent().siblings(".address").text());
+
         //点击保存时发送数据
         $("#edit-addr-btn").click(function () {
-            console.log(addrId+$("#edit-receiver").val() +
+            console.log(addrId + $("#edit-receiver").val() +
                 $("#edit-tel").val() +
                 $("#edit-address").val());
             //发送ajax
@@ -357,10 +397,54 @@
                 error: function (data) {
                 },
             });
-        })
-    }
-    
 
+            //编辑完成后显示新信息
+            theButton.parent().siblings(".receiver").text($("#edit-receiver").val());
+            theButton.parent().siblings(".tel").text($("#edit-tel").val());
+            theButton.parent().siblings(".address").text($("#edit-address").val());
+        })
+
+
+
+    }
+
+
+
+    //将地址设为默认
+    function setDefault(button) {
+        let theButton = $(button);
+
+        let addrIdStr = theButton.parent().parent().attr("id");
+        let addrId = addrIdStr.substring(5);
+
+        console.log("set addr defalut:" + addrId);
+
+        //改变按钮自身的样式
+        theButton.attr("disabled", "true");
+        theButton.text("默认地址");
+        theButton.attr("class", "btn btn-default");
+
+        //让原本的默认地址变为可编辑
+        let originDefaultBtn = theButton.parent().parent().siblings().find(".btn-default");
+        originDefaultBtn.removeAttr("disabled");
+        originDefaultBtn.attr("class", "btn btn-primary");
+        originDefaultBtn.text("设为默认")
+
+        //发送ajax
+        $.ajax({
+            type: "POST",
+            url: "",
+            data: {
+                defalutAddrId: addrId,
+            },
+            dataType: "json",
+            success: function (data) {
+                //window.open("finish_order.html", "_self");
+            },
+            error: function (data) {
+            },
+        });
+    }
 
 
     var addressList = [{
@@ -390,10 +474,11 @@
     ];
 
     //生产html
-    function loadAddressInfo() {
-
+    function loadAddressInfo(addressList, init) {
         let tbody = $("#address-table tbody");
-        tbody.html("")
+        if (init == 1) {//如果是初始化，则清空表格
+            tbody.html("");
+        }
         $.each(addressList, function (i, item) {
             let tableRow = document.createElement("tr");
             tableRow.id = "addr-" + item.id;
@@ -431,8 +516,7 @@
 
             let defaultBtn = document.createElement("button");
             defaultBtn.setAttribute("type", "button");
-
-            if (i == 0) {
+            if (i == 0&&init==1) {
                 defaultBtn.setAttribute("class", "btn btn-default");
                 defaultBtn.setAttribute("disabled", "true");
                 defaultBtn.innerHTML = "默认地址";
@@ -440,7 +524,7 @@
                 defaultBtn.setAttribute("class", "btn btn-primary");
                 defaultBtn.innerHTML = "设为默认";
             }
-
+            defaultBtn.setAttribute("onclick", "setDefault(this)");
             defaultTd.append(defaultBtn);
         });
     }
