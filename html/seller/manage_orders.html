@@ -59,9 +59,10 @@
 </head>
 
 <body>
+    <!-- 导航栏 -->
+    <div id="nav_part"></div>
     <!--主体内容-->
-
-    <main>
+    <main style="margin-top: 55px;">
         <div class="container">
             <div class="row">
                 <div class="col-md-3" id="sidebar-part">
@@ -78,13 +79,12 @@
                 </div>
                 <div class="col-md-9">
                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-
                         <div class="panel panel-default">
                             <div class="panel-heading" role="tab" id="headingOne">
                                 <h4 class="panel-title">
                                     <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
                                         aria-expanded="true" aria-controls="collapseOne">
-                                        全部商品
+                                        全部订单
                                     </a>
                                 </h4>
                             </div>
@@ -93,6 +93,20 @@
                             <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel"
                                 aria-labelledby="headingOne">
                                 <div class="panel-body">
+
+                                    <div class="col-md-3 col-md-offset-9">
+                                        <form>
+                                            <div class="form-group">
+                                                <select class="form-control" id="select" onchange="sortGoods()">
+                                                    <option value="asc">所有订单</option>
+                                                    <option value="desc">未发货订单</option>
+                                                    <option value="desc">已发货订单</option>
+                                                    <option value="desc">待评价订单</option>
+                                                    <option value="desc">已评价订单</option>
+                                                </select>
+                                            </div>
+                                        </form>
+                                    </div>
                                     <div class="col-md-12">
                                         <table class="table">
                                             <thead>
@@ -140,54 +154,7 @@
                         </div>
 
 
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="headingTwo">
-                                <h4 class="panel-title">
-                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
-                                        href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                        添加商品
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel"
-                                aria-labelledby="headingTwo">
-                                <div class="panel-body">
-                                    <div class="col-md-offset-1 col-md-7">
-                                        <form class="form-horizontal" style="margin-top: 40px">
-                                            <div class="form-group">
-                                                <label for="input6" class="col-sm-3 control-label">商品名称</label>
-                                                <div class="col-sm-9">
-                                                    <input type="text" class="form-control" id="input6"
-                                                        placeholder="商品名称">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="input7" class="col-sm-3 control-label">商品描述</label>
-                                                <div class="col-sm-9">
-                                                    <textarea class="form-control" rows="3" placeholder="商品描述"
-                                                        style="resize:none;"></textarea>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="input8" class="col-sm-3 control-label">价格</label>
-                                                <div class="col-sm-9">
-                                                    <input type="text" class="form-control" rows="4" placeholder="价格"
-                                                        style="resize:none;"></textarea>
-                                                </div>
-                                            </div>
 
-
-                                            <div class="form-group">
-                                                <div class="col-md-9 col-md-offset-3">
-                                                    <button type="button" class="btn btn-success save"
-                                                        style="width: 100%;">添加</button>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
 
                     </div>
@@ -202,7 +169,7 @@
     </div>
 </body>
 <script type="text/javascript">
-    //$("#sidebar-part").load("sidebar-part.html");
+    $("#nav_part").load("nav-part.html");
     $("#footer-part").load("../footer-part.html");
 </script>
 

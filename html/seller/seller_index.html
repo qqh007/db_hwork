@@ -62,8 +62,10 @@
 </head>
 
 <body>
+    <!-- 导航栏 -->
+    <div id="nav_part"></div>
     <!--主体内容-->
-    <main>
+    <main style="margin-top: 55px;">
         <div class="container">
             <div class="row">
                 <div class="col-md-3" id="sidebar-part">
@@ -94,31 +96,31 @@
                                     <div class="col-md-offset-1 col-md-7">
                                         <form class="form-horizontal" style="margin-top: 40px">
                                             <div class="form-group">
-                                                <label for="input1" class="col-sm-3 control-label">店铺名称:</label>
+                                                <div class="col-sm-3" style="font-weight: bold; text-align: right;">店铺名称:</div>
                                                 <div class="col-sm-9">
                                                     店铺名称
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="input2" class="col-sm-3 control-label">店铺地址:</label>
+                                                <div class="col-sm-3" style="font-weight: bold; text-align: right;">店铺地址:</div>
                                                 <div class="col-sm-9">
                                                     店铺地址店铺地址店铺地址店铺地址店铺地址店铺地址
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="input3" class="col-sm-3 control-label">店铺描述:</label>
+                                                <div class="col-sm-3" style="font-weight: bold; text-align: right;">店铺描述:</div>
                                                 <div class="col-sm-9">
                                                     店铺描述店铺描述店铺描述店铺描述店铺描述店铺描述
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="input3" class="col-sm-3 control-label">店铺电话:</label>
+                                                <div class="col-sm-3" style="font-weight: bold; text-align: right;">店铺电话:</div>
                                                 <div class="col-sm-9">
                                                     1112223333
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="input3" class="col-sm-3 control-label">店铺类型:</label>
+                                                <div class="col-sm-3" style="font-weight: bold; text-align: right;">店铺类型:</div>
                                                 <div class="col-sm-9">
                                                     学习
                                                 </div>
@@ -208,8 +210,7 @@
 </body>
 
 <script type="text/javascript">
-    //$("#sidebar-part").load("sidebar-part.html");
+    $("#nav_part").load("nav-part.html");
     $("#footer-part").load("../footer-part.html");
 </script>
-
 </html>
