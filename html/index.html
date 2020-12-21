@@ -18,7 +18,7 @@
 </head>
 
 <style>
-      body {
+    body {
         /* background-color: wheat; */
         background-image: url("../../images/background/bg1.jpg");
         background-repeat: no-repeat;
@@ -54,6 +54,20 @@
         padding-bottom: 13px;
 
         font-size: smaller;
+    }
+
+    .img-frame {
+        position: relative;
+        width: 100%;
+        padding-top: 100%;
+        /* 宽高比例为1：1 */
+    }
+    .img-frame img {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
     }
 </style>
 
@@ -120,7 +134,8 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-md-3" style="height: 423px; width: 22.5%; background-color: rgb(226, 214, 230); color: rgb(107, 144, 179);">
+                    <div class="col-md-3"
+                        style="height: 423px; width: 22.5%; background-color: rgb(226, 214, 230); color: rgb(107, 144, 179);">
                         <h3>欢迎来到这里购物</h3>
                         <img src="../images/login/pngsucai_324660_8e29d5.png" alt="">
                         <h4>您正在访问购物网站，在可以这里你可以购买你想要的商品。</h4>
@@ -140,7 +155,7 @@
                 <div class="col-md-3 ">
                     <div class="good-frame">
                         <div class=" title">电子产品</div>
-                        <div>
+                        <div class="img-frame">
                             <a href="goodsinfo.html"><img src="../images/index/4.jpg" alt=""></a>
                         </div>
                         <div class="see-more">
@@ -151,7 +166,7 @@
                 <div class="col-md-3 ">
                     <div class="good-frame">
                         <div class=" title">电子产品</div>
-                        <div>
+                        <div class="img-frame">
                             <a href="goodsinfo.html"><img src="../images/index/5.jpg" alt=""></a>
                         </div>
                         <div class="see-more">
@@ -162,7 +177,7 @@
                 <div class="col-md-3 ">
                     <div class="good-frame">
                         <div class=" title">电子产品</div>
-                        <div>
+                        <div class="img-frame">
                             <a href="goodsinfo.html"><img src="../images/index/6.jpg" alt=""></a>
                         </div>
                         <div class="see-more">
@@ -173,7 +188,7 @@
                 <div class="col-md-3 ">
                     <div class="good-frame">
                         <div class=" title">电子产品</div>
-                        <div>
+                        <div class="img-frame">
                             <a href="goodsinfo.html"><img src="../images/index/7.jpg" alt=""></a>
                         </div>
                         <div class="see-more">
@@ -184,7 +199,7 @@
                 <div class="col-md-3 ">
                     <div class="good-frame">
                         <div class=" title">电子产品</div>
-                        <div>
+                        <div class="img-frame">
                             <a href="goodsinfo.html"><img src="../images/index/8.jpg" alt=""></a>
                         </div>
                         <div class="see-more">
@@ -195,7 +210,7 @@
                 <div class="col-md-3 ">
                     <div class="good-frame">
                         <div class=" title">电子产品</div>
-                        <div>
+                        <div class="img-frame">
                             <a href="goodsinfo.html"><img src="../images/index/9.jpg" alt=""></a>
                         </div>
                         <div class="see-more">
@@ -206,7 +221,7 @@
                 <div class="col-md-3 ">
                     <div class="good-frame">
                         <div class=" title">电子产品</div>
-                        <div>
+                        <div class="img-frame">
                             <a href="goodsinfo.html"><img src="../images/index/10.jpg" alt=""></a>
                         </div>
                         <div class="see-more">
@@ -217,7 +232,7 @@
                 <div class="col-md-3 ">
                     <div class="good-frame">
                         <div class=" title">电子产品</div>
-                        <div>
+                        <div class="img-frame">
                             <a href="goodsinfo.html"><img src="../images/index/11.jpg" alt=""></a>
                         </div>
                         <div class="see-more">
@@ -235,22 +250,39 @@
                         <h3>今日好货</h3>
                     </div>
                     <div class="col-md-2">
-                        <a href="product.html"><img src="../images/index/12.jpg" alt=""></a>
+                        <div class="img-frame">
+                            <a href="product.html"><img src="../images/index/12.jpg" alt=""></a>
+                        </div>
+
                     </div>
                     <div class="col-md-2">
-                        <a href="product.html"><img src="../images/index/11.jpg" alt=""></a>
+                        <div class="img-frame">
+                            <a href="product.html"><img src="../images/index/11.jpg" alt=""></a>
+                        </div>
+
                     </div>
                     <div class="col-md-2">
-                        <a href="product.html"><img src="../images/index/10.jpg" alt=""></a>
+                        <div class="img-frame">
+                            <a href="product.html"><img src="../images/index/10.jpg" alt=""></a>
+                        </div>
+
                     </div>
                     <div class="col-md-2">
-                        <a href="product.html"><img src="../images/index/7.jpg" alt=""></a>
+                        <div class="img-frame">
+                            <a href="product.html"><img src="../images/index/7.jpg" alt=""></a>
+                        </div>
+
                     </div>
                     <div class="col-md-2">
-                        <a href="product.html"><img src="../images/index/8.jpg" alt=""></a>
+                        <div class="img-frame">
+                            <a href="product.html"><img src="../images/index/8.jpg" alt=""></a>
+                        </div>
+                        
                     </div>
                     <div class="col-md-2">
-                        <a href="product.html"><img src="../images/index/9.jpg" alt=""></a>
+                        <div class="img-frame">
+                            <a href="product.html"><img src="../images/index/9.jpg" alt=""></a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -259,25 +291,43 @@
                 <div class="col-md-12" style="background-color: white;  padding-bottom: 30px;">
                     <div class="col-md-12">
                         <h3>为你推荐</h3>
+                        <div class="col-md-2">
+                            <div class="img-frame">
+                                <a href="product.html"><img src="../images/index/12.jpg" alt=""></a>
+                            </div>
+    
+                        </div>
+                        <div class="col-md-2">
+                            <div class="img-frame">
+                                <a href="product.html"><img src="../images/index/11.jpg" alt=""></a>
+                            </div>
+    
+                        </div>
+                        <div class="col-md-2">
+                            <div class="img-frame">
+                                <a href="product.html"><img src="../images/index/10.jpg" alt=""></a>
+                            </div>
+    
+                        </div>
+                        <div class="col-md-2">
+                            <div class="img-frame">
+                                <a href="product.html"><img src="../images/index/1.jpg" alt=""></a>
+                            </div>
+    
+                        </div>
+                        <div class="col-md-2">
+                            <div class="img-frame">
+                                <a href="product.html"><img src="../images/index/8.jpg" alt=""></a>
+                            </div>
+                            
+                        </div>
+                        <div class="col-md-2">
+                            <div class="img-frame">
+                                <a href="product.html"><img src="../images/index/9.jpg" alt=""></a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-2">
-                        <a href="product.html"><img src="../images/index/12.jpg" alt=""></a>
-                    </div>
-                    <div class="col-md-2">
-                        <a href="product.html"><img src="../images/index/11.jpg" alt=""></a>
-                    </div>
-                    <div class="col-md-2">
-                        <a href="product.html"><img src="../images/index/10.jpg" alt=""></a>
-                    </div>
-                    <div class="col-md-2">
-                        <a href="product.html"><img src="../images/index/7.jpg" alt=""></a>
-                    </div>
-                    <div class="col-md-2">
-                        <a href="product.html"><img src="../images/index/8.jpg" alt=""></a>
-                    </div>
-                    <div class="col-md-2">
-                        <a href="product.html"><img src="../images/index/9.jpg" alt=""></a>
-                    </div>
+                    
                 </div>
             </div>
         </div>

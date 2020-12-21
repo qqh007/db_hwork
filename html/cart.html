@@ -30,6 +30,22 @@
     .good-descrip {
         word-wrap: break-word;
     }
+
+    .img-frame {
+        position: relative;
+        width: 100%;
+        padding-top: 100%;
+        /* 宽高比例为1：1 */
+    }
+
+    .img-frame img {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        border: 1px wheat solid;
+    }
 </style>
 </head>
 
@@ -81,7 +97,12 @@
                         </thead>
                         <tbody style="overflow-y: auto;">
                             <tr id="good-1234">
-                                <td> <a href="product.html"><img src="../images/cart/50e2c594f34bef9c.jpg" alt=""></a>
+                                <td>
+                                    <div class="img-frame">
+                                        <a href="product.html"><img src="../images/cart/50e2c594f34bef9c.jpg"
+                                                alt=""></a>
+                                    </div>
+
                                 </td>
                                 <td class="good-name">咖啡</td>
                                 <td class="good-descrip">马来西亚进口 零涩 蓝山风味速溶三合一咖啡</td>
@@ -112,7 +133,11 @@
                                 </td>
                             </tr>
                             <tr id="good-12345">
-                                <td> <a href="product.html"><img src="../images/cart/749e8fce6291f8c8.jpg" alt=""></a>
+                                <td>
+                                    <div class="img-frame">
+                                        <a href="product.html"><img src="../images/cart/749e8fce6291f8c8.jpg"
+                                                alt=""></a>
+                                    </div>
                                 </td>
                                 <td class="good-name">高斯键盘</td>
                                 <td class="good-descrip">GANSS 高斯GS87C/GS104C 87键/104键原厂樱桃轴PBT键帽背光机械键盘 游戏键盘啡</td>
@@ -143,7 +168,11 @@
                                 </td>
                             </tr>
                             <tr id="good-12346">
-                                <td> <a href="product.html"><img src="../images/cart/749e8fce6291f8c8.jpg" alt=""></a>
+                                <td>
+                                    <div class="img-frame">
+                                        <a href="product.html"><img src="../images/cart/749e8fce6291f8c8.jpg"
+                                                alt=""></a>
+                                    </div>
                                 </td>
                                 <td class="good-name">高斯键盘</td>
                                 <td class="good-descrip">GANSS 高斯GS87C/GS104C 87键/104键原厂樱桃轴PBT键帽背光机械键盘 游戏键盘啡</td>
@@ -202,7 +231,7 @@
 
     var goodsList = [{
         id: 1234564876,
-        imgUrl: "../images/cart/749e8fce6291f8c8.jpg",
+        imgUrl: "../images/index/1.jpg",
         goodLink: "product.html",
         goodName: "咖啡",
         goodDescrip: "马来西亚进口咖啡咖啡咖啡咖啡咖啡咖啡咖啡咖啡",
@@ -255,7 +284,7 @@
         if (theButton.hasClass("add-btn")) {
             count++;
         } else {
-            if (count > 0) {
+            if (count > 1) {
                 count--;
                 theButton.siblings(".count").text(count);
             }
@@ -320,13 +349,17 @@
             let imageTd = document.createElement("td");
             tableRow.append(imageTd);
 
-            let imageURL = document.createElement("a");
-            imageURL.setAttribute("href", item.goodLink);
-            imageTd.append(imageURL);
+            let imgFrameDiv = document.createElement("div");
+            imgFrameDiv.setAttribute("class", "img-frame");
+            imageTd.append(imgFrameDiv);
+
+            let imageLinkA = document.createElement("a");
+            imageLinkA.setAttribute("href", item.goodLink);
+            imgFrameDiv.append(imageLinkA);
 
             let image = document.createElement("img");
             image.src = item.imgUrl;
-            imageURL.append(image);
+            imageLinkA.append(image);
 
 
             let nameTd = document.createElement("td");

@@ -59,6 +59,21 @@
         font-weight: bold;
         margin-bottom: 5px;
     }
+
+    .img-frame {
+        position: relative;
+        width: 100%;
+        padding-top: 100%;
+        /* 宽高比例为1：1 */
+    }
+
+    .img-frame img {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+    }
 </style>
 
 <body>
@@ -90,7 +105,7 @@
             </div>
             <div class="row row-goods">
                 <div class="col-md-3 good-frame">
-                    <div>
+                    <div class="img-frame">
                         <a href="goodsinfo.html"><img src="../images/index/4.jpg" alt=""></a>
                     </div>
                     <div class="good-name">
@@ -104,7 +119,7 @@
                     </div>
                 </div>
                 <div class="col-md-3 good-frame">
-                    <div>
+                    <div class="img-frame">
                         <a href="goodsinfo.html"><img src="../images/index/4.jpg" alt=""></a>
                     </div>
                     <div class="good-name">
@@ -118,7 +133,7 @@
                     </div>
                 </div>
                 <div class="col-md-3 good-frame">
-                    <div>
+                    <div class="img-frame">
                         <a href="goodsinfo.html"><img src="../images/index/4.jpg" alt=""></a>
                     </div>
                     <div class="good-name">
@@ -132,7 +147,7 @@
                     </div>
                 </div>
                 <div class="col-md-3 good-frame">
-                    <div>
+                    <div class="img-frame">
                         <a href="goodsinfo.html"><img src="../images/index/4.jpg" alt=""></a>
                     </div>
                     <div class="good-name">
@@ -146,7 +161,7 @@
                     </div>
                 </div>
                 <div class="col-md-3 good-frame">
-                    <div>
+                    <div class="img-frame">
                         <a href="goodsinfo.html"><img src="../images/index/4.jpg" alt=""></a>
                     </div>
                     <div class="good-name">
@@ -251,7 +266,7 @@
             id: "1111",
             goodName: "商品名",
             goodLink: "product.html",
-            imgURL: "../images/index/4.jpg",
+            imgURL: "../images/index/1.jpg",
             goodDescrip: "商品描述商品描述商品描述商品描述商品描述商品描述",
             unitPrice: 1
         },
@@ -259,7 +274,7 @@
             id: "1111",
             goodName: "商品名",
             goodLink: "product.html",
-            imgURL: "../images/index/4.jpg",
+            imgURL: "../images/index/2.jpg",
             goodDescrip: "商品描述商品描述商品描述商品描述商品描述商品描述",
             unitPrice: 8
         },
@@ -267,7 +282,7 @@
             id: "1111",
             goodName: "商品名",
             goodLink: "product.html",
-            imgURL: "../images/index/4.jpg",
+            imgURL: "../images/index/3.jpg",
             goodDescrip: "商品描述商品描述商品描述商品描述商品描述商品描述",
             unitPrice: 4
         },
@@ -377,11 +392,12 @@
             rowGoodDiv.append(frameDiv);
 
             let frame1Div = document.createElement("div");
+            frame1Div.setAttribute("class","img-frame");
             frameDiv.append(frame1Div);
 
             let goodLinkA = document.createElement("a");
             goodLinkA.setAttribute("href", item.goodLink);
-            frameDiv.append(goodLinkA);
+            frame1Div.append(goodLinkA);
 
             let image = document.createElement("img");
             image.setAttribute("src", item.imgURL);

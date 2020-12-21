@@ -18,15 +18,13 @@
 
 
 
-    .imgFrame {
+    .img-frame {
         position: relative;
         width: 100%;
-        height: 0;
         padding-top: 100%;
         /* 宽高比例为1：1 */
     }
-
-    .imgFrame img {
+    .img-frame img {
         position: absolute;
         left: 0;
         top: 0;
@@ -81,28 +79,28 @@
                 </div>
                 <div class="row row-goods">
                     <div class="col-md-2" style="margin-top: 20px;" id="favo-1">
-                        <div class="imgFrame">
+                        <div class="img-frame">
                             <a href="product.html"><img src="../images/index/1.jpg" alt=""></a>
                         </div>
                         <button type="button" class="btn btn-warning delete-btn" style="width: 100%;"
                             data-toggle="modal" data-target="#confirm-Modal" onclick="deleteFavo(this)">删除</button>
                     </div>
                     <div class="col-md-2" style="margin-top: 20px;" id="favo-1">
-                        <div class="imgFrame">
+                        <div class="img-frame">
                             <a href="product.html"><img src="../images/index/2.jpg" alt=""></a>
                         </div>
                         <button type="button" class="btn btn-warning delete-btn" style="width: 100%;"
                             data-toggle="modal" data-target="#confirm-Modal" onclick="deleteFavo(this)">删除</button>
                     </div>
                     <div class="col-md-2" style="margin-top: 20px;" id="favo-1">
-                        <div class="imgFrame">
+                        <div class="img-frame">
                             <a href="product.html"><img src="../images/index/3.jpg" alt=""></a>
                         </div>
                         <button type="button" class="btn btn-warning delete-btn" style="width: 100%;"
                             data-toggle="modal" data-target="#confirm-Modal" onclick="deleteFavo(this)">删除</button>
                     </div>
                     <div class="col-md-2" style="margin-top: 20px;" id="favo-1">
-                        <div class="imgFrame">
+                        <div class="img-frame">
                             <a href="product.html"><img src="../images/index/4.jpg" alt=""></a>
                         </div>
                         <button type="button" class="btn btn-warning delete-btn" style="width: 100%;"
@@ -244,7 +242,7 @@
             favoListDiv.append(favoDiv);
 
             let imgFrameDiv = document.createElement("div");
-            imgFrameDiv.setAttribute("class", "imgFrame");
+            imgFrameDiv.setAttribute("class", "img-frame");
             favoDiv.append(imgFrameDiv);
 
             let favoLink = document.createElement("a");
