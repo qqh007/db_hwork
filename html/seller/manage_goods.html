@@ -748,7 +748,7 @@
     function seeDetail(button) {
         theButton = $(button);
         goodId = theButton.parent().parent().attr("data-id");
-        //获取评论列表
+        //发送商品id
         $.ajax({
             type: "POST",
             url: "",
@@ -763,50 +763,7 @@
             },
         });
 
-        //显示商品详情，这里需要传进来商品详情
-        $("#detail-descrip").text(goodDetailList[goodId]);
-
-        //显示评论
-        let tbody = $("#comment-table tbody");
-        tbody.html("");
-        $.each(commentList, function (i, item) {
-            let tableRow = document.createElement("tr");
-            tbody.append(tableRow);
-
-            let imageTd = document.createElement("td");
-            imageTd.setAttribute("style", "text-align: center;")
-            tableRow.append(imageTd);
-
-            let image = document.createElement("img");
-            image.setAttribute("class", "avatar");
-            image.src = item.imgURL;
-            imageTd.append(image);
-
-            let commentDetailTd = document.createElement("td");
-            tableRow.append(commentDetailTd);
-
-            let commentDetailDiv = document.createElement("div");
-            commentDetailDiv.setAttribute("style", "padding-left: 1em;");
-            commentDetailTd.append(commentDetailDiv);
-
-            let commenterDiv = document.createElement("div");
-            commenterDiv.setAttribute("class", "commenter");
-            commenterDiv.innerHTML = item.commenter;
-            commentDetailDiv.append(commenterDiv);
-
-            let commentDiv = document.createElement("div");
-            commentDiv.setAttribute("class", "comment");
-            commentDiv.innerHTML = item.comment;
-            commentDetailDiv.append(commentDiv);
-
-            let commentTimeDiv = document.createElement("div");
-            commentTimeDiv.setAttribute("class", "comment-time");
-            commentTimeDiv.innerHTML = item.commentTime;
-            commentDetailDiv.append(commentTimeDiv);
-        });
-
-        //加载完评论后，弹出模态框
-        $("#see-comments-modal").modal("show");
+        window.open("good_detail.html","_blank");
     }
 
     //添加商品
