@@ -58,8 +58,6 @@
         .save {
             padding: 6px 30px;
         }
-
-
     </style>
 </head>
 
@@ -75,8 +73,10 @@
                         <li class="active"><a href="seller_index.html">店铺信息</a></li>
                         <li><a href="manage_goods.html">商品管理</a></li>
                         <li><a href="manage_orders.html">订单管理</a></li>
+                        <li><a href="manage_types.html">商品类别管理</a></li>
                         <li><a href="manage_coupons.html">优惠券管理</a></li>
-                        <li><a href="manage_coupons.html">销售情况</a></li>
+                        <li><a href="manage_sales.html">销售情况</a></li>
+                        <li><a href="manage_sales.html">消息管理</a></li>
                     </ul>
                 </div>
                 <div class="col-md-10">
@@ -94,7 +94,26 @@
                                 aria-labelledby="headingOne">
                                 <div class="panel-body">
                                     <div class="col-md-offset-1 col-md-7">
-                                        <form class="form-horizontal" style="margin-top: 40px">
+                                        <div class="form-horizontal" style="margin-top: 40px">
+                                            <div class="form-group">
+
+                                                <div class="col-sm-2 col-md-offset-3" id="shop-name">
+                                                    <div class="img-frame">
+                                                        <img src="../../images/index/1.jpg" alt=""
+                                                            style="border-radius: 5%;">
+                                                    </div>
+
+                                                    <br>
+
+                                                    <!-- 修改头像 -->
+                                                    <form class="form" action="">
+                                                        <div class="form-group">
+                                                            <label for="file" class=" btn btn-default" style="margin-left: 20%;">修改头像</label>
+                                                            <input type="file" id="file" style="display:none">
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
                                             <div class="form-group">
                                                 <div class="col-sm-3" style="font-weight: bold; text-align: right;">
                                                     店铺名称:</div>
@@ -130,7 +149,7 @@
                                                     哈皮
                                                 </div>
                                             </div>
-                                        </form>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

@@ -62,15 +62,15 @@
         main table th,
         main table td {
             text-align: center;
+            vertical-align: middle !important;
         }
 
         tbody {
             border-bottom: 1px solid #ddd;
         }
 
-        table tbody td {
-            vertical-align: middle !important;
-        }
+
+
 
 
         .avatar {
@@ -120,8 +120,10 @@
                         <li><a href="seller_index.html">店铺信息</a></li>
                         <li class="active"><a href="manage_goods.html">商品管理</a></li>
                         <li><a href="manage_orders.html">订单管理</a></li>
+                        <li><a href="manage_types.html">商品类别管理</a></li>
                         <li><a href="manage_coupons.html">优惠券管理</a></li>
-                        <li><a href="manage_coupons.html">销售情况</a></li>
+                        <li><a href="manage_sales.html">销售情况</a></li>
+                        <li><a href="seller_messages.html">消息管理</a></li>
                     </ul>
                 </div>
 
@@ -156,18 +158,20 @@
                                         </form>
                                     </div>
                                     <div class="col-md-12">
-                                        <table class="table" style="table-layout:fixed ; ">
+                                        <table class="table" style="table-layout:fixed ;  ">
                                             <thead>
                                                 <tr>
                                                     <th style="width: 10%;"></th>
-                                                    <th style="width: 15%;">名称</th>
-                                                    <th style="width: 37%;">描述</th>
-                                                    <th style="width: 6%;">价格</th>
-                                                    <th style="width: 6%;">库存</th>
-                                                    <th style="width: 8%;">详情</th>
-                                                    <th>操作</th>
-                                                    <th>优惠</th>
-                                                    <th>删除</th>
+                                                    <th style="width: 10%;">名称</th>
+                                                    <th style="width: 10%;">类别</th>
+                                                    <th style="width: 10%;">价格</th>
+                                                    <th style="width: 10%;">库存</th>
+                                                    <th style="width: 10%;">销量</th>
+                                                    <th style="width: 8%;">编辑</th>
+                                                    <th style="width: 10%;">详情</th>
+                                                    <th style="width: 8%;">操作</th>
+                                                    <th style="width: 8%;">优惠</th>
+                                                    <th style="width: 8%;">删除</th>
                                                 </tr>
                                             </thead>
                                             <tbody style="height: 60px; overflow-y: auto;">
@@ -177,116 +181,17 @@
                                                             <img src=" ../../images/index/5.jpg" alt="">
                                                         </div>
                                                     </td>
-                                                    <td style="word-wrap:break-word;">11231242341</td>
-                                                    <td style="word-wrap:break-word;">商品描述商品描述商品描述商品描述商品描述商品描述</td>
+                                                    <td style="word-wrap:break-word;">商品名称</td>
+                                                    <td style="word-wrap:break-word;">商品类别</td>
                                                     <td>￥59.999</td>
                                                     <td>1234</td>
+                                                    <td>2345</td>
+                                                    <td><button type=" button" class="btn  btn-warning"
+                                                            data-toggle="modal" data-target="#modify-good-modal"
+                                                            onclick="editGood(this)">编辑</button>
+                                                    </td>
                                                     <td><button type=" button" class="btn  btn-info"
-                                                            onclick="seeComments(this)">查看评价</button>
-                                                    </td>
-                                                    <td><button type=" button" class="btn  btn-success "
-                                                            onclick="window.location.href='#'">上架</button>
-                                                    </td>
-                                                    <td>
-                                                        <button type=" button" class="btn  btn-primary"
-                                                            data-toggle="modal" data-target="#set-discount-modal"
-                                                            onclick="setDiscount(this)">优惠</button>
-                                                    </td>
-                                                    <td><button type="button" class="btn btn-danger "
-                                                            data-toggle="modal" data-target="#confirm-delete-modal"
-                                                            onclick="deleteGood(this)">删除</button>
-                                                    </td>
-                                                </tr>
-                                                <tr data-id="111">
-                                                    <td>
-                                                        <div class="img-frame">
-                                                            <img src=" ../../images/index/5.jpg" alt="">
-                                                        </div>
-                                                    </td>
-                                                    <td style="word-wrap:break-word;">11231242341</td>
-                                                    <td style="word-wrap:break-word;">商品描述商品描述商品描述商品描述商品描述商品描述</td>
-                                                    <td>￥59.999</td>
-                                                    <td>1234</td>
-                                                    <td><button type=" button" class="btn  btn-info"
-                                                            onclick="seeComments(this)">查看评价</button>
-                                                    </td>
-                                                    <td><button type=" button" class="btn  btn-success "
-                                                            onclick="window.location.href='#'">上架</button>
-                                                    </td>
-                                                    <td>
-                                                        <button type=" button" class="btn  btn-primary"
-                                                            data-toggle="modal" data-target="#set-discount-modal"
-                                                            onclick="setDiscount(this)">优惠</button>
-                                                    </td>
-                                                    <td><button type="button" class="btn btn-danger "
-                                                            data-toggle="modal" data-target="#confirm-delete-modal"
-                                                            onclick="deleteGood(this)">删除</button>
-                                                    </td>
-                                                </tr>
-                                                <tr data-id="111">
-                                                    <td>
-                                                        <div class="img-frame">
-                                                            <img src=" ../../images/index/5.jpg" alt="">
-                                                        </div>
-                                                    </td>
-                                                    <td style="word-wrap:break-word;">11231242341</td>
-                                                    <td style="word-wrap:break-word;">商品描述商品描述商品描述商品描述商品描述商品描述</td>
-                                                    <td>￥59.999</td>
-                                                    <td>1234</td>
-                                                    <td><button type=" button" class="btn  btn-info"
-                                                            onclick="seeComments(this)">查看评价</button>
-                                                    </td>
-                                                    <td><button type=" button" class="btn  btn-success "
-                                                            onclick="window.location.href='#'">上架</button>
-                                                    </td>
-                                                    <td>
-                                                        <button type=" button" class="btn  btn-primary"
-                                                            data-toggle="modal" data-target="#set-discount-modal"
-                                                            onclick="setDiscount(this)">优惠</button>
-                                                    </td>
-                                                    <td><button type="button" class="btn btn-danger "
-                                                            data-toggle="modal" data-target="#confirm-delete-modal"
-                                                            onclick="deleteGood(this)">删除</button>
-                                                    </td>
-                                                </tr>
-                                                <tr data-id="111">
-                                                    <td>
-                                                        <div class="img-frame">
-                                                            <img src=" ../../images/index/5.jpg" alt="">
-                                                        </div>
-                                                    </td>
-                                                    <td style="word-wrap:break-word;">11231242341</td>
-                                                    <td style="word-wrap:break-word;">商品描述商品描述商品描述商品描述商品描述商品描述</td>
-                                                    <td>￥59.999</td>
-                                                    <td>1234</td>
-                                                    <td><button type=" button" class="btn  btn-info"
-                                                            onclick="seeComments(this)">查看评价</button>
-                                                    </td>
-                                                    <td><button type=" button" class="btn  btn-success "
-                                                            onclick="window.location.href='#'">上架</button>
-                                                    </td>
-                                                    <td>
-                                                        <button type=" button" class="btn  btn-primary"
-                                                            data-toggle="modal" data-target="#set-discount-modal"
-                                                            onclick="setDiscount(this)">优惠</button>
-                                                    </td>
-                                                    <td><button type="button" class="btn btn-danger "
-                                                            data-toggle="modal" data-target="#confirm-delete-modal"
-                                                            onclick="deleteGood(this)">删除</button>
-                                                    </td>
-                                                </tr>
-                                                <tr data-id="111">
-                                                    <td>
-                                                        <div class="img-frame">
-                                                            <img src=" ../../images/index/5.jpg" alt="">
-                                                        </div>
-                                                    </td>
-                                                    <td style="word-wrap:break-word;">11231242341</td>
-                                                    <td style="word-wrap:break-word;">商品描述商品描述商品描述商品描述商品描述商品描述</td>
-                                                    <td>￥59.999</td>
-                                                    <td>1234</td>
-                                                    <td><button type=" button" class="btn  btn-info"
-                                                            onclick="seeComments(this)">查看评价</button>
+                                                            onclick="seeDetail(this)">查看详情</button>
                                                     </td>
                                                     <td><button type=" button" class="btn  btn-success "
                                                             onclick="window.location.href='#'">上架</button>
@@ -324,26 +229,36 @@
                                 aria-labelledby="headingTwo">
                                 <div class="panel-body">
                                     <div class="col-md-offset-1 col-md-7">
-                                        <form class="form-horizontal" style="margin-top: 40px">
+                                        <!-- 添加商品信息的表单 -->
+                                        <form class="form-horizontal" style="margin-top: 40px" action="">
+                                            <div class="form-group">
+                                                <label for="input6" class="col-sm-4 control-label">商品图片</label>
+                                                <div class="col-sm-8">
+                                                    <label for="file" class=" btn btn-default">选择图片</label>
+                                                    <input type="file" id="file" name="goodPhoto" style="display:none">
+
+                                                </div>
+                                            </div>
                                             <div class="form-group">
                                                 <label for="input6" class="col-sm-4 control-label">商品名称</label>
                                                 <div class="col-sm-8">
                                                     <input type="text" id="good-name-input" class="form-control"
-                                                        id="input6" placeholder="商品名称">
+                                                        name="goodName" id="input6" placeholder="商品名称">
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="input7" class="col-sm-4 control-label">商品描述</label>
                                                 <div class="col-sm-8">
                                                     <textarea class="form-control" id="good-descrip-input" rows="3"
-                                                        placeholder="商品描述" style="resize:none;"></textarea>
+                                                        name="goodDescrip" placeholder="商品描述"
+                                                        style="resize:none;"></textarea>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="input8" class="col-sm-4 control-label">价格</label>
                                                 <div class="col-sm-8">
                                                     <input type="text" class="form-control" id="unit-price-input"
-                                                        rows="4" placeholder="价格" style="resize:none;"></textarea>
+                                                        name="unitPrice" rows="4" placeholder="价格" style="resize:none;">
                                                 </div>
                                             </div>
 
@@ -351,27 +266,27 @@
                                                 <label for="input8" class="col-sm-4 control-label">库存</label>
                                                 <div class="col-sm-8">
                                                     <input type="text" class="form-control" id="inventory-input"
-                                                        rows="4" placeholder="库存" style="resize:none;"></textarea>
+                                                        name="inventory" name=inventory rows="4" placeholder="库存"
+                                                        style="resize:none;">
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="input8" class="col-sm-4 control-label">类型</label>
                                                 <div class="col-sm-8">
-                                                    <select class="form-control" id="good-type-input">
-                                                        <option>商品类型0</option>
-                                                        <option>商品类型1</option>
-                                                        <option>商品类型2</option>
+                                                    <select class="form-control" id="good-type-input" name="goodType">
+                                                        <option value="商品类型0">商品类型0</option>
+                                                        <option value="商品类型1">商品类型1</option>
+                                                        <option value="商品类型2">商品类型2</option>
                                                     </select>
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
                                                 <div class="col-md-8 col-md-offset-4">
-                                                    <button type="button" class="btn btn-success save"
-                                                        style="width: 100%;" onclick="addGood()">添加</button>
+                                                    <button type="submit" class="btn btn-success save"
+                                                        style="width: 100%;">添加</button>
                                                 </div>
                                             </div>
-
                                         </form>
                                     </div>
                                 </div>
@@ -384,7 +299,35 @@
     </main>
 
 
-    <!-- 弹出来的查看评价 -->
+    <!-- 弹出来的编辑商品信息 -->
+    <div class="modal fade" id="modify-good-modal" tabindex="-1" role="dialog" aria-labelledby="modifyAddrLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="modifyAddrLabel" style="color: #0074c2; font-weight: bold;">编辑地址</h4>
+                </div>
+                <div class="modal-body">
+                    <label for="">收货人姓名</label>
+                    <input class="form-control" id="edit-receiver" type="text" value="联系人">
+                    <label for="">手机号码</label>
+                    <input class="form-control" id="edit-tel" type="tel" value="11122223333">
+                    <label for="">详细地址</label>
+                    <textarea class="form-control" name="" id="edit-address" rows="4"
+                        style="resize: none;">详细地址详细地址详细地址详细地址详细地址详细地址详细地址</textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="edit-addr-btn" data-dismiss="modal"
+                        onclick="saveEditInfo()">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 弹出来的查看详情 -->
     <div class="modal fade" id="see-comments-modal" tabindex="-1" role="dialog" aria-labelledby="modifyAddrLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -393,9 +336,16 @@
                     <button type="button" class="close" data-dismiss="modal">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <h4 class="modal-title" id="modifyAddrLabel" style="color: #0074c2; font-weight: bold;">查看评价</h4>
+                    <h4 class="modal-title" id="modifyAddrLabel" style="color: #0074c2; font-weight: bold;">查看详情</h4>
                 </div>
                 <div class="modal-body">
+                    <h4>商品描述</h4>
+                    <hr>
+                    <div id="detail-descrip">
+                        商品描述商品描述商品描述商品描述商品描述商品描述描述商品描述商品描述商品描述描述商品描述商品描述商品描述
+                    </div>
+                    <hr>
+                    <h4>全部评价</h4>
                     <table class="table" id="comment-table" style="table-layout:fixed ;border-bottom: 1px solid #ddd;">
                         <thead>
                             <tr>
@@ -466,38 +416,8 @@
                                     </div>
                                 </td>
                             </tr>
-                            <tr>
-                                <td style="text-align: center;">
-                                    <div>
-                                        <img src="../../images/index/4.jpg" alt="" class="avatar">
-                                    </div>
-                                </td>
-                                <td>
-                                    <div style="padding-left: 1em;">
-                                        <div class="commenter">yxy</div>
-                                        <div class="comment">
-                                            真的很好吃。
-                                        </div>
-                                        <div class="comment-time">2020-12-06 19:30</div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="text-align: center;">
-                                    <div>
-                                        <img src="../../images/index/8.jpg" alt="" class="avatar">
-                                    </div>
-                                </td>
-                                <td>
-                                    <div style="padding-left: 1em;">
-                                        <div class="commenter">张文斌</div>
-                                        <div class="comment">
-                                            放弃越野何润锋，地区为羽绒服，超QUI一万二，加括号的覅去医院问UR云趣园，，。
-                                        </div>
-                                        <div class="comment-time">2020-12-06 19:30</div>
-                                    </div>
-                                </td>
-                            </tr>
+
+
                         </tbody>
                     </table>
                 </div>
@@ -557,10 +477,11 @@
 
     </div>
 
-    <button onclick="loadComments()">生成评论</button>
+    <button onclick="loadTypes()">生成可选的类别</button>
 
 </body>
 <script type="text/javascript">
+
     $("#nav_part").load("nav-part.html");
     $("#footer-part").load("../footer_part.html");
 
@@ -640,7 +561,7 @@
 
     }];
 
-    function seeComments(button) {
+    function seeDetail(button) {
         theButton = $(button);
         goodId = theButton.parent().parent().attr("data-id");
 
@@ -658,6 +579,11 @@
             error: function (data) {
             },
         });
+
+        //显示商品详情
+        $("#detail-descrip").text("修改过后的商品详情商品详情商品详情商品详情");
+
+        //显示评论
         let tbody = $("#comment-table tbody");
         tbody.html("");
         $.each(commentList, function (i, item) {
@@ -724,6 +650,49 @@
             error: function (data) {
             },
         });
+    }
+
+
+    function editGood(button) {
+        theButton = $(button);
+        goodId = theButton.parent().parent().attr("data-id");
+    }
+
+
+    var goodTypeList = [
+        {
+            id: 1,
+            goodtype: "自定义1"
+        },
+        {
+            id: 1,
+            goodtype: "自定义2"
+        },
+        {
+            id: 1,
+            goodtype: "自定义3"
+        },
+        {
+            id: 1,
+            goodtype: "自定义4"
+        },
+        {
+            id: 1,
+            goodtype: "自定义4"
+        },
+        {
+            id: 1,
+            goodtype: "自定义5"
+        },
+    ]
+    //加载所有的类别
+    function loadTypes() {
+        let goodTypeSelect = $("#good-type-input");
+        goodTypeSelect.html("");
+        $.each(goodTypeList, function (i, item) {
+            goodTypeSelect.append("<option value='" + item.goodtype + "'>" + item.goodtype + "</option>");
+        }
+        );
     }
 
 </script>

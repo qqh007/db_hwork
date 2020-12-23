@@ -75,8 +75,10 @@
                         <li><a href="manage_goods.html">商品管理</a></li>
 
                         <li class="active"><a href="manage_orders.html">订单管理</a></li>
+                        <li><a href="manage_types.html">商品类别管理</a></li>
                         <li><a href="manage_coupons.html">优惠券管理</a></li>
-                        <li><a href="manage_coupons.html">销售情况</a></li>
+                        <li><a href="manage_sales.html">销售情况</a></li>
+                        <li><a href="seller_messages.html">消息管理</a></li>
                     </ul>
                 </div>
                 <div class="col-md-10">
@@ -149,11 +151,29 @@
                                                     <td width="10%">11122223333</td>
                                                     <td width="8%">1</td>
                                                     <td width="10%">￥<span>199</span></td>
-                                                    <td width="10%" class="status">待评价</td>
+                                                    <td width="10%" class="status">待发货</td>
                                                     <td width="12%"><button type="button" class="btn btn-primary"
                                                             data-toggle="modal" data-target="#exampleModal"
-                                                            onclick="commentOrder(this)">
-                                                            评价
+                                                            onclick="toShip(this)">
+                                                            发货
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                <tr data-id="111" data-status="to-comment">
+                                                    <td width="10%">
+                                                        <a href="product.html"><img src="../../images/index/4.jpg"
+                                                                alt=""></a>
+                                                    </td>
+                                                    <td width="7%">商品名称</td>
+                                                    <td width="7%">收货人</td>
+                                                    <td width="30%">收货地址收货地址收货地址收货地址收货地址收货地址</td>
+                                                    <td width="10%">11122223333</td>
+                                                    <td width="8%">1</td>
+                                                    <td width="10%">￥<span>199</span></td>
+                                                    <td width="10%" class="status">待收货</td>
+                                                    <td width="12%"><button type="button" class="btn btn-default"
+                                                            disabled="disabled">
+                                                            待收货
                                                         </button>
                                                     </td>
                                                 </tr>
@@ -169,10 +189,28 @@
                                                     <td width="8%">1</td>
                                                     <td width="10%">￥<span>199</span></td>
                                                     <td width="10%" class="status">待评价</td>
-                                                    <td width="12%"><button type="button" class="btn btn-primary"
+                                                    <td width="12%"><button type="button" class="btn btn-info"
                                                             data-toggle="modal" data-target="#exampleModal"
-                                                            onclick="commentOrder(this)">
-                                                            评价
+                                                            onclick="remindComment(this)">
+                                                            提醒评价
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                <tr data-id="111" data-status="to-comment">
+                                                    <td width="10%">
+                                                        <a href="product.html"><img src="../../images/index/4.jpg"
+                                                                alt=""></a>
+                                                    </td>
+                                                    <td width="7%">商品名称</td>
+                                                    <td width="7%">收货人</td>
+                                                    <td width="30%">收货地址收货地址收货地址收货地址收货地址收货地址</td>
+                                                    <td width="10%">11122223333</td>
+                                                    <td width="8%">1</td>
+                                                    <td width="10%">￥<span>199</span></td>
+                                                    <td width="10%" class="status">待评价</td>
+                                                    <td width="12%"><button type="button" class="btn btn-default"
+                                                            disabled="disabled">
+                                                            已评价
                                                         </button>
                                                     </td>
                                                 </tr>
@@ -181,10 +219,8 @@
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -197,6 +233,46 @@
 <script type="text/javascript">
     $("#nav_part").load("nav-part.html");
     $("#footer-part").load("../footer-part.html");
+
+    //发货
+    function toShip(button) {
+        let theButton = $(button);
+        let goodId = theButton.parent().parent().attr("data-id");
+        $.ajax({
+            type: "POST",
+            url: "",
+            data: {
+                goodId: goodId
+            },
+            dataType: "json",
+            success: function (data) {
+                //window.open("finish_order.html", "_self");
+            },
+            error: function (data) {
+            },
+        });
+    }
+
+    //提醒发货
+    function remindComment(button) {
+        let theButton = $(button);
+        let goodId = theButton.parent().parent().attr("data-id");
+        $.ajax({
+            type: "POST",
+            url: "",
+            data: {
+                goodId: goodId
+            },
+            dataType: "json",
+            success: function (data) {
+                //window.open("finish_order.html", "_self");
+            },
+            error: function (data) {
+            },
+        });
+    }
+
+
 </script>
 
 </html>

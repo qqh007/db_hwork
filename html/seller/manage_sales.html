@@ -12,8 +12,10 @@
     <link type="text/css" rel="stylesheet" href="../../css/all.css" />
     <link type="text/css" rel="stylesheet" href="../../css/order.css" />
 
+
     <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
     <style>
         body {
             /* background-color: wheat; */
@@ -40,14 +42,6 @@
 
         .nav-pills a {
             border-bottom: 1px solid #ddd;
-
-        }
-
-
-
-        table th,
-        table td {
-            vertical-align: middle !important;
         }
 
         .panel-default>.panel-heading {
@@ -81,22 +75,19 @@
                         <li><a href="manage_goods.html">商品管理</a></li>
                         <li><a href="manage_orders.html">订单管理</a></li>
                         <li><a href="manage_types.html">商品类别管理</a></li>
-                        <li class="active"><a href="manage_coupons.html">优惠券管理</a></li>
-                        <li><a href="manage_sales.html">销售情况</a></li>
+                        <li><a href="manage_coupons.html">优惠券管理</a></li>
+                        <li class="active"><a href="manage_sales.html">销售情况</a></li>
                         <li><a href="seller_messages.html">消息管理</a></li>
                     </ul>
                 </div>
-
                 <div class="col-md-10">
                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-
-
                         <div class="panel panel-default">
                             <div class="panel-heading" role="tab" id="headingOne">
                                 <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
-                                        aria-expanded="true" aria-controls="collapseOne" style="display: block;">
-                                        全部优惠券
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
+                                        aria-expanded="true" aria-controls="collapseOne">
+                                        销售情况
                                     </a>
                                 </h4>
                             </div>
@@ -105,35 +96,17 @@
                             <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel"
                                 aria-labelledby="headingOne">
                                 <div class="panel-body">
-                                    <div class="col-md-12">
-                                        <table class="table">
-                                            <thead>
-                                                <tr>
-                                                    <th></th>
-                                                    <th>商品名称</th>
-                                                    <th>优惠金额</th>
-                                                    <th>操作</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr data-id="1111">
-                                                    <td width="10%">
-                                                        <div class="img-frame"><img src="../../images/index/1.jpg"
-                                                                alt=""></div>
-                                                    </td>
-                                                    <td width="35">商品名称名称</td>
-                                                    <td width="35%">￥<span>100</span></td>
-                                                    <td width="20%"><button type="button" class="btn btn-danger"
-                                                            data-toggle="modal" data-target="#confirm-Modal"
-                                                            onclick="deleteCoupon(this)">删除</button></td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                    <div class="col-md-6 col-md-offset-3"
+                                        style="height: 400px; background-color: whitesmoke;">
+                                        <h4 style="text-align: center; color: slateblue; font-weight: bold;">最近一个月销售情况
+                                        </h4>
                                     </div>
                                 </div>
                             </div>
+
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -146,33 +119,6 @@
 <script type="text/javascript">
     $("#nav_part").load("nav-part.html");
     $("#footer-part").load("../footer-part.html");
-
-
-    //删除优惠券
-    function deleteCoupon(button) {
-        let theButton = $(button);
-        let couponId = theButton.parent().parent().attr("data-id");
-
-        console.log(couponId);
-        
-        $.ajax({
-            type: "POST",
-            url: "",
-            data: {
-                couponId: couponId
-            },
-            dataType: "json",
-            success: function (data) {
-                /*  window.location.href("index.html"); */
-            },
-            error: function (data) {
-                window.location.href("index.html");
-            },
-        })
-
-        //删除元素
-        theButton.parent().parent().remove();
-    }
 </script>
 
 </html>
