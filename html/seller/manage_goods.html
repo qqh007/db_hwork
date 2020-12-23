@@ -175,16 +175,171 @@
                                                 </tr>
                                             </thead>
                                             <tbody style="height: 60px; overflow-y: auto;">
-                                                <tr data-id="111">
+                                                <tr data-id="1">
                                                     <td>
                                                         <div class="img-frame">
                                                             <img src=" ../../images/index/5.jpg" alt="">
                                                         </div>
                                                     </td>
-                                                    <td style="word-wrap:break-word;">商品名称</td>
-                                                    <td style="word-wrap:break-word;">商品类别</td>
-                                                    <td>￥59.999</td>
-                                                    <td>1234</td>
+                                                    <td style="word-wrap:break-word;" class="good-name">商品名称</td>
+                                                    <td style="word-wrap:break-word;" class="good-type">商品类别</td>
+                                                    <td class="unit-price">￥<span>59.999</span> </td>
+                                                    <td class="inventory">1234</td>
+                                                    <td>2345</td>
+                                                    <td><button type=" button" class="btn  btn-warning"
+                                                            data-toggle="modal" data-target="#modify-good-modal"
+                                                            onclick="editGood(this)">编辑</button>
+                                                    </td>
+                                                    <td><button type=" button" class="btn  btn-info"
+                                                            onclick="seeDetail(this)">查看详情</button>
+                                                    </td>
+                                                    <td><button type=" button" class="btn  btn-success "
+                                                            onclick="window.location.href='#'">上架</button>
+                                                    </td>
+                                                    <td>
+                                                        <button type=" button" class="btn  btn-primary"
+                                                            data-toggle="modal" data-target="#set-discount-modal"
+                                                            onclick="setDiscount(this)">优惠</button>
+                                                    </td>
+                                                    <td><button type="button" class="btn btn-danger "
+                                                            data-toggle="modal" data-target="#confirm-delete-modal"
+                                                            onclick="deleteGood(this)">删除</button>
+                                                    </td>
+                                                </tr>
+                                                <tr data-id="2">
+                                                    <td>
+                                                        <div class="img-frame">
+                                                            <img src=" ../../images/index/5.jpg" alt="">
+                                                        </div>
+                                                    </td>
+                                                    <td style="word-wrap:break-word;" class="good-name">商品名称</td>
+                                                    <td style="word-wrap:break-word;" class="good-type">商品类别</td>
+                                                    <td class="unit-price">￥<span>59.999</span> </td>
+                                                    <td class="inventory">1234</td>
+                                                    <td>2345</td>
+                                                    <td><button type=" button" class="btn  btn-warning"
+                                                            data-toggle="modal" data-target="#modify-good-modal"
+                                                            onclick="editGood(this)">编辑</button>
+                                                    </td>
+                                                    <td><button type=" button" class="btn  btn-info"
+                                                            onclick="seeDetail(this)">查看详情</button>
+                                                    </td>
+                                                    <td><button type=" button" class="btn  btn-success "
+                                                            onclick="window.location.href='#'">上架</button>
+                                                    </td>
+                                                    <td>
+                                                        <button type=" button" class="btn  btn-primary"
+                                                            data-toggle="modal" data-target="#set-discount-modal"
+                                                            onclick="setDiscount(this)">优惠</button>
+                                                    </td>
+                                                    <td><button type="button" class="btn btn-danger "
+                                                            data-toggle="modal" data-target="#confirm-delete-modal"
+                                                            onclick="deleteGood(this)">删除</button>
+                                                    </td>
+                                                </tr>
+                                                <tr data-id="3">
+                                                    <td>
+                                                        <div class="img-frame">
+                                                            <img src=" ../../images/index/5.jpg" alt="">
+                                                        </div>
+                                                    </td>
+                                                    <td style="word-wrap:break-word;" class="good-name">商品名称</td>
+                                                    <td style="word-wrap:break-word;" class="good-type">商品类别</td>
+                                                    <td class="unit-price">￥<span>59.999</span> </td>
+                                                    <td class="inventory">1234</td>
+                                                    <td>2345</td>
+                                                    <td><button type=" button" class="btn  btn-warning"
+                                                            data-toggle="modal" data-target="#modify-good-modal"
+                                                            onclick="editGood(this)">编辑</button>
+                                                    </td>
+                                                    <td><button type=" button" class="btn  btn-info"
+                                                            onclick="seeDetail(this)">查看详情</button>
+                                                    </td>
+                                                    <td><button type=" button" class="btn  btn-success "
+                                                            onclick="window.location.href='#'">上架</button>
+                                                    </td>
+                                                    <td>
+                                                        <button type=" button" class="btn  btn-primary"
+                                                            data-toggle="modal" data-target="#set-discount-modal"
+                                                            onclick="setDiscount(this)">优惠</button>
+                                                    </td>
+                                                    <td><button type="button" class="btn btn-danger "
+                                                            data-toggle="modal" data-target="#confirm-delete-modal"
+                                                            onclick="deleteGood(this)">删除</button>
+                                                    </td>
+                                                </tr>
+                                                <tr data-id="4">
+                                                    <td>
+                                                        <div class="img-frame">
+                                                            <img src=" ../../images/index/5.jpg" alt="">
+                                                        </div>
+                                                    </td>
+                                                    <td style="word-wrap:break-word;" class="good-name">商品名称</td>
+                                                    <td style="word-wrap:break-word;" class="good-type">商品类别</td>
+                                                    <td class="unit-price">￥<span>59.999</span> </td>
+                                                    <td class="inventory">1234</td>
+                                                    <td>2345</td>
+                                                    <td><button type=" button" class="btn  btn-warning"
+                                                            data-toggle="modal" data-target="#modify-good-modal"
+                                                            onclick="editGood(this)">编辑</button>
+                                                    </td>
+                                                    <td><button type=" button" class="btn  btn-info"
+                                                            onclick="seeDetail(this)">查看详情</button>
+                                                    </td>
+                                                    <td><button type=" button" class="btn  btn-success "
+                                                            onclick="window.location.href='#'">上架</button>
+                                                    </td>
+                                                    <td>
+                                                        <button type=" button" class="btn  btn-primary"
+                                                            data-toggle="modal" data-target="#set-discount-modal"
+                                                            onclick="setDiscount(this)">优惠</button>
+                                                    </td>
+                                                    <td><button type="button" class="btn btn-danger "
+                                                            data-toggle="modal" data-target="#confirm-delete-modal"
+                                                            onclick="deleteGood(this)">删除</button>
+                                                    </td>
+                                                </tr>
+                                                <tr data-id="5">
+                                                    <td>
+                                                        <div class="img-frame">
+                                                            <img src=" ../../images/index/5.jpg" alt="">
+                                                        </div>
+                                                    </td>
+                                                    <td style="word-wrap:break-word;" class="good-name">商品名称</td>
+                                                    <td style="word-wrap:break-word;" class="good-type">商品类别</td>
+                                                    <td class="unit-price">￥<span>59.999</span> </td>
+                                                    <td class="inventory">1234</td>
+                                                    <td>2345</td>
+                                                    <td><button type=" button" class="btn  btn-warning"
+                                                            data-toggle="modal" data-target="#modify-good-modal"
+                                                            onclick="editGood(this)">编辑</button>
+                                                    </td>
+                                                    <td><button type=" button" class="btn  btn-info"
+                                                            onclick="seeDetail(this)">查看详情</button>
+                                                    </td>
+                                                    <td><button type=" button" class="btn  btn-success "
+                                                            onclick="window.location.href='#'">上架</button>
+                                                    </td>
+                                                    <td>
+                                                        <button type=" button" class="btn  btn-primary"
+                                                            data-toggle="modal" data-target="#set-discount-modal"
+                                                            onclick="setDiscount(this)">优惠</button>
+                                                    </td>
+                                                    <td><button type="button" class="btn btn-danger "
+                                                            data-toggle="modal" data-target="#confirm-delete-modal"
+                                                            onclick="deleteGood(this)">删除</button>
+                                                    </td>
+                                                </tr>
+                                                <tr data-id="6">
+                                                    <td>
+                                                        <div class="img-frame">
+                                                            <img src=" ../../images/index/5.jpg" alt="">
+                                                        </div>
+                                                    </td>
+                                                    <td style="word-wrap:break-word;" class="good-name">商品名称</td>
+                                                    <td style="word-wrap:break-word;" class="good-type">商品类别</td>
+                                                    <td class="unit-price">￥<span>59.999</span> </td>
+                                                    <td class="inventory">1234</td>
                                                     <td>2345</td>
                                                     <td><button type=" button" class="btn  btn-warning"
                                                             data-toggle="modal" data-target="#modify-good-modal"
@@ -308,16 +463,19 @@
                     <button type="button" class="close" data-dismiss="modal">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <h4 class="modal-title" id="modifyAddrLabel" style="color: #0074c2; font-weight: bold;">编辑地址</h4>
+                    <h4 class="modal-title" id="modifyAddrLabel" style="color: #0074c2; font-weight: bold;">编辑商品信息</h4>
                 </div>
                 <div class="modal-body">
-                    <label for="">收货人姓名</label>
-                    <input class="form-control" id="edit-receiver" type="text" value="联系人">
-                    <label for="">手机号码</label>
-                    <input class="form-control" id="edit-tel" type="tel" value="11122223333">
-                    <label for="">详细地址</label>
-                    <textarea class="form-control" name="" id="edit-address" rows="4"
-                        style="resize: none;">详细地址详细地址详细地址详细地址详细地址详细地址详细地址</textarea>
+                    <label for="">名称</label>
+                    <input class="form-control" id="edit-good-name" type="text" value="商品名称">
+
+                    <label for="">描述</label>
+                    <textarea class="form-control" name="" id="edit-good-descrip" rows="4"
+                        style="resize: none;">详细描述详细描述详细描述</textarea>
+                    <label for="">价格(元)</label>
+                    <input type="text" class="form-control" id="edit-unit-price" value="1112222">
+                    <label for="">库存</label>
+                    <input type="number" class="form-control" id="edit-inventory" value="1112222">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" id="edit-addr-btn" data-dismiss="modal"
@@ -512,12 +670,13 @@
         });
     }
 
-
+    //点击发布按钮
     function setDiscount(button) {
         theButton = $(button);
         goodId = theButton.parent().parent().attr("data-id");
     }
 
+    //确认发布优惠券
     function releaseDiscout() {
         console.log("goodId:" + goodId + "\n" + "discount:" + $("#discount").val());
         $.ajax({
@@ -561,10 +720,34 @@
 
     }];
 
+    //商品的详细描述信息，这里我是拿不到的，所以需要先获取
+    var goodDetailList = {
+        "1": "详细描述详细描述详细描述详细描述详细描述详细描述详细描述详细描述111111111",
+        "2": "详细描述详细描述详细描述详细描述详细描述详细描述详细描述详细描述22222",
+        "3": "详细描述详细描述详细描述详细描述详细描述详细描述详细描述详细描述33333",
+        "4": "详细描述详细描述详细描述详细描述详细描述详细描述详细描述详细描述44444",
+        "5": "详细描述详细描述详细描述详细描述详细描述详细描述详细描述详细描述55555",
+        "6": "详细描述详细描述详细描述详细描述详细描述详细描述详细描述详细描述66666",
+        "7": "详细描述详细描述详细描述详细描述详细描述详细描述详细描述详细描述77777",
+    }
+
+    //窗口打开时，获取到商品详细信息
+    window.onload = function loadGoodDetail() {
+        $.ajax({
+            type: "GET",
+            url: "",
+            dataType: "json",
+            success: function (data) {
+                //commentList=111;
+            },
+            error: function (data) {
+            },
+        });
+    }
+
     function seeDetail(button) {
         theButton = $(button);
         goodId = theButton.parent().parent().attr("data-id");
-
         //获取评论列表
         $.ajax({
             type: "POST",
@@ -580,8 +763,8 @@
             },
         });
 
-        //显示商品详情
-        $("#detail-descrip").text("修改过后的商品详情商品详情商品详情商品详情");
+        //显示商品详情，这里需要传进来商品详情
+        $("#detail-descrip").text(goodDetailList[goodId]);
 
         //显示评论
         let tbody = $("#comment-table tbody");
@@ -656,6 +839,57 @@
     function editGood(button) {
         theButton = $(button);
         goodId = theButton.parent().parent().attr("data-id");
+
+        //设置编辑框里面的信息
+        let originGoodName = theButton.parent().siblings(".good-name").text().trim();
+        let originGoodDescrip = goodDetailList[goodId];
+        let originUnitPrice = theButton.parent().siblings(".unit-price").children().text().trim();
+        let originInvetory = theButton.parent().siblings(".inventory").text().trim();
+
+        console.log(originGoodName);
+        console.log(originGoodDescrip);
+        console.log(originUnitPrice);
+        console.log(originInvetory);
+
+
+        //设置编辑框原始信息
+        $("#edit-good-name").val(originGoodName);
+        $("#edit-good-descrip").val(originGoodDescrip);
+        $("#edit-unit-price").val(originUnitPrice);
+        $("#edit-inventory").val(originInvetory);
+
+
+
+    }
+
+    function saveEditInfo() {
+        let editedGoodName = $("#edit-good-name").val().trim();
+        let editedGoodDescrip = $("#edit-good-descrip").val().trim();
+        let editedUnitPrice = $("#edit-unit-price").val().trim();
+        let editedInventory = $("#edit-inventory").val();
+
+        console.log(editedGoodName);
+        console.log(editedGoodDescrip);
+        console.log(editedUnitPrice);
+        console.log(editedInventory);
+
+        //给后端发送数据
+        $.ajax({
+            type: "POST",
+            url: "",
+            data: {
+                goodId: goodId,
+                goodName: editedGoodName,
+                goodDescrip: editedGoodDescrip,
+                unitPrice: editedUnitPrice,
+                inventory: editedInventory
+            },
+            dataType: "json",
+            success: function (data) {
+            },
+            error: function (data) {
+            },
+        });
     }
 
 
