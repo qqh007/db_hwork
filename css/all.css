@@ -13,4 +13,28 @@ footer {
     margin: 100px 10px 10px 10px;
 }
 
+.modal-body {
+    overflow: auto;
+    max-height: 500px;
+}
 
+.panel-body {
+    overflow: auto;
+    max-height: 550px;
+}
+
+
+.img-frame {
+    position: relative;
+    width: 100%;
+    padding-top: 100%;
+    /* 宽高比例为1：1 */
+}
+
+.img-frame img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}

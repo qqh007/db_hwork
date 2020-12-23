@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css">
 
     <link type="text/css" rel="stylesheet" href="../../css/all.css" />
-    <link type="text/css" rel="stylesheet" href="../css/cart.css" />
 
     <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
@@ -24,6 +23,7 @@
         }
 
 
+        main>.container-fluid,
         main>.container {
             border-radius: 1%;
             border: #fff 1px solid;
@@ -58,6 +58,8 @@
         .save {
             padding: 6px 30px;
         }
+
+
     </style>
 </head>
 
@@ -66,9 +68,9 @@
     <div id="nav_part"></div>
     <!--主体内容-->
     <main style="margin-top: 55px;">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
-                <div class="col-md-3" id="sidebar-part">
+                <div class="col-md-2" id="sidebar-part">
                     <ul class="nav nav-pills nav-stacked">
                         <li class="active"><a href="seller_index.html">店铺信息</a></li>
                         <li><a href="manage_goods.html">商品管理</a></li>
@@ -77,10 +79,8 @@
                         <li><a href="manage_coupons.html">销售情况</a></li>
                     </ul>
                 </div>
-                <div class="col-md-9">
+                <div class="col-md-10">
                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-
-
                         <div class="panel panel-default">
                             <div class="panel-heading" role="tab" id="headingOne">
                                 <h4 class="panel-title">
@@ -96,33 +96,38 @@
                                     <div class="col-md-offset-1 col-md-7">
                                         <form class="form-horizontal" style="margin-top: 40px">
                                             <div class="form-group">
-                                                <div class="col-sm-3" style="font-weight: bold; text-align: right;">店铺名称:</div>
-                                                <div class="col-sm-9">
+                                                <div class="col-sm-3" style="font-weight: bold; text-align: right;">
+                                                    店铺名称:</div>
+                                                <div class="col-sm-9" id="shop-name">
                                                     店铺名称
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <div class="col-sm-3" style="font-weight: bold; text-align: right;">店铺地址:</div>
-                                                <div class="col-sm-9">
+                                                <div class="col-sm-3" style="font-weight: bold; text-align: right;">
+                                                    店铺地址:</div>
+                                                <div class="col-sm-9" id="shop-addr">
                                                     店铺地址店铺地址店铺地址店铺地址店铺地址店铺地址
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <div class="col-sm-3" style="font-weight: bold; text-align: right;">店铺描述:</div>
-                                                <div class="col-sm-9">
+                                                <div class="col-sm-3" style="font-weight: bold; text-align: right;">
+                                                    店铺描述:</div>
+                                                <div class="col-sm-9" id="shop-descrip">
                                                     店铺描述店铺描述店铺描述店铺描述店铺描述店铺描述
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <div class="col-sm-3" style="font-weight: bold; text-align: right;">店铺电话:</div>
-                                                <div class="col-sm-9">
+                                                <div class="col-sm-3" style="font-weight: bold; text-align: right;">
+                                                    店铺电话:</div>
+                                                <div class="col-sm-9" id="shop-tel">
                                                     1112223333
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <div class="col-sm-3" style="font-weight: bold; text-align: right;">店铺类型:</div>
-                                                <div class="col-sm-9">
-                                                    学习
+                                                <div class="col-sm-3" style="font-weight: bold; text-align: right;">
+                                                    店铺类型:</div>
+                                                <div class="col-sm-9" id="shop-type">
+                                                    哈皮
                                                 </div>
                                             </div>
                                         </form>
@@ -149,48 +154,49 @@
                                             <div class="form-group">
                                                 <label for="input6" class="col-sm-3 control-label">店铺名称</label>
                                                 <div class="col-sm-9">
-                                                    <input type="text" class="form-control" id="input6"
+                                                    <input type="text" class="form-control" id="shop-name-input"
                                                         placeholder="店铺名称">
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="input7" class="col-sm-3 control-label">店铺地址</label>
                                                 <div class="col-sm-9">
-                                                    <textarea class="form-control" rows="2" placeholder="店铺地址"
-                                                        style="resize:none;"></textarea>
+                                                    <textarea class="form-control" id="shop-addr-input" rows="2"
+                                                        placeholder="店铺地址" style="resize:none;"></textarea>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="input8" class="col-sm-3 control-label">店铺描述</label>
                                                 <div class="col-sm-9">
-                                                    <textarea class="form-control" rows="4" placeholder="店铺描述"
-                                                        style="resize:none;"></textarea>
+                                                    <textarea class="form-control" id="shop-descrip-input" rows="4"
+                                                        placeholder="店铺描述" style="resize:none;"></textarea>
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="input9" class="col-sm-3 control-label">店铺电话</label>
                                                 <div class="col-sm-9">
-                                                    <input type="tel" class="form-control" id="input8"
+                                                    <input type="tel" class="form-control" id="shop-tel-input"
                                                         placeholder="店铺电话">
                                                 </div>
                                             </div>
-                                            <div class="form-group">
+                                            <!-- 这一部分先不要了，默认不可更改 -->
+                                            <!--                                             <div class="form-group">
                                                 <label for="input3" class="col-sm-3 control-label">店铺类型</label>
                                                 <div class="col-sm-9">
-                                                    <select class="form-control">
-                                                        <option>学习</option>
-                                                        <option>衣物</option>
-                                                        <option>珠宝</option>
-                                                        <option>电子产品</option>
-                                                        <option>哈皮</option>
+                                                    <select class="form-control" id="shop-type-input">
+                                                        <option value="学习">学习</option>
+                                                        <option value="衣物">衣物</option>
+                                                        <option value="珠宝">珠宝</option>
+                                                        <option value="电子产品">电子产品</option>
+                                                        <option value="哈皮">哈皮</option>
                                                     </select>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                             <div class="form-group">
                                                 <div class="col-md-9 col-md-offset-3">
                                                     <button type="button" class="btn btn-success save"
-                                                        style="width: 100%;">保存</button>
+                                                        style="width: 100%;" onclick="editInfo()">保存</button>
                                                 </div>
                                             </div>
                                         </form>
@@ -211,6 +217,48 @@
 
 <script type="text/javascript">
     $("#nav_part").load("nav-part.html");
-    $("#footer-part").load("../footer-part.html");
+    $("#footer-part").load("../footer_part.html");
+
+    loadOriginInfo();
+
+
+    //把店铺信息加载进编辑信息的输入框
+    function loadOriginInfo() {
+        $("#shop-name-input").val($("#shop-name").text().trim());
+        $("#shop-addr-input").val($("#shop-addr").text().trim());
+        $("#shop-descrip-input").val($("#shop-descrip").text().trim());
+        $("#shop-tel-input").val($("#shop-tel").text().trim());
+        //let type=$("#shop-type").text().trim;
+        //$("#shop-type-input").children("option[value$=type]").attr("selected","selected");
+    }
+
+    //编辑信息
+    function editInfo() {
+        $.ajax({
+            type: "POST",
+            url: "",
+            data: {
+                shopName: $("#shop-name-input").val().trim(),
+                shopAddr: $("#shop-addr-input").val().trim(),
+                shopDescrip: $("#shop-descrip-input").val().trim(),
+                shopTel: $("#shop-tel-input").val().trim()
+            },
+            dataType: "json",
+            success: function (data) {
+                // window.open("finish_order.html", "_self");
+            },
+            error: function (data) {
+            },
+        });
+
+        //设置显示页面的信息
+        $("#shop-name").text($("#shop-name-input").val().trim());
+        $("#shop-addr").text($("#shop-addr-input").val().trim());
+        $("#shop-descrip").text($("#shop-descrip-input").val().trim());
+        $("#shop-tel").text($("#shop-tel-input").val().trim());
+
+        console.log("wdnmd");
+    }
 </script>
+
 </html>

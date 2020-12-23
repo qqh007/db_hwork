@@ -10,109 +10,62 @@
     <title>网上购物系统</title>
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link type="text/css" rel="stylesheet" href="../css/all.css" />
+    <link type="text/css" rel="stylesheet" href="../css_bootstrap/bootstrap-fileinput.css" />
 
     <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="../js_bootstrap/bootstrap-fileinput.js"></script>
+
+
 
 </head>
 
 <style>
-    body {
-        /* background-color: wheat; */
-        background-image: url("../../images/background/bg2.jpg");
-        background-repeat: no-repeat;
-        background-size: 100% 100%;
-    }
-
-    img {
-        width: 100%;
-    }
-
-    .good-frame {
-        background-color: white;
-        padding-left: 15px;
-        padding-right: 15px;
-        margin-bottom: 20px;
-    }
-
-    .good-frame h4 {
-        padding-top: 10px;
-        padding-bottom: 10px;
-    }
-
-    .good-frame .title {
-        padding-top: 13px;
-        padding-bottom: 10px;
-
-        font-size: large;
-        font-weight: bold;
-    }
-
-    .good-frame .see-more {
-        padding-top: 10px;
-        padding-bottom: 13px;
-
-        font-size: smaller;
-    }
 </style>
 
 <body>
-    <!-- 导航栏 -->
-    <div id="nav_part"></div>
-
-    <!--主体内容-->
-    <main style="margin-top: 250px;">
-        <div class="container">
-
-            <div class="row">
-                <div
-                    style="position: relative;border: 5px solid lightblue;width: 150px;height:150px;margin: 5px auto;border-radius: 50%;">
-                    <img src="/static/images/default.jpg" alt="选择并上传头像" id="avatar_img"
-                        style="width: 140px;height: 140px;left:0;top: 0;border-radius: 50%;" />
-                    <input type="file" id="avatar_file" name="avatar_file" accept="image/jpg,image/png,image/gif"
-                        style="width: 100%;height:100%;opacity: 0;position: absolute;left:0;top: 0;" />
-                </div>
-            </div>
-
+    <div class="fileinput fileinput-new" data-provides="fileinput" id="uploadImageDiv">
+        <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 150px; max-height: 150px;">
         </div>
-    </main>
-
-    <!-- 页脚 -->
-    <div id="footer_part"></div>
+        <div>
+            <span class="btn btn-default btn-file">
+                <span class="fileinput-new">选择图片</span>
+                <span class="fileinput-exists">更改</span>
+                <input type="file" name="uploadImage" id="uploadImage"  />
+            </span>
+            <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">移除</a>
+        </div>
+    </div>
 </body>
+<script>
 
-<!-- 鼠标移到左边的topMenu，就会悬浮显示详细分类 -->
-<script type="text/javascript">
-    window.onload = function () {
-        var Lis = document.getElementById("topmenu").getElementsByTagName("li");
-        for (i = 0; i < Lis.length; i++) {
-            Lis[i].onmouseover = function () {
-                this.className = "lihover";
-            }
-            Lis[i].onmouseout = function () {
-                this.className = "";
-            }
+
+    function getObjectURL(file) {
+        var url = null
+        if (window.createObjectURL != undefined) { // basic  
+            url = window.createObjectURL(file)
+            console.log("window.createObjectURL");
+        } else if (window.URL != undefined) { // mozilla(firefox)  
+            url = window.URL.createObjectURL(file)
+            console.log("wdnmd");
+        } else if (window.webkitURL != undefined) { // webkit or chrome  
+            url = window.webkitURL.createObjectURL(file)
+            console.log("webkit or chrome ");
         }
+        return url;
     }
-</script>
 
-<script type="text/javascript">
-    $("#nav_part").load("nav_part.html");
-    $("#footer_part").load("footer_part.html");
-
-    // 头像预览
-    $("#avatar_file").change(function () {
-        // 获取上传文件对象
-        var file = $(this)[0].files[0];
-        // 读取文件URL
-        var reader = new FileReader();
-        reader.readAsDataURL(file);
-        // 阅读文件完成后触发的事件
-        reader.onload = function () {
-            // 读取的URL结果：this.result
-            $("#avatar_img").attr("src", this.result);
+    $("input").change(function () {
+        var objUrl = getObjectURL(this.files[0]);
+        var size = this.files[0].size;
+        if (size >= 1024000 * 10) bottomTip("图片超过10M了哦", 0);
+        else {
+            if (objUrl) {
+                console.log(objUrl)//最后的url
+            }
         }
-    });
+    })
+
 </script>
 
 </html>
